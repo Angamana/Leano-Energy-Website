@@ -3786,7 +3786,15 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 <script id="disable-right-click">
-  document.addEventListener('contextmenu', event => event.preventDefault());
+  window.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
+  document.oncontextmenu = function() { return false; };
+  document.onselectstart = function() { return false; };
+  document.ondragstart = function() { return false; };
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "C" || e.key === "J")) || (e.ctrlKey && e.key === "U")) {
+      e.preventDefault();
+    }
+  });
 </script>
 </body>
 </html>
