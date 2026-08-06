@@ -750,5 +750,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }, {passive: true});
 });
 </script>
+<script id="disable-right-click">
+  document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
 </body>
 </html>
