@@ -1,0 +1,28 @@
+body {
+    cursor: url('../../images/cursor-logo.png') 16 16, auto !important;
+}
+
+.fuel-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #FFD700 0%, #F56E28 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: fuelDrop 1.5s forwards cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 0 8px rgba(245, 110, 40, 0.8);
+    opacity: 0.8;
+    z-index: 999999;
+}
+
+@keyframes fuelDrop {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, calc(-50% + 150px)) scale(0);
+        opacity: 0;
+    }
+}

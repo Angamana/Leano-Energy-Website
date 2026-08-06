@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EnergySupplier",
+      "@id": "https://www.leanoenergy.com/#organization",
+      "name": "Leano Energy",
+      "alternateName": [
+        "Leano Energy South Africa",
+        "Leano Energy Bulk Fuel"
+      ],
+      "url": "https://www.leanoenergy.com",
+      "logo": "https://www.leanoenergy.com/Universal/images/Logo/Logo/Leano%20Energy%20Logo%20Font.svg",
+      "image": "https://www.leanoenergy.com/Universal/images/Logo/Logo/Leano%20Energy%20logo-03.jpg",
+      "description": "Leano Energy is South Africa's premier Level 1 B-BBEE bulk fuel supplier and energy partner, specializing in Diesel 50ppm, Petrol 95, Heavy Fuel Oil, global import trading, storage tanks, and IoT fuel management.",
+      "telephone": "+27104424895",
+      "email": "info@leanoenergy.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Benmore",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "South Africa"
+      },
+      "knowsAbout": [
+        "Bulk Fuel Supply",
+        "Diesel 50ppm Wholesale",
+        "Petrol 95 ULP Supply",
+        "Heavy Fuel Oil HFO",
+        "Biofuels",
+        "Storage Tank Installation AST UST",
+        "IoT Fuel Management Systems",
+        "Import Fuel Trading",
+        "Level 1 B-BBEE Petroleum Wholesale"
+      ]
+    }
+  ]
+}
