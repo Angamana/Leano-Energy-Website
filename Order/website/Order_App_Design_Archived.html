@@ -348,6 +348,62 @@ div[class*="scroll-to-top"] {
     }
 }
 </style>
+
+<style id="footer-white-text-override">
+  footer, footer *, .footer, .footer * {
+    color: #ffffff !important;
+  }
+  .footer-link, .footer-contact-text, .footer-title, .footer-link-text {
+    color: #ffffff !important;
+  }
+  .footer-contact-text svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
+  /* Contact Us button text black before hover, white on hover */
+  .custom-footer-btn .button-text,
+  .button-link .button-text,
+  p.button-text {
+    color: #000000 !important;
+  }
+  .custom-footer-btn:hover .button-text-hover,
+  .button-link:hover .button-text-hover,
+  p.button-text-hover {
+    color: #ffffff !important;
+  }
+  /* Remove white-ish box background from Policy links */
+  .footer-column:nth-child(2) .footer-link {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  /* Ensure social media icons remain black inside white circles */
+  .footer-social-wrap a svg {
+    stroke: #000000 !important;
+    fill: none;
+  }
+  .footer-social-wrap a[title="LinkedIn"] svg {
+    fill: #000000 !important;
+    stroke: none !important;
+  }
+  /* Order Now widget icon: Orange normally, White on Hover */
+  .order-fuel-side-btn svg {
+    stroke: #f37021 !important;
+    color: #f37021 !important;
+    transition: stroke 0.2s ease, color 0.2s ease !important;
+  }
+  .order-fuel-side-btn:hover svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
+  /* Fuel prices side widget icon in black */
+  .fuel-main-tab-btn svg {
+    stroke: #000000 !important;
+  }
+</style>
+
 </head>
 <body>
 <!-- Sidebar -->
@@ -359,19 +415,19 @@ div[class*="scroll-to-top"] {
 </div>
 <nav class="nav-menu">
 <a class="nav-item active" href="#">
-<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span>Locations</span>
+<svg fill="none" height="18" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span>Locations</span>
 <span class="nav-badge">3</span>
 </a>
-<a class="nav-item" href="#"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><line x1="12" x2="12" y1="1" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> <span>Fuel Price</span></a>
-<a class="nav-item" href="#"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>Purchase History</span></a>
+<a class="nav-item" href="#"><svg fill="none" height="18" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><line x1="12" x2="12" y1="1" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> <span>Fuel Price</span></a>
+<a class="nav-item" href="#"><svg fill="none" height="18" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <span>Purchase History</span></a>
 <a class="nav-item" href="#">
-<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg> <span>Notifications</span>
+<svg fill="none" height="18" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg> <span>Notifications</span>
 <span class="nav-badge">2</span>
 </a>
-<a class="nav-item" href="#"><svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"></line><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"></line><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"></line><line x1="14.83" x2="18.36" y1="9.17" y2="5.64"></line><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"></line></svg> <span>Support</span></a>
+<a class="nav-item" href="#"><svg fill="none" height="18" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" x2="9.17" y1="4.93" y2="9.17"></line><line x1="14.83" x2="19.07" y1="14.83" y2="19.07"></line><line x1="14.83" x2="19.07" y1="9.17" y2="4.93"></line><line x1="14.83" x2="18.36" y1="9.17" y2="5.64"></line><line x1="4.93" x2="9.17" y1="19.07" y2="14.83"></line></svg> <span>Support</span></a>
 </nav>
 </aside>
-<!-- Middle Pane: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span>Locations</span> List -->
+<!-- Middle Pane: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> <span>Locations</span> List -->
 <section class="locations-pane">
 <div class="pane-header">
 <h2>Locations</h2>
@@ -383,7 +439,7 @@ div[class*="scroll-to-top"] {
 <div class="locations-list">
 <!-- Location 1 -->
 <div class="location-card active">
-<div class="loc-title">Pretoria Location 1 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg></div>
+<div class="loc-title">Pretoria Location 1 <svg fill="none" height="20" stroke="#ffffff" stroke-width="2" viewbox="0 0 24 24" width="20"><circle cx="12" cy="10" r="3"></circle><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"></path></svg></div>
 <div class="loc-subtitle">2 Tanks</div>
 <span class="status-badge status-active">Active</span>
 </div>
@@ -411,7 +467,7 @@ div[class*="scroll-to-top"] {
 <div class="detail-header">
 <h1>Pretoria Location 1</h1>
 <button class="btn-purchase">
-<svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+<svg fill="none" height="16" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
         Purchase Fuel
       </button>
 </div>
@@ -707,7 +763,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const toggleBtn = document.createElement('div');
     toggleBtn.id = 'mobile-widget-toggle';
-    toggleBtn.innerHTML = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>`;
+    toggleBtn.innerHTML = `<svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>`;
     document.body.appendChild(toggleBtn);
 
     const fuelTabs = document.querySelector('.fuel-side-tabs');
