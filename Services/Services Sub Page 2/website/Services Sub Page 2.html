@@ -1929,9 +1929,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }, {passive: true});
 });
 </script>
-<script type="text/javascript">
-  window.addEventListener('contextmenu', function (e) { e.preventDefault(); }, false);
-  document.oncontextmenu = function() { return false; };
+
+<script id="disable-right-click">
+    document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, false);
+    document.oncontextmenu = function(){ return false; };
 </script>
 </body>
 </html>
