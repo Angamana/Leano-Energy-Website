@@ -1620,16 +1620,7 @@ p.button-text-hover {
         display: block !important;
     }
 
-    /* But hide text on INACTIVE slides to prevent overlapping mess */
-    .w-slide:not(.w--slide-active) [data-w-id],
-    .w-slide:not(.w--slide-active) .hero-one-title,
-    .w-slide:not(.w--slide-active) .hero-one-title-small,
-    .w-slide:not(.w--slide-active) .hero-one-title-two,
-    .w-slide:not(.w--slide-active) .hero-one-title-two-desc,
-    .w-slide:not(.w--slide-active) .hero-one-small-text {
-        opacity: 0 !important;
-        visibility: hidden !important;
-    }
+    /* Allowed text on inactive slides to stay visible so they crossfade smoothly */
 
     .hero-one-title-wrapper {
         margin-bottom: 12px !important;
@@ -1671,10 +1662,7 @@ p.button-text-hover {
         margin: 4px 0 !important;
     }
 
-    /* Smooth slide fade transition on mobile */
-    .hero-one-section-wrap.w-slide {
-        transition: opacity 1.5s ease-in-out !important;
-    }
+    /* Removed explicit w-slide transition to let Webflow handle crossfade */
 }
 </style>
 
