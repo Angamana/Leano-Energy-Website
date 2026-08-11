@@ -2346,6 +2346,16 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, false);
     document.oncontextmenu = function(){ return false; };
 </script>
+<style id="services-main-footer-padding-fix">
+                .footer {
+                    padding-top: 100px !important;
+                }
+                @media screen and (max-width: 991px) {
+                    .footer {
+                        padding-top: 60px !important; /* Smaller on mobile if desired, or 100px */
+                    }
+                }
+              </style>
 </body>
 </html>
 
