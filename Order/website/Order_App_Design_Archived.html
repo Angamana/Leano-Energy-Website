@@ -356,7 +356,7 @@ div[class*="scroll-to-top"] {
   .footer-title, .footer-link, .footer-contact-text, .footer-link-text, .contact-info, .contact-info * {
     color: #ffffff !important;
   }
-  .footer-contact-text svg {
+  .footer-contact-text svg, .contact-info svg {
     stroke: #ffffff !important;
     color: #ffffff !important;
   }
@@ -376,13 +376,15 @@ div[class*="scroll-to-top"] {
   p.button-text-hover {
     color: #ffffff !important;
   }
-  /* Remove white-ish box background from Policy links */
+  /* Policy links clean vertical spacing */
   .footer-column:nth-child(2) .footer-link {
     color: #ffffff !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 6px 0 !important;
+    display: block !important;
+    margin-bottom: 2px !important;
   }
   /* Ensure social media icons remain black inside white circles */
   .footer-social-wrap a svg {

@@ -352,14 +352,10 @@
 }
 .footer-column.third-column .footer-contact-text,
 .footer-column.third-column .footer-contact-text a,
-.footer-column.third-column .footer-contact-text svg {
-    color: #ffffff; !important;
-    stroke: #000000 !important;
-    font-weight: 500 !important;
-    font-family: var(--_font-family---body-font) !important;
-    font-size: 16px !important;
-    line-height: 28px !important;
-}
+.footer-column.third-column .footer-contact-text svg, .contact-info svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+  }
 
 /* 2. Align floating circle buttons on exact same baseline, but with different sizes */
 .scroll-top-button,
@@ -1106,7 +1102,7 @@ div[class*="scroll-to-top"] {
   .footer-title, .footer-link, .footer-contact-text, .footer-link-text, .contact-info, .contact-info * {
     color: #ffffff !important;
   }
-  .footer-contact-text svg {
+  .footer-contact-text svg, .contact-info svg {
     stroke: #ffffff !important;
     color: #ffffff !important;
   }
@@ -1126,13 +1122,15 @@ div[class*="scroll-to-top"] {
   p.button-text-hover {
     color: #ffffff !important;
   }
-  /* Remove white-ish box background from Policy links */
+  /* Policy links clean vertical spacing */
   .footer-column:nth-child(2) .footer-link {
     color: #ffffff !important;
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    padding: 6px 0 !important;
+    display: block !important;
+    margin-bottom: 2px !important;
   }
   /* Ensure social media icons remain black inside white circles */
   .footer-social-wrap a svg {
@@ -1607,7 +1605,7 @@ div[class*="scroll-to-top"] {
 <div class="footer-social-wrap" style="display: flex; align-items: center; gap: 10px; margin-top: 12px;">
 <!-- Instagram -->
 <a href="https://www.instagram.com/leanoenergy/" rel="noopener noreferrer" style="width: 32px; height: 32px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 2px 6px rgba(0,0,0,0.15); transition: transform 0.2s ease;" target="_blank" title="Instagram">
-<svg fill="none" height="16" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
+<svg fill="none" height="16" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16">
 <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
