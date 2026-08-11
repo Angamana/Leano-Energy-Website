@@ -177,7 +177,7 @@
         }
         
         /* 3. Fix scroll up/down for ALL pages */
-        .w-nav-overlay {
+        .w-nav-overlay.w--open {
             height: 100dvh !important;
             max-height: 100dvh !important;
             overflow-y: auto !important;
@@ -1013,19 +1013,32 @@ div[class*="scroll-to-top"] {
         cursor: pointer !important;
     }
 
-    /* 4. Blurred Overlay Background */
-    .w-nav-overlay, .w-nav-overlay.w--open {
-        position: fixed !important; /* COMPLETELY INDEPENDENT FROM CONTAINER */
+    /* 4. Blurred Overlay Background - ONLY WHEN OPEN */
+    .w-nav-overlay:not(.w--open) {
+        display: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        pointer-events: none !important;
+    }
+    .w-nav-overlay.w--open {
+        position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         width: 100vw !important;
         height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
         background: rgba(0, 0, 0, 0.7) !important;
         background-color: rgba(0, 0, 0, 0.7) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         z-index: 9999990 !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: contain !important;
+        -webkit-overflow-scrolling: touch !important;
+        display: block !important;
+        pointer-events: auto !important;
     }
     .w-nav-menu:not(.w--open) { display: none !important; }
 
@@ -1979,7 +1992,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (menuBtn) {
         menuBtn.addEventListener('click', function() {
             setTimeout(function() {
-                var isOverlayVisible = menuBtn.classList.contains('w--open') || document.querySelector('.w-nav-overlay');
+                var isOverlayVisible = menuBtn.classList.contains('w--open') || (document.querySelector('.w-nav-overlay.w--open') !== null);
                 if (isOverlayVisible) {
                     document.body.style.setProperty('overflow', 'hidden', 'important');
                 } else {
