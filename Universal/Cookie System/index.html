@@ -957,12 +957,22 @@ div[class*="scroll-to-top"] {
 
 <style id="hero-mobile-visibility-fix">
 @media screen and (max-width: 991px) {
-    .hero-one-slide .hero-one-content,
-    .hero-one-slide .hero-one-title-wrapper,
-    .hero-one-slide .hero-one-title-wrap,
+    /* Prevent overflow clipping on mobile slider container */
+    .hero-one-section,
+    .hero-one-slide,
+    .hero-container,
+    .hero-one-content,
+    .hero-one-wrapper,
+    .hero-one-title-wrapper,
+    .hero-one-title-wrap {
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Force all hero title text to stay 100% visible and uncluttered on mobile */
     .hero-one-slide .hero-one-title-small,
     .hero-one-slide .hero-one-title,
-    .hero-one-slide .hero-one-title-two-wrap,
     .hero-one-slide .hero-one-title-two,
     .hero-one-slide .hero-one-title-two-desc,
     .hero-one-slide .hero-one-small-text,
@@ -970,7 +980,7 @@ div[class*="scroll-to-top"] {
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
-        overflow: visible !important;
+        -webkit-transform: none !important;
         display: block !important;
     }
 
@@ -1012,6 +1022,11 @@ div[class*="scroll-to-top"] {
         line-height: 1.4 !important;
         color: rgba(255, 255, 255, 0.9) !important;
         margin: 4px 0 !important;
+    }
+
+    /* Smooth slide fade transition on mobile */
+    .hero-one-section-wrap.w-slide {
+        transition: opacity 1.5s ease-in-out !important;
     }
 }
 </style>

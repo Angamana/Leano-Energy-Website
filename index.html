@@ -1377,12 +1377,22 @@ div[class*="scroll-to-top"] {
 
 <style id="hero-mobile-visibility-fix">
 @media screen and (max-width: 991px) {
-    .hero-one-slide .hero-one-content,
-    .hero-one-slide .hero-one-title-wrapper,
-    .hero-one-slide .hero-one-title-wrap,
+    /* Prevent overflow clipping on mobile slider container */
+    .hero-one-section,
+    .hero-one-slide,
+    .hero-container,
+    .hero-one-content,
+    .hero-one-wrapper,
+    .hero-one-title-wrapper,
+    .hero-one-title-wrap {
+        overflow: visible !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Force all hero title text to stay 100% visible and uncluttered on mobile */
     .hero-one-slide .hero-one-title-small,
     .hero-one-slide .hero-one-title,
-    .hero-one-slide .hero-one-title-two-wrap,
     .hero-one-slide .hero-one-title-two,
     .hero-one-slide .hero-one-title-two-desc,
     .hero-one-slide .hero-one-small-text,
@@ -1390,7 +1400,7 @@ div[class*="scroll-to-top"] {
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
-        overflow: visible !important;
+        -webkit-transform: none !important;
         display: block !important;
     }
 
@@ -1433,12 +1443,17 @@ div[class*="scroll-to-top"] {
         color: rgba(255, 255, 255, 0.9) !important;
         margin: 4px 0 !important;
     }
+
+    /* Smooth slide fade transition on mobile */
+    .hero-one-section-wrap.w-slide {
+        transition: opacity 1.5s ease-in-out !important;
+    }
 }
 </style>
 
 </head>
 <body>
-<div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="3000" data-disable-swipe="false" data-duration="1000" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
+<div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
 <header class="header header-one" style="border-bottom: none !important;">
 <div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
 <div class="w-layout-blockcontainer container w-container">
@@ -2097,7 +2112,7 @@ div[class*="scroll-to-top"] {
 </div>
 </div>
 <div class="overflow-hidden">
-<div class="slider-responsive w-slider" data-animation="slide" data-autoplay="true" data-autoplay-limit="0" data-delay="3000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
+<div class="slider-responsive w-slider" data-animation="slide" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
 <div class="slider-responsive-wrap w-slider-mask">
 <div class="slide-two w-slide">
 </div>
@@ -2336,7 +2351,7 @@ div[class*="scroll-to-top"] {
 </div>
 </div>
 <div class="home-one-testimonial-wrap">
-<div class="testimonial-one-slider w-slider" data-animation="slide" data-autoplay="true" data-autoplay-limit="0" data-delay="3000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
+<div class="testimonial-one-slider w-slider" data-animation="slide" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
 <div class="testimonial-one-list w-slider-mask">
 <div class="testimonial-one-slide w-slide">
 <div class="testimonial-one">
