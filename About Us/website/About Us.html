@@ -49,6 +49,62 @@
             -webkit-text-fill-color: #000000 !important;
         }
     }
+
+    /* --- MOBILE NAV LAYOUT FIXES --- */
+    @media screen and (max-width: 991px) {
+        /* 1. Left-align nav headings */
+        .w-nav-overlay .nav-link,
+        .w-nav-overlay .nav-text,
+        .w-nav-menu .nav-link,
+        .w-nav-menu .nav-text,
+        .nav-dropdown-item {
+            text-align: left !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+        }
+        
+        /* 2. Move arrow to the far right */
+        .w-nav-menu .nav-link {
+            display: flex !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .w-nav-menu .nav-text-wrap {
+            width: 100% !important;
+        }
+        .w-nav-menu .nav-text {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100% !important;
+        }
+        .dropdown-chevron {
+            margin-left: auto !important;
+            padding: 10px !important;
+            width: 32px !important;
+            height: 32px !important;
+            box-sizing: content-box !important;
+        }
+        
+        /* 3. Fix scroll up/down for ALL pages */
+        .w-nav-overlay {
+            height: 100dvh !important;
+            max-height: 100dvh !important;
+            overflow-y: auto !important;
+            overscroll-behavior-y: contain !important;
+            -webkit-overflow-scrolling: touch !important;
+            display: block !important;
+        }
+        
+        /* 4. Remove empty white space after Contact Us */
+        .w-nav-menu {
+            overflow-y: visible !important;
+            height: auto !important;
+            min-height: auto !important;
+            padding-bottom: env(safe-area-inset-bottom, 20px) !important;
+        }
+    }
+
 </style>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.gstatic.com" rel="preconnect"/>
