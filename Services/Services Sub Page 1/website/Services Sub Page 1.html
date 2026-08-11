@@ -195,6 +195,67 @@
         }
     }
 
+
+    /* --- ULTRA MOBILE NAV ALIGNMENT & ARROW BOX FIX --- */
+    @media screen and (max-width: 991px) {
+        /* Force left alignment on all nav elements aggressively */
+        .w-nav-menu, 
+        .w-nav-menu .nav-list,
+        .w-nav-menu .nav-link, 
+        .w-nav-menu .nav-text-wrap, 
+        .w-nav-menu .nav-text, 
+        .w-nav-menu .nav-dropdown-item {
+            text-align: left !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+        }
+
+        .w-nav-menu .nav-link {
+            display: flex !important;
+            width: 100% !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            box-sizing: border-box !important;
+            position: relative !important;
+        }
+        
+        .w-nav-menu .nav-text {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+        }
+
+        /* The Box around the Arrow (Like PC Button) */
+        .w-nav-menu .dropdown-chevron {
+            margin-left: auto !important;
+            width: 40px !important;
+            height: 40px !important;
+            background-color: #f7931e !important; /* Orange background like PC button */
+            border-radius: 5px !important;
+            padding: 10px !important;
+            box-sizing: border-box !important;
+            stroke: #ffffff !important; /* White arrow */
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            pointer-events: auto !important; /* Ensure it receives clicks */
+            z-index: 100 !important;
+        }
+
+        /* Make sure dropdown menu displays properly when active */
+        .w-nav-menu .nav-dropdown-menu {
+            display: none; /* Handled by JS now */
+            flex-direction: column;
+            width: 100% !important;
+            background-color: #f4f4f4 !important;
+            padding-left: 10px !important;
+        }
+        .w-nav-menu .nav-dropdown-menu.active {
+            display: flex !important;
+        }
+    }
+
 </style>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -2360,6 +2421,41 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     })
     .catch(error => console.error('Error fetching fuel prices:', error));
+});
+</script>
+
+
+<!-- MOBILE NAV ARROW DROPDOWN JS FIX -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Only apply on mobile view
+    if (window.innerWidth <= 991) {
+        const chevrons = document.querySelectorAll('.w-nav-menu .dropdown-chevron');
+        
+        chevrons.forEach(function(chevron) {
+            chevron.addEventListener('click', function(e) {
+                // Prevent the click from triggering the main link
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Find the associated dropdown menu
+                const wrapper = chevron.closest('.nav-dropdown-wrapper');
+                if (wrapper) {
+                    const dropdown = wrapper.querySelector('.nav-dropdown-menu');
+                    if (dropdown) {
+                        // Toggle visibility
+                        dropdown.classList.toggle('active');
+                        // Rotate arrow
+                        if (dropdown.classList.contains('active')) {
+                            chevron.style.transform = 'rotate(180deg)';
+                        } else {
+                            chevron.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                }
+            });
+        });
+    }
 });
 </script>
 
