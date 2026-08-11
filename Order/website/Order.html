@@ -1029,12 +1029,20 @@ footer p,
 }
 
 /* Contact Us button text black before hover, white on hover */
-.custom-footer-btn .button-text,
+/* Default button text to white */
 .button-link .button-text,
 p.button-text {
     color: #ffffff !important;
-        font-weight: 700 !important;
-    }
+    font-weight: 700 !important;
+}
+
+/* Specific buttons back to black before hover */
+.custom-footer-btn .button-text,
+.nav-one-btn-wrap .button-text,
+.nav-one-btn .button-text,
+.home-one-about-inner .button-text {
+    color: #000000 !important;
+}
 .custom-footer-btn:hover .button-text-hover,
 .button-link:hover .button-text-hover,
 p.button-text-hover {
