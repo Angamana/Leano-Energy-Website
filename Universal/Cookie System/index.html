@@ -892,35 +892,86 @@ div[class*="scroll-to-top"] {
 }
 </style>
 
-<style id="footer-white-text-override">
-  footer, footer *, .footer, .footer * {
+<style id="master-leano-custom-fixes">
+/* 1. Hero Sliders on Mobile: LT Energy Italic font */
+@media screen and (max-width: 991px) {
+    .hero-one-slide .hero-one-title,
+    .hero-one-slide .hero-one-title-small,
+    .hero-one-slide .hero-one-title-two,
+    .hero-one-slide .hero-one-title-two-desc,
+    .hero-one-slide .hero-one-small-text {
+        font-family: 'LT Energy Italic', 'LT Energy', 'Montserrat', sans-serif !important;
+        font-style: italic !important;
+    }
+}
+
+/* 2. Mobile Nav Menu Font Color to Black */
+@media screen and (max-width: 991px) {
+    .w-nav-overlay .nav-link,
+    .w-nav-overlay .nav-text,
+    .w-nav-menu .nav-link,
+    .w-nav-menu .nav-text,
+    .w-nav-overlay a,
+    .w-nav-menu a,
+    .nav-dropdown-item {
+        color: #000000 !important;
+    }
+}
+
+/* 3. Footer Typography & Weights (Only main headings bold, rest normal) */
+footer, footer *, .footer, .footer * {
     color: #ffffff !important;
-  }
-  .footer-title, .footer-link, .footer-contact-text, .footer-link-text, .contact-info, .contact-info * {
+}
+
+/* Force ONLY main headings with orange box to be bold */
+.footer-title {
+    font-weight: 800 !important;
     color: #ffffff !important;
-  }
-  .footer-contact-text svg, .contact-info svg {
+}
+
+/* All other footer text MUST be regular/normal weight */
+.footer-link,
+.footer-link-text,
+.footer-contact-text,
+.footer-line,
+.footer-line *,
+.contact-info,
+.contact-info *,
+.footer-column p,
+footer p,
+.footer p {
+    font-weight: 400 !important;
+    color: #ffffff !important;
+}
+
+/* Contact Us button text black before hover, white on hover */
+.custom-footer-btn .button-text,
+.button-link .button-text,
+p.button-text {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+.custom-footer-btn:hover .button-text-hover,
+.button-link:hover .button-text-hover,
+p.button-text-hover {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Phone and Mail SVG icons in white */
+.footer-contact-text svg, .contact-info svg {
     stroke: #ffffff !important;
     color: #ffffff !important;
-  }
-  /* Orange Title Dots / Squares */
-  .footer-title-dot {
+}
+
+/* Orange Title Dots / Squares */
+.footer-title-dot {
     background-color: #f37021 !important;
     background: #f37021 !important;
-  }
-  /* Contact Us button text black before hover, white on hover */
-  .custom-footer-btn .button-text,
-  .button-link .button-text,
-  p.button-text {
-    color: #000000 !important;
-  }
-  .custom-footer-btn:hover .button-text-hover,
-  .button-link:hover .button-text-hover,
-  p.button-text-hover {
-    color: #ffffff !important;
-  }
-  /* Policy links clean vertical spacing */
-  .footer-column:nth-child(2) .footer-link {
+}
+
+/* Policy links clean vertical spacing and un-bolded */
+.footer-column:nth-child(2) .footer-link {
     color: #ffffff !important;
     background: transparent !important;
     border: none !important;
@@ -928,30 +979,34 @@ div[class*="scroll-to-top"] {
     padding: 6px 0 !important;
     display: block !important;
     margin-bottom: 2px !important;
-  }
-  /* Ensure social media icons remain black inside white circles */
-  .footer-social-wrap a svg {
+    font-weight: 400 !important;
+}
+
+/* Ensure social media icons remain black inside white circles */
+.footer-social-wrap a svg {
     stroke: #000000 !important;
     fill: none;
-  }
-  .footer-social-wrap a[title="LinkedIn"] svg {
+}
+.footer-social-wrap a[title="LinkedIn"] svg {
     fill: #000000 !important;
     stroke: none !important;
-  }
-  /* Order Now widget icon: Orange normally, White on Hover */
-  .order-fuel-side-btn svg {
+}
+
+/* Order Now widget icon: Orange normally, White on Hover */
+.order-fuel-side-btn svg {
     stroke: #f37021 !important;
     color: #f37021 !important;
     transition: stroke 0.2s ease, color 0.2s ease !important;
-  }
-  .order-fuel-side-btn:hover svg {
+}
+.order-fuel-side-btn:hover svg {
     stroke: #ffffff !important;
     color: #ffffff !important;
-  }
-  /* Fuel prices side widget icon in black */
-  .fuel-main-tab-btn svg {
+}
+
+/* Fuel prices side widget icon in black */
+.fuel-main-tab-btn svg {
     stroke: #000000 !important;
-  }
+}
 </style>
 
 
@@ -1056,7 +1111,7 @@ div[class*="scroll-to-top"] {
     text-orientation: mixed;
     padding: 15px 10px;
     cursor: pointer;
-    font-weight: bold;
+    
     font-size: 16px;
     border-radius: 5px 0 0 5px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.2);
@@ -1083,7 +1138,7 @@ div[class*="scroll-to-top"] {
     text-align: center;
     padding: 15px 0;
     cursor: pointer;
-    font-weight: bold;
+    
     color: #666;
     border-bottom: 3px solid transparent;
 }
