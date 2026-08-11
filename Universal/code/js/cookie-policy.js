@@ -211,6 +211,22 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-btn-primary:hover {
                 background-color: #d95a10 !important;
             }
+            @media screen and (max-width: 600px) {
+                .cookie-modal-footer {
+                    flex-direction: column-reverse !important;
+                    justify-content: flex-start !important;
+                    align-items: stretch !important;
+                    gap: 10px !important;
+                }
+                .cookie-btn {
+                    width: 100% !important;
+                    margin-bottom: 0 !important;
+                }
+                .cookie-modal {
+                    max-height: 90vh !important;
+                    overflow-y: auto !important;
+                }
+            }
         `;
         document.head.appendChild(styleTag);
     }

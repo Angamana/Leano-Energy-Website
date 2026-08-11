@@ -217,3 +217,16 @@ input:disabled + .cookie-slider {
 .cookie-btn-primary:hover {
     background-color: #d95a10;
 }
+
+@media screen and (max-width: 600px) {
+    .cookie-modal-footer {
+        flex-direction: column-reverse !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+    .cookie-btn {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+}

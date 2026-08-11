@@ -221,11 +221,16 @@ input:disabled + .cookie-slider {
 
 @media screen and (max-width: 600px) {
     .cookie-modal-footer {
-        flex-direction: column-reverse;
-        justify-content: flex-start;
-        align-items: stretch;
-        gap: 10px;
+        flex-direction: column-reverse !important;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+        gap: 10px !important;
     }
+    .cookie-btn {
+        width: 100% !important;
+        margin-bottom: 0 !important;
+    }
+}
     .cookie-btn {
         width: 100%;
         margin-bottom: 0;
