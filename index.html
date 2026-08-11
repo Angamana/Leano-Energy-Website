@@ -1457,22 +1457,32 @@ p.button-text-hover {
     .hero-one-title-wrapper,
     .hero-one-title-wrap {
         overflow: visible !important;
-        opacity: 1 !important;
-        visibility: visible !important;
     }
 
-    /* Force all hero title text to stay 100% visible and uncluttered on mobile */
-    .hero-one-slide .hero-one-title-small,
+    /* Neutralize Webflow IX2 text animations on mobile so text doesn't disappear */
+    .hero-one-slide [data-w-id],
     .hero-one-slide .hero-one-title,
+    .hero-one-slide .hero-one-title-small,
     .hero-one-slide .hero-one-title-two,
     .hero-one-slide .hero-one-title-two-desc,
-    .hero-one-slide .hero-one-small-text,
-    .hero-one-slide .overflow-hidden {
-        opacity: 1 !important;
-        visibility: visible !important;
+    .hero-one-slide .hero-one-small-text {
         transform: none !important;
         -webkit-transform: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
         display: block !important;
+    }
+
+    /* But hide text on INACTIVE slides to prevent overlapping mess */
+    .w-slide:not(.w--slide-active) [data-w-id],
+    .w-slide:not(.w--slide-active) .hero-one-title,
+    .w-slide:not(.w--slide-active) .hero-one-title-small,
+    .w-slide:not(.w--slide-active) .hero-one-title-two,
+    .w-slide:not(.w--slide-active) .hero-one-title-two-desc,
+    .w-slide:not(.w--slide-active) .hero-one-small-text {
+        opacity: 0 !important;
+        visibility: hidden !important;
     }
 
     .hero-one-title-wrapper {
