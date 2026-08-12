@@ -1493,7 +1493,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 </style>
 <style id="universal-side-widget-toggle-css">
 /* ==========================================
-   UNIVERSAL SIDE WIDGET TOGGLE BUTTON (ALL SCREENS: PC, TABLET, MOBILE)
+   UNIVERSAL SIDE WIDGET TOGGLE BUTTON (ALL SCREENS)
    ========================================== */
 #mobile-widget-toggle {
     display: flex !important;
@@ -1518,12 +1518,12 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* Default state (ALL SCREENS): Hidden off-screen to the right */
+/* Default state: Hidden off-screen */
 .fuel-side-tabs:not(.mobile-peek):not(.open) {
     top: 55% !important;
     z-index: 99999 !important;
-    transform: translateY(-50%) translateX(160%) !important;
     right: -360px !important;
+    transform: translateY(-50%) !important;
 }
 
 .order-side-tab-container:not(.mobile-peek):not(.open) {
@@ -1532,20 +1532,59 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transform: translateX(250%) !important;
 }
 
-/* Active / Pop-Out state (ALL SCREENS): Slide into view */
+/* Peek state (when toggle button is clicked): Both widget tabs pop into view */
 .fuel-side-tabs.mobile-peek:not(.open) {
-    transform: translateY(-50%) translateX(0) !important;
-    right: 0 !important;
+    right: -320px !important;
+    transform: translateY(-50%) !important;
 }
 
 .order-side-tab-container.mobile-peek {
-    transform: translateX(0) !important;
     right: 0 !important;
+    transform: translateX(0) !important;
 }
 
+/* Open state (when Fuel Prices tab itself is clicked) */
 .fuel-side-tabs.open {
-    transform: translateY(-50%) translateX(0) !important;
     right: 0 !important;
+    transform: translateY(-50%) !important;
+}
+</style>
+
+<style id="ios-nav-fullscreen-blur-fix">
+@media screen and (max-width: 991px) {
+    /* Force mobile nav overlay to fill 100% of iOS viewport with blurred backdrop */
+    .w-nav-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100dvh !important;
+        height: -webkit-fill-available !important;
+        min-height: 100dvh !important;
+        background: rgba(0, 0, 0, 0.70) !important;
+        backdrop-filter: blur(14px) !important;
+        -webkit-backdrop-filter: blur(14px) !important;
+        z-index: 9999990 !important;
+        overflow-y: auto !important;
+        overscroll-behavior-y: contain !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+    
+    .w-nav-overlay .w-nav-menu, 
+    .w-nav-menu.w--open {
+        position: relative !important;
+        top: 80px !important;
+        left: 5% !important;
+        width: 90% !important;
+        max-width: 420px !important;
+        margin: 0 auto 40px auto !important;
+        background: #ffffff !important;
+        border-radius: 14px !important;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.4) !important;
+        overflow: hidden !important;
+    }
 }
 </style>
 </head>
@@ -2564,6 +2603,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
