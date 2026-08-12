@@ -228,7 +228,9 @@ input:disabled + .cookie-slider {
         
         align-items: stretch !important;
         gap: 10px !important;
-    }
+    
+        flex-direction: column !important;
+}
     .cookie-btn {
         width: 100% !important;
         margin-bottom: 0 !important;

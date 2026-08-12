@@ -171,13 +171,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 border-radius: 50% !important;
             }
             input:checked + .cookie-slider {
-                background-color: #5C4AEA !important;
+                background-color: #f37021 !important;
             }
             input:checked + .cookie-slider:before {
                 transform: translateX(20px) !important;
             }
             input:disabled + .cookie-slider {
-                background-color: #5C4AEA !important;
+                background-color: #f37021 !important;
                 opacity: 0.6 !important;
                 cursor: not-allowed !important;
             }
@@ -207,19 +207,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 background-color: #e2e2e2 !important;
             }
             .cookie-btn-primary {
-                background-color: #285AE6 !important;
+                background-color: #f37021 !important;
                 color: #ffffff !important;
             }
             .cookie-btn-primary:hover {
-                background-color: #1e45b5 !important;
+                background-color: #d95a10 !important;
             }
             @media screen and (max-width: 600px) {
-                .cookie-modal-footer {
+    .cookie-modal-footer {
                     
                     
                     align-items: stretch !important;
                     gap: 10px !important;
-                }
+                
+        flex-direction: column !important;
+}
                 .cookie-btn {
                     width: 100% !important;
                     margin-bottom: 0 !important;
