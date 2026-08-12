@@ -1236,7 +1236,7 @@ div[class*="scroll-to-top"] {
         box-sizing: content-box !important;
         cursor: pointer !important;
         transition: transform 0.3s ease !important;
-        transform: rotate(0deg) !important;
+        
     
         fill: none !important;
     }
@@ -1543,56 +1543,40 @@ p.button-text-hover {
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Side widgets tucked off-screen by default, slide out 100% on cursor hover */
+/* PC View (Desktop > 991px): Side widgets half-tucked off-screen by default, slide to screen edge on cursor hover */
 @media screen and (min-width: 992px) {
-    /* 1. Fuel Prices Side Widget */
+    /* 1. Fuel Prices Side Widget: Unhovered = 50% tucked right, Hovered = 0% (screen edge) */
     .fuel-side-tabs:not(.open) {
-        right: -345px !important;
-        transform: translateY(-50%) !important;
-        transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        right: -320px !important;
+        transform: translateY(-50%) translateX(50%) !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
     .fuel-side-tabs:not(.open):hover {
-        right: -320px !important;
+        transform: translateY(-50%) translateX(0%) !important;
     }
     .fuel-side-tabs.open {
         right: 0 !important;
-        transform: translateY(-50%) !important;
+        transform: translateY(-50%) translateX(0%) !important;
     }
 
-    /* 2. Order Fuel Side Button: Tucked to match fuel prices tab */
+    /* 2. Order Fuel Side Button: Unhovered (White Phase) = 50% tucked right, Hovered (Orange Phase) = 0% (screen edge) */
     .order-fuel-side-btn {
-            position: fixed !important;
-            right: -32px !important;
-            top: calc(50% + 56px) !important;
-            z-index: 99998 !important;
-            writing-mode: vertical-rl !important;
-            transform: rotate(0deg) !important;
-            background: #ffffff !important;
-            color: #f37021 !important;
-            border: 2px solid #f37021 !important;
-            border-right: none !important;
-            padding: 14px 10px 14px 10px !important;
-            padding-right: 40px !important;
-            border-radius: 8px 0 0 8px !important;
-            box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 800 !important;
-            font-size: 12.5px !important;
-            letter-spacing: 1.2px !important;
-            text-transform: uppercase !important;
-            transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
-        }
+        right: 0 !important;
+        margin-right: -30px !important;
+        transform: translateX(50%) !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+    }
     .order-fuel-side-btn:hover {
-            animation: none !important;
-            right: 0 !important;
-            background: #f37021 !important;
-            color: #ffffff !important;
-            box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
-        }
+        animation: none !important;
+        transform: translateX(0%) !important;
+        background: #f37021 !important;
+        color: #ffffff !important;
+        box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
+    }
 }
 </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 <header class="header header-one" style="border-bottom: none !important;">
 <div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
 <div class="w-layout-blockcontainer container w-container">
@@ -2368,7 +2352,7 @@ document.addEventListener("DOMContentLoaded", function() {
             animation: none !important;
             background: #f37021 !important;
             color: #ffffff !important;
-            transform: rotate(0deg) translateX(-16px) !important;
+            transform: translateX(0%) !important;
             box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
         }
         </style>
@@ -2561,8 +2545,17 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script id="disable-right-click">
-    /* contextmenu blocked */ }, false);
-    document.oncontextmenu = function(){ return false; };
+(function() {
+    function blockContextMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+    window.addEventListener('contextmenu', blockContextMenu, true);
+    document.addEventListener('contextmenu', blockContextMenu, true);
+    window.oncontextmenu = function() { return false; };
+    document.oncontextmenu = function() { return false; };
+})();
 </script>
 
 <!-- MOBILE NAV ARROW DROPDOWN JS FIX -->

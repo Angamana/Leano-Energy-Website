@@ -323,30 +323,32 @@
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Side widgets tucked off-screen by default, slide out 100% on cursor hover */
+/* PC View (Desktop > 991px): Side widgets half-tucked off-screen by default, slide to screen edge on cursor hover */
 @media screen and (min-width: 992px) {
-    /* 1. Fuel Prices Side Widget */
+    /* 1. Fuel Prices Side Widget: Unhovered = 50% tucked right, Hovered = 0% (screen edge) */
     .fuel-side-tabs:not(.open) {
-        right: -345px !important;
-        transform: translateY(-50%) !important;
-        transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+        right: -320px !important;
+        transform: translateY(-50%) translateX(50%) !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
     .fuel-side-tabs:not(.open):hover {
-        right: -320px !important;
+        transform: translateY(-50%) translateX(0%) !important;
     }
     .fuel-side-tabs.open {
         right: 0 !important;
-        transform: translateY(-50%) !important;
+        transform: translateY(-50%) translateX(0%) !important;
     }
 
-    /* 2. Order Fuel Side Button: Tucked to match fuel prices tab */
+    /* 2. Order Fuel Side Button: Unhovered (White Phase) = 50% tucked right, Hovered (Orange Phase) = 0% (screen edge) */
     .order-fuel-side-btn {
-        right: -32px !important;
-        transform: none !important;
-        transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+        right: 0 !important;
+        margin-right: -30px !important;
+        transform: translateX(50%) !important;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
     }
     .order-fuel-side-btn:hover {
-        right: 0 !important;
+        animation: none !important;
+        transform: translateX(0%) !important;
         background: #f37021 !important;
         color: #ffffff !important;
         box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
@@ -355,7 +357,7 @@
 </style>
 </head>
 
-<body>
+<body oncontextmenu="return false;">
     <div data-delay="5000" data-animation="cross" class="hero-one-section w-slider" data-autoplay="true" data-easing="ease-in-out" data-hide-arrows="false" data-disable-swipe="false" data-autoplay-limit="0" data-nav-spacing="3" data-duration="1000" data-infinite="true">
         <header class="header header-one">
             <div class="header-main header-one">
@@ -2643,8 +2645,17 @@
     <script src="https://cdn.prod.website-files.com/68ec88daad774d7bbc39b02e/js/webflow.schunk.121b0d7ff03e0f4a.js" type="text/javascript" integrity="sha384-xmxYNW5cjPqRkOstIN2AtIcrlQOgIF4k5PmI7WPxkrTXkUGtbSKaezRTaxUTpIEs" crossorigin="anonymous"></script>
     <script src="https://cdn.prod.website-files.com/68ec88daad774d7bbc39b02e/js/webflow.f73038d4.86e8628c28dd3a64.js" type="text/javascript" integrity="sha384-wDY4hk/Ko1CIFEXEGRGHMMs5BwCuQ6hxp4XfQtxzwY/WqO/jhf/MvEEEx1nsIJbM" crossorigin="anonymous"></script>
 <script id="disable-right-click">
-document.addEventListener('contextmenu', function(e) { e.preventDefault(); }, false);
-document.oncontextmenu = function() { return false; };
+(function() {
+    function blockContextMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    }
+    window.addEventListener('contextmenu', blockContextMenu, true);
+    document.addEventListener('contextmenu', blockContextMenu, true);
+    window.oncontextmenu = function() { return false; };
+    document.oncontextmenu = function() { return false; };
+})();
 </script>
 </body>
 
