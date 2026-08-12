@@ -1485,7 +1485,7 @@ p.button-text-hover {
         -webkit-backdrop-filter: none !important;
         border-radius: 0 !important;
         padding: 0 !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 12px !important;
         box-shadow: none !important;
     }
     .footer-column:nth-child(2) .footer-link:hover {
@@ -1629,6 +1629,34 @@ html body .button-link:hover .button-text {
 html body .button-link:hover .button-text-hover {
     color: #ffffff !important;
 }
+<style id="hero-button-transition-fix-css">
+/* Hero section button specific styling & smooth text transition */
+.hero-one-content .button-link .button-text-wrap {
+    overflow: hidden !important;
+    height: 20px !important;
+    position: relative !important;
+}
+
+.hero-one-content .button-link .button-text {
+    color: #000000 !important;
+    transform: translateY(0%) !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.hero-one-content .button-link .button-text-hover {
+    color: #ffffff !important;
+    transform: translateY(160%) !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.hero-one-content .button-link:hover .button-text {
+    transform: translateY(-160%) !important;
+}
+
+.hero-one-content .button-link:hover .button-text-hover {
+    transform: translateY(0%) !important;
+}
+</style>
 </head>
 <body>
 <div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
