@@ -1129,8 +1129,16 @@ footer p,
 /* Default button text to white */
 .button-link .button-text,
 p.button-text {
-    color: #ffffff !important;
+    font-family: inherit, sans-serif !important;
+    color: #000000 !important;
+    font-size: 13.5px !important;
     font-weight: 700 !important;
+    letter-spacing: .28px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s ease !important;
 }
 
 /* Specific buttons back to black before hover */
@@ -1139,7 +1147,16 @@ p.button-text {
 .nav-one-btn-wrap .button-text,
 .nav-one-btn .button-text,
 .home-one-about-inner .button-text {
+    font-family: inherit, sans-serif !important;
     color: #000000 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: .28px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s ease !important;
 }
 .custom-footer-btn:hover .button-text-hover,
 .button-link:hover .button-text-hover,
@@ -1160,7 +1177,8 @@ p.button-text-hover {
     background: #f37021 !important;
 }
 
-/* Policy links liquid glass blur border */
+/* Policy links liquid glass blur border - MOBILE VIEW ONLY */
+@media screen and (max-width: 991px) {
     .footer-column:nth-child(2) .footer-link {
         color: #ffffff !important;
         background: rgba(255, 255, 255, 0.05) !important;
@@ -1181,6 +1199,25 @@ p.button-text-hover {
         transform: translateY(-2px) !important;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
     }
+}
+@media screen and (min-width: 992px) {
+    .footer-column:nth-child(2) .footer-link {
+        background: none !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+        box-shadow: none !important;
+    }
+    .footer-column:nth-child(2) .footer-link:hover {
+        background: none !important;
+        border: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
 
 /* Ensure social media icons remain black inside white circles */
 .footer-social-wrap a svg {
@@ -1233,6 +1270,16 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
+html body .button-link .button-text,
+html body p.button-text:not(.white-text) {
+    color: #000000 !important;
+}
+html body .button-link:hover .button-text {
+    color: #ffffff !important;
+}
+html body .button-link:hover .button-text-hover {
+    color: #ffffff !important;
+}
 </head>
 <body>
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
