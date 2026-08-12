@@ -2017,9 +2017,9 @@ p.button-text-hover {
     color: #f37021 !important;
     border: 2px solid #f37021 !important;
     border-right: none !important;
-    writing-mode: vertical-rl !important;
+    writing-mode: horizontal-tb !important;
     transform: none !important;
-    padding: 12px 10px !important;
+    padding: 14px 10px !important;
     font-family: 'Montserrat', sans-serif !important;
     font-weight: 800 !important;
     font-size: 12.5px !important;
@@ -2028,12 +2028,14 @@ p.button-text-hover {
     border-radius: 8px 0 0 8px !important;
     box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .order-main-tab-btn span {
+    writing-mode: vertical-rl !important;
     transform: rotate(180deg) !important;
     display: inline-block !important;
 }
