@@ -890,25 +890,28 @@ p.button-text-hover {
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Standard side widget positioning */
+/* PC View (Desktop > 991px): Side widgets moved 15px off-screen by default, pop back out on cursor hover */
 @media screen and (min-width: 992px) {
-    /* 1. Fuel Prices Side Widget: Restored to standard position */
+    /* 1. Fuel Prices Side Widget */
     .fuel-side-tabs:not(.open) {
-        right: -320px !important;
+        right: -335px !important;
         transform: translateY(-50%) !important;
-        transition: right 0.3s ease !important;
+        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+    .fuel-side-tabs:not(.open):hover {
+        right: -320px !important;
     }
     .fuel-side-tabs.open {
         right: 0 !important;
         transform: translateY(-50%) !important;
     }
 
-    /* 2. Order Fuel Side Button: Restored to match fuel prices button position */
+    /* 2. Order Fuel Side Button */
     .order-fuel-side-btn {
-        right: 0 !important;
+        right: -15px !important;
         margin-right: -30px !important;
         transform: none !important;
-        transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
     }
     .order-fuel-side-btn:hover {
         animation: none !important;
