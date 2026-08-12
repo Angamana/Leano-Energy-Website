@@ -1479,6 +1479,44 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     }
 }
 </style>
+<style id="news-subpage-responsive-modal-fix">
+/* Remove Original Source line */
+.article-source-card > div:nth-child(2) {
+    display: none !important;
+}
+
+@media screen and (min-width: 992px) {
+    .mobile-article-source-btn-wrap {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .blog-detail-left-column {
+        display: none !important;
+    }
+    .mobile-article-source-btn-wrap {
+        display: flex !important;
+        justify-content: flex-end !important;
+        width: 100% !important;
+        margin-top: 32px !important;
+        margin-bottom: 16px !important;
+    }
+    .mobile-read-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-color: #f37021 !important;
+        color: #ffffff !important;
+        font-size: 14px !important;
+        font-weight: 700 !important;
+        padding: 12px 22px !important;
+        border-radius: 8px !important;
+        text-decoration: none !important;
+        box-shadow: 0 4px 15px rgba(243, 112, 33, 0.35) !important;
+    }
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
@@ -1608,7 +1646,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 <line x1="10" x2="21" y1="14" y2="3"></line>
 </svg>
 </div>
-<div style="color: #f37021; font-size: 11px;  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px;">Original Source</div>
+
 <div style="color: #ffffff; font-size: 16px;  margin-bottom: 20px; font-family: 'Outfit', sans-serif;">FX Leaders</div>
 <a class="read-source-btn" href="https://www.fxleaders.com/news/2026/07/14/south-africa-fuel-prices-august-petrol-and-diesel-cuts-shrink-as-the-oil-jump-erodes-savings/" rel="noopener noreferrer" style="display: block; width: 100%; background-color: #f37021; color: #ffffff;  font-size: 14px; letter-spacing: 0.5px; padding: 14px 18px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(243, 112, 33, 0.35); box-sizing: border-box;" target="_blank">
                     Read Full Article →
@@ -2560,6 +2598,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
+
+
 
 
 
