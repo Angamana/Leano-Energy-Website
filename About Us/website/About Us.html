@@ -2556,38 +2556,42 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <!-- MOBILE NAV ARROW DROPDOWN JS FIX -->
-<script id="clean-mobile-nav-js">
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Mobile Accordion for Native Chevrons (Allows multiple to be open)
-    var dropdownWrappers = document.querySelectorAll(".nav-dropdown-wrapper");
-    dropdownWrappers.forEach(function(wrapper) {
-        var chevron = wrapper.querySelector(".dropdown-chevron");
-        if (chevron) {
-            chevron.addEventListener("click", function(e) {
-                if (window.innerWidth <= 991) {
-                    e.preventDefault();
-                    e.stopPropagation();
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 991) {
+            const chevron = e.target.closest('.dropdown-chevron');
+            if (chevron) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const wrapper = chevron.closest('.nav-dropdown-wrapper');
+                if (wrapper) {
+                    const isOpen = wrapper.classList.contains('open');
                     
-                    wrapper.classList.toggle("open");
+                    // Auto collapse all other open sub-page dropdowns
+                    document.querySelectorAll('.nav-dropdown-wrapper').forEach(function(other) {
+                        if (other !== wrapper) {
+                            other.classList.remove('open');
+                            const otherChev = other.querySelector('.dropdown-chevron');
+                            if (otherChev) {
+                                otherChev.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                    
+                    // Toggle clicked dropdown
+                    if (isOpen) {
+                        wrapper.classList.remove('open');
+                        chevron.style.transform = 'rotate(0deg)';
+                    } else {
+                        wrapper.classList.add('open');
+                        chevron.style.transform = 'rotate(180deg)';
+                    }
                 }
-            });
+            }
         }
-    });
-
-    // 2. Lock Background Scroll when Mobile Menu is Open
-    var menuBtn = document.querySelector('.w-nav-button');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function() {
-            setTimeout(function() {
-                var isOverlayVisible = menuBtn.classList.contains('w--open') || (document.querySelector('.w-nav-overlay.w--open') !== null);
-                if (isOverlayVisible) {
-                    document.body.style.setProperty('overflow', 'hidden', 'important');
-                } else {
-                    document.body.style.removeProperty('overflow');
-                }
-            }, 120);
-        });
-    }
+    }, true);
 });
 </script>
 
@@ -2626,6 +2630,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 

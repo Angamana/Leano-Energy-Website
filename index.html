@@ -1692,12 +1692,12 @@ p.button-text-hover {
     }
 
     .fuel-side-tabs:not(.open) {
-        right: -305px !important;
+        right: -330px !important;
         transform: translateY(-50%) !important;
         transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
     .fuel-side-tabs:not(.open):hover {
-        right: -295px !important;
+        right: -320px !important;
     }
     .fuel-side-tabs.open {
         right: 0 !important;
@@ -1835,11 +1835,11 @@ p.button-text.white-text {
 </div>
 </a>
 <div class="nav-dropdown-menu">
-<a class="nav-dropdown-item" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">Import Trading &amp; Supply</a>
-<a class="nav-dropdown-item" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">Bulk Fuel Supply &amp; Distribution</a>
-<a class="nav-dropdown-item" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">Infrastructure &amp; Midstream Services</a>
-<a class="nav-dropdown-item" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">Fuel Management Solutions</a>
-<a class="nav-dropdown-item" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">Oils &amp; Lubricants</a></div>
+<a class="nav-dropdown-item" href="Services/Services Sub Page 1/website/Services Sub Page 1.html">Import Trading &amp; Supply</a>
+<a class="nav-dropdown-item" href="Services/Services Sub Page 2/website/Services Sub Page 2.html">Bulk Fuel Supply &amp; Distribution</a>
+<a class="nav-dropdown-item" href="Services/Services Sub Page 3/website/Services Sub Page 3.html">Infrastructure &amp; Midstream Services</a>
+<a class="nav-dropdown-item" href="Services/Services Sub Page 4/website/Services Sub Page 4.html">Fuel Management Solutions</a>
+<a class="nav-dropdown-item" href="Services/Services Sub Page 5/website/Services Sub Page 5.html">Oils &amp; Lubricants</a></div>
 </li>
 <li class="nav-list">
 <a class="nav-link small w-inline-block" href="News/News Main Page/website/News Main Page.html">
@@ -3618,34 +3618,40 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- MOBILE NAV ARROW DROPDOWN JS FIX -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Only apply on mobile view
-    if (window.innerWidth <= 991) {
-        const chevrons = document.querySelectorAll('.w-nav-menu .dropdown-chevron');
-        
-        chevrons.forEach(function(chevron) {
-            chevron.addEventListener('click', function(e) {
-                // Prevent the click from triggering the main link
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 991) {
+            const chevron = e.target.closest('.dropdown-chevron');
+            if (chevron) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Find the associated dropdown menu
                 const wrapper = chevron.closest('.nav-dropdown-wrapper');
                 if (wrapper) {
-                    const dropdown = wrapper.querySelector('.nav-dropdown-menu');
-                    if (dropdown) {
-                        // Toggle visibility
-                        wrapper.classList.toggle('open');
-                        // Rotate arrow
-                        if (wrapper.classList.contains('open')) {
-                            chevron.style.transform = 'rotate(180deg)';
-                        } else {
-                            chevron.style.transform = 'rotate(0deg)';
+                    const isOpen = wrapper.classList.contains('open');
+                    
+                    // Auto collapse all other open sub-page dropdowns
+                    document.querySelectorAll('.nav-dropdown-wrapper').forEach(function(other) {
+                        if (other !== wrapper) {
+                            other.classList.remove('open');
+                            const otherChev = other.querySelector('.dropdown-chevron');
+                            if (otherChev) {
+                                otherChev.style.transform = 'rotate(0deg)';
+                            }
                         }
+                    });
+                    
+                    // Toggle clicked dropdown
+                    if (isOpen) {
+                        wrapper.classList.remove('open');
+                        chevron.style.transform = 'rotate(0deg)';
+                    } else {
+                        wrapper.classList.add('open');
+                        chevron.style.transform = 'rotate(180deg)';
                     }
                 }
-            });
-        });
-    }
+            }
+        }
+    }, true);
 });
 </script>
 
@@ -3684,6 +3690,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
