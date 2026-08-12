@@ -1479,9 +1479,20 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
-<style id="hero-slider-mobile-fix-css">
+<style id="force-hero-visibility-css">
+/* Force all slide text, subheadings, and content to remain 100% visible at all times */
+.hero-one-title-small,
+.hero-one-title,
+.hero-one-content,
+.hero-one-content *,
+.hero-one-slide,
+.hero-one-slide * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 @media screen and (max-width: 991px) {
-    /* 1. Responsive Title & Subtitle for Mobile */
+    /* Responsive title & subtitle sizing on mobile */
     .hero-one-title-small {
         font-size: 13.5px !important;
         line-height: 20px !important;
@@ -1501,14 +1512,13 @@ p.button-text-hover {
         font-weight: 800 !important;
     }
 
-    /* 2. Full width content column on mobile */
     .hero-one-content {
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* 3. Hide heavy right graphic & button on mobile */
+    /* Hide heavy right graphic & button on mobile as requested */
     .hero-one-wrapper {
         display: none !important;
     }
