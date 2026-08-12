@@ -11393,3 +11393,7 @@ figcaption {
 .client-log-one:hover .filter-white {
   filter: none !important;
 }
+
+/* Button text color fix */
+.button-link .button-text { color: #000000 !important; }
+.button-link .button-text-hover { color: #ffffff !important; }
