@@ -213,12 +213,15 @@
             width: 100% !important;
         }
         .dropdown-chevron {
+
             margin-left: auto !important;
             padding: 10px !important;
             width: 32px !important;
             height: 32px !important;
             box-sizing: content-box !important;
-        }
+        
+        fill: none !important;
+    }
         
         /* 3. Fix scroll up/down for ALL pages */
         /* duplicate nav overlay block removed */
@@ -265,6 +268,7 @@
 
         /* The Box around the Arrow (Like PC Button) */
         .w-nav-menu .dropdown-chevron {
+
             margin-left: auto !important;
             width: 40px !important;
             height: 40px !important;
@@ -278,7 +282,9 @@
             justify-content: center !important;
             pointer-events: auto !important; /* Ensure it receives clicks */
             z-index: 100 !important;
-        }
+        
+        fill: none !important;
+    }
 
         /* Make sure dropdown menu displays properly when active */
         .w-nav-menu .nav-dropdown-menu {
@@ -293,6 +299,7 @@
         }
     }
 
+    .dropdown-chevron * { fill: none !important; stroke: #000000 !important; }
 </style>
 <style id="nav-hover-dropdown-css">
     .nav-link {
@@ -347,7 +354,10 @@
         transform: translateY(0px) !important;
     }
     .nav-dropdown-wrapper:hover .dropdown-chevron {
+
         transform: rotate(180deg) !important;
+    
+        fill: none !important;
     }
     .nav-dropdown-item {
         display: block !important;
@@ -962,6 +972,7 @@ div[class*="scroll-to-top"] {
 
     /* 6. Arrow (Chevron) - Simple Black, Far Right, Rotates Down/Up */
     .dropdown-chevron {
+
         display: inline-flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -975,10 +986,15 @@ div[class*="scroll-to-top"] {
         cursor: pointer !important;
         transition: transform 0.3s ease !important;
         transform: rotate(0deg) !important;
+    
+        fill: none !important;
     }
 
     .nav-dropdown-wrapper.open .dropdown-chevron {
+
         transform: rotate(180deg) !important;
+    
+        fill: none !important;
     }
 
     /* 7. Dropdown Subpages accordion styling */
