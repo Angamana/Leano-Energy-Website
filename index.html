@@ -1479,20 +1479,48 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
-<style id="force-hero-visibility-css">
-/* Force all slide text, subheadings, and content to remain 100% visible at all times */
-.hero-one-title-small,
-.hero-one-title,
-.hero-one-content,
-.hero-one-content *,
-.hero-one-slide,
-.hero-one-slide * {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
-
+<style id="hero-slider-mobile-fix-css">
 @media screen and (max-width: 991px) {
-    /* Responsive title & subtitle sizing on mobile */
+    /* 1. Hero section responsive height and padding */
+    .hero-one-section, .w-slider {
+        height: auto !important;
+        min-height: 440px !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .hero-one-section-wrap, .w-slide, .hero-one-slide {
+        height: 100% !important;
+        min-height: 400px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .hero-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Hero Content full width on mobile */
+    .hero-one-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        z-index: 10 !important;
+        position: relative !important;
+    }
+
+    .hero-one-title-wrapper, .hero-one-title-wrap {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
     .hero-one-title-small {
         font-size: 13.5px !important;
         line-height: 20px !important;
@@ -1512,19 +1540,14 @@ p.button-text-hover {
         font-weight: 800 !important;
     }
 
-    .hero-one-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Hide heavy right graphic & button on mobile as requested */
-    .hero-one-wrapper {
+    /* Hide button in hero section on mobile as requested */
+    .hero-one-content .button-wrap,
+    .hero-one-content .button-link {
         display: none !important;
     }
 
-    .hero-one-content .button-wrap,
-    .hero-one-content .button-link {
+    /* 3. Hide heavy right graphic on mobile */
+    .hero-one-wrapper {
         display: none !important;
     }
 }
