@@ -958,13 +958,13 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 </style>
 <style id="universal-side-widget-toggle-css">
 /* ==========================================
-   UNIVERSAL SIDE WIDGET TOGGLE BUTTON (ALL SCREENS)
+   UNIVERSAL SIDE WIDGET TOGGLE & ALIGNMENT FIX (ALL SCREENS)
    ========================================== */
 #mobile-widget-toggle {
     display: flex !important;
     position: fixed !important;
     right: 0 !important;
-    top: 56% !important;
+    top: 50% !important;
     transform: translateY(-50%) !important;
     z-index: 999999 !important;
     background: #f37021 !important;
@@ -975,43 +975,55 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     justify-content: center !important;
     cursor: pointer !important;
     box-shadow: -2px 4px 12px rgba(0,0,0,0.25) !important;
-    transition: background 0.2s ease !important;
+    transition: background 0.2s ease, transform 0.3s ease !important;
 }
 
 .fuel-side-tabs,
 .order-side-tab-container {
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
-/* Default state: Hidden off-screen */
-.fuel-side-tabs:not(.mobile-peek):not(.open) {
-    top: 55% !important;
+/* 1. Alignment relative to arrow button:
+   - Bottom of Fuel Prices widget is 15px above top of arrow button
+   - Top of Order Now widget is 15px below bottom of arrow button
+*/
+.fuel-side-tabs {
+    position: fixed !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
+    transform: none !important;
     z-index: 99999 !important;
-    right: -360px !important;
-    transform: translateY(-50%) !important;
 }
 
-.order-side-tab-container:not(.mobile-peek):not(.open) {
-    top: 58% !important;
-    right: -140px !important;
-    transform: translateX(250%) !important;
+.order-side-tab-container {
+    position: fixed !important;
+    top: calc(50% + 36px) !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 99999 !important;
 }
 
-/* Peek state (when toggle button is clicked): Both widget tabs pop into view */
+/* 2. Unpressed / Hidden state: Pushed completely off-screen (no peeking) */
+.fuel-side-tabs:not(.mobile-peek):not(.open) {
+    right: -420px !important;
+}
+
+.order-side-tab-container:not(.mobile-peek) {
+    right: -200px !important;
+}
+
+/* 3. Pressed / Peek state: Both widgets slide out into view */
 .fuel-side-tabs.mobile-peek:not(.open) {
     right: -320px !important;
-    transform: translateY(-50%) !important;
 }
 
 .order-side-tab-container.mobile-peek {
     right: 0 !important;
-    transform: translateX(0) !important;
 }
 
-/* Open state (when Fuel Prices tab itself is clicked) */
+/* 4. Full Open state (when Fuel Prices tab itself is clicked) */
 .fuel-side-tabs.open {
     right: 0 !important;
-    transform: translateY(-50%) !important;
 }
 </style>
 
@@ -3043,6 +3055,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
