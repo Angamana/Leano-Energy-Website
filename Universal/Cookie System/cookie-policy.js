@@ -74,10 +74,11 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                     </div>
                 </div>
-                <div class="cookie-modal-footer">
-                    <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn">Save Preferences</button>
-                    <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn">Reject All</button>
-                    <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAllBtn">Accept All</button>
+                
+                <div class="cookie-modal-footer" style="display: flex !important; flex-direction: column !important; gap: 12px !important; width: 100% !important;">
+                    <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAllBtn" style="width: 100% !important; display: block !important; margin: 0 !important;">Accept All</button>
+                    <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn" style="width: 100% !important; display: block !important; margin: 0 !important;">Reject All</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn" style="width: 100% !important; display: block !important; margin: 0 !important;">Save Preferences</button>
                 </div>
             </div>
         </div>
