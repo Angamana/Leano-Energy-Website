@@ -218,17 +218,6 @@
         fill: none !important;
     }
 
-        /* Make sure dropdown menu displays properly when active */
-        .w-nav-menu .nav-dropdown-menu {
-            display: none; /* Handled by JS now */
-            flex-direction: column;
-            width: 100% !important;
-            background-color: #f4f4f4 !important;
-            padding-left: 10px !important;
-        }
-        .w-nav-menu .nav-dropdown-menu.active {
-            display: flex !important;
-        }
     }
 
     .dropdown-chevron * { fill: none !important; stroke: #000000 !important; }
@@ -2468,6 +2457,59 @@ p.button-text.white-text {
 </div>
 </div>
 </div>
+<div class="service-one">
+<div class="service-one-heading-content">
+<div class="service-one-heading-wrap">
+<div class="service-one-number">05</div>
+<div class="service-one-title">Oils &amp; Lubricants</div>
+</div>
+<div class="service-one-arrow-wrap">
+<img alt="right-arrow" class="service-one-arrow" loading="lazy" src="Universal/images/6933ba08fa866f743fd9ca6d_right-arrow.svg"/>
+</div>
+</div>
+<div class="service-one-content-wrapper">
+<div class="service-one-content-wrap">
+<div class="service-one-content">
+<div class="service-one-category-list">
+<div class="service-one-category">Lubricants</div>
+<div class="service-one-category">Oils</div>
+</div>
+</div>
+<div class="w-layout-grid service-one-image-grid">
+<div class="service-one-image-wrap">
+<img alt="Oils and Lubricants" class="service-one-preview" height="Auto" loading="lazy" sizes="(max-width: 700px) 100vw, 700px" src="Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%201.jpg" srcset="Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%201.jpg 500w, Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%201.jpg 800w" width="Auto"/>
+</div>
+<div class="service-one-image-wrap display-none-480">
+<img alt="Oils and Lubricants Portfolio" class="service-one-preview" height="Auto" loading="lazy" sizes="(max-width: 700px) 100vw, 700px" src="Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%202.jpg" srcset="Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%202.jpg 500w, Services/Services%20Main%20Page/images/Oils%20and%20Lubricants%202.jpg 800w" width="Auto"/>
+</div>
+</div>
+<div class="service-one-desc-wrap">
+<div class="service-one-desc">
+                            Comprehensive automotive, heavy-duty commercial, agricultural, and industrial lubricant solutions.
+                            <br/><br/>
+<strong>Features:</strong> 6 product categories, industrial breakdown, specialized greases &amp; functional fluids.
+                        </div>
+<div class="button-wrap">
+<a class="button-link w-inline-block" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">
+<div class="button-arrow-bg-color hover-dark">
+<div class="button-arrow-wrap">
+<img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933ba08fa866f743fd9ca6d_right-arrow.svg"/>
+<img alt="right-arrow" class="button-arrow-hover filter-white" loading="lazy" src="Universal/images/6933ba08fa866f743fd9ca6d_right-arrow.svg"/>
+</div>
+</div>
+<div class="button-text-wrapper dark-bg">
+<div class="button-text-wrap">
+<p class="button-text white-text">Read More</p>
+<p class="button-text-hover">Read More</p>
+</div>
+<div class="button-text-bg-color"></div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="overflow-hidden">
 <div class="slider-responsive w-slider" data-animation="slide" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="500" data-easing="ease" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
@@ -3592,9 +3634,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     const dropdown = wrapper.querySelector('.nav-dropdown-menu');
                     if (dropdown) {
                         // Toggle visibility
-                        dropdown.classList.toggle('active');
+                        wrapper.classList.toggle('open');
                         // Rotate arrow
-                        if (dropdown.classList.contains('active')) {
+                        if (wrapper.classList.contains('open')) {
                             chevron.style.transform = 'rotate(180deg)';
                         } else {
                             chevron.style.transform = 'rotate(0deg)';
@@ -3642,3 +3684,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
+
+
