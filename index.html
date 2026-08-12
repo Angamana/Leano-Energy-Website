@@ -1479,48 +1479,13 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
-<style id="hero-slider-mobile-fix-css">
+<style id="hero-clean-mobile-css">
 @media screen and (max-width: 991px) {
-    /* 1. Hero section responsive height and padding */
-    .hero-one-section, .w-slider {
-        height: auto !important;
-        min-height: 440px !important;
+    .hero-one-section {
+        min-height: 420px !important;
         padding-top: 100px !important;
         padding-bottom: 40px !important;
     }
-
-    .hero-one-section-wrap, .w-slide, .hero-one-slide {
-        height: 100% !important;
-        min-height: 400px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
-
-    .hero-container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 2. Hero Content full width on mobile */
-    .hero-one-content {
-        width: 100% !important;
-        max-width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        justify-content: center !important;
-        z-index: 10 !important;
-        position: relative !important;
-    }
-
-    .hero-one-title-wrapper, .hero-one-title-wrap {
-        width: 100% !important;
-        overflow: visible !important;
-    }
-
     .hero-one-title-small {
         font-size: 13.5px !important;
         line-height: 20px !important;
@@ -1530,31 +1495,29 @@ p.button-text-hover {
         font-weight: 700 !important;
         text-transform: uppercase !important;
     }
-
     .hero-one-title {
         font-size: 32px !important;
         line-height: 38px !important;
         color: #ffffff !important;
         margin-bottom: 0 !important;
-        text-align: left !important;
         font-weight: 800 !important;
     }
-
-    /* Hide button in hero section on mobile as requested */
-    .hero-one-content .button-wrap,
-    .hero-one-content .button-link {
+    .hero-one-content {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .hero-one-wrapper {
         display: none !important;
     }
-
-    /* 3. Hide heavy right graphic on mobile */
-    .hero-one-wrapper {
+    .hero-one-content .button-wrap,
+    .hero-one-content .button-link {
         display: none !important;
     }
 }
 </style>
 </head>
 <body>
-<div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
+<div class="hero-one-section">
 <header class="header header-one" style="border-bottom: none !important;">
 <div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
 <div class="w-layout-blockcontainer container w-container">
@@ -1661,55 +1624,26 @@ p.button-text-hover {
 </div>
 </div>
 </header>
-<div class="w-slider-mask">
-<div class="hero-one-section-wrap w-slide">
-<div class="hero-one-slide">
-<div class="w-layout-blockcontainer container hero-container w-container">
+<div class="hero-one-slide" style="position: relative; min-height: 520px; display: flex; align-items: center; overflow: hidden;">
+<div class="w-layout-blockcontainer container hero-container w-container" style="position: relative; z-index: 10; width: 100%;">
 <div class="hero-one-content">
 <div class="hero-one-title-wrapper">
 <div class="hero-one-title-wrap">
-<div class="overflow-hidden">
-<div class="hero-one-title-small">South Africa's Premier Energy Solutions</div>
+<div class="hero-one-title-small" style="color: #f37021; font-weight: 700; text-transform: uppercase; margin-bottom: 10px;">SOUTH AFRICA'S PREMIER ENERGY SOLUTIONS</div>
+<h1 class="hero-one-title" style="color: #ffffff; font-weight: 800;">EMPOWERING INDUSTRIES, RELIABLY</h1>
 </div>
-<div class="overflow-hidden">
-<h1 class="hero-one-title">
-            Empowering Industries, Reliably
-           </h1>
-</div>
-</div>
-</div>
-<div class="overflow-hidden">
-    <div class="button-wrap">
-        <a class="button-link w-inline-block" href="About%20Us/website/About%20Us.html">
-            <div class="button-arrow-bg-color">
-                <div class="button-arrow-wrap">
-                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                </div>
-            </div>
-            <div class="button-text-wrapper">
-                <div class="button-text-wrap">
-                    <p class="button-text">Discover More</p>
-                    <p class="button-text-hover">Discover More</p>
-                </div>
-                <div class="button-text-bg-color"></div>
-            </div>
-        </a>
-    </div>
 </div>
 </div>
 <div class="hero-one-wrapper">
 <div class="overflow-hidden">
 <div class="hero-one-image-wrapper">
 <div class="hero-one-img-wrap">
-<div class="text-style-h4 hero-one-small-text">
-            Comprehensive Fuel Management
-           </div>
-<a class="button-link hero-one-button-link w-inline-block" data-w-id="4f9e9fd7-dc60-1381-95a2-87fc5ee6a5eb" href="About%20Us/website/About%20Us.html">
+<div class="text-style-h4 hero-one-small-text">Comprehensive Fuel Management</div>
+<a class="button-link hero-one-button-link w-inline-block" href="About%20Us/website/About%20Us.html">
 <div class="button-arrow-bg-color bg-white" style="background-color:rgb(255,255,255)">
 <div class="button-arrow-wrap">
-<img alt="right-arrow" class="button-arrow" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
-<img alt="right-arrow" class="button-arrow-hover" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
+<img alt="right-arrow" class="button-arrow" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+<img alt="right-arrow" class="button-arrow-hover" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
 </div>
 </div>
 </a>
@@ -1718,187 +1652,18 @@ p.button-text-hover {
 </div>
 </div>
 <div class="hero-one-title-two-wrap">
-<h2 class="hero-one-title-two">
-          Deliver
-         </h2>
-<div class="hero-one-title-two-desc">
-          Exceptional Quality for a Dynamic Economy
-         </div>
-<h2 class="hero-one-title-two second" id="w-node-_7b2b062f-c064-fc18-8922-092bed255de7-bc39b02d">
-          with Precision
-         </h2>
+<h2 class="hero-one-title-two">Deliver</h2>
+<div class="hero-one-title-two-desc">Exceptional Quality for a Dynamic Economy</div>
+<h2 class="hero-one-title-two second">with Precision</h2>
 </div>
 </div>
 </div>
-<img alt="slider-01-01" class="hero-one-bg-image" src="Index/Index Main Page/images/Slider%201.png?v=20260728_slider_update"/>
-<div class="hero-one-overlay-one">
-</div>
-<div class="hero-one-overlay-two">
-</div>
+<img alt="slider-01-01" class="hero-one-bg-image" src="Index/Index Main Page/images/Slider%201.png?v=20260728_slider_update" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"/>
+<div class="hero-one-overlay-one" style="z-index: 2;"></div>
+<div class="hero-one-overlay-two" style="z-index: 3;"></div>
 </div>
 </div>
-<div class="hero-one-section-wrap w-slide">
-<div class="hero-one-slide">
-<div class="w-layout-blockcontainer container hero-container w-container">
-<div class="hero-one-content">
-<div class="hero-one-title-wrapper">
-<div class="hero-one-title-wrap">
-<div class="overflow-hidden">
-<div class="hero-one-title-small">
-            Strategic Wholesale Petroleum
-           </div>
-</div>
-<div class="overflow-hidden">
-<h1 class="hero-one-title">
-            Optimizing Supply, Seamlessly
-           </h1>
-</div>
-</div>
-</div>
-<div class="overflow-hidden">
-    <div class="button-wrap">
-        <a class="button-link w-inline-block" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">
-            <div class="button-arrow-bg-color">
-                <div class="button-arrow-wrap">
-                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                </div>
-            </div>
-            <div class="button-text-wrapper">
-                <div class="button-text-wrap">
-                    <p class="button-text">Explore Services</p>
-                    <p class="button-text-hover">Explore Services</p>
-                </div>
-                <div class="button-text-bg-color"></div>
-            </div>
-        </a>
-    </div>
-</div>
-</div>
-<div class="hero-one-wrapper">
-<div class="overflow-hidden">
-<div class="hero-one-image-wrapper">
-<div class="hero-one-img-wrap">
-<div class="text-style-h4 hero-one-small-text">
-            Strategic Import &amp; Distribution
-           </div>
-<a class="button-link hero-one-button-link w-inline-block" data-w-id="063be65b-0845-c799-0573-90eae32138fe" href="About%20Us/website/About%20Us.html">
-<div class="button-arrow-bg-color bg-white" style="background-color:rgb(255,255,255)">
-<div class="button-arrow-wrap">
-<img alt="right-arrow" class="button-arrow" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
-<img alt="right-arrow" class="button-arrow-hover" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
-</div>
-</div>
-</a>
-</div>
-<img alt="hero-one-man-img" class="hero-one-man-image" loading="eager" src="Index/Index Main Page/images/Hero%20Graphic.png"/>
-</div>
-</div>
-<div class="hero-one-title-two-wrap">
-<h2 class="hero-one-title-two">
-          Source
-         </h2>
-<div class="hero-one-title-two-desc">
-          Robust Infrastructure for Uninterrupted Operations
-         </div>
-<h2 class="hero-one-title-two second" id="w-node-_063be65b-0845-c799-0573-90eae3213909-bc39b02d">
-          with Excellence
-         </h2>
-</div>
-</div>
-</div>
-<img alt="slider-01-02" class="hero-one-bg-image" src="Index/Index Main Page/images/Slider%202.png?v=20260728_slider_update"/>
-<div class="hero-one-overlay-one">
-</div>
-<div class="hero-one-overlay-two">
-</div>
-</div>
-</div>
-<div class="hero-one-section-wrap w-slide">
-<div class="hero-one-slide">
-<div class="w-layout-blockcontainer container hero-container w-container">
-<div class="hero-one-content">
-<div class="hero-one-title-wrapper">
-<div class="hero-one-title-wrap">
-<div class="overflow-hidden">
-<div class="hero-one-title-small">Nationwide Bulk Fuel &amp; Wholesale Energy Solutions</div>
-</div>
-<div class="overflow-hidden">
-<h1 class="hero-one-title">
-            Driving Performance, Sustainably
-           </h1>
-</div>
-</div>
-</div>
-<div class="overflow-hidden">
-    <div class="button-wrap">
-        <a class="button-link w-inline-block" href="Order/website/Order.html">
-            <div class="button-arrow-bg-color">
-                <div class="button-arrow-wrap">
-                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
-                </div>
-            </div>
-            <div class="button-text-wrapper">
-                <div class="button-text-wrap">
-                    <p class="button-text">Order Fuel Online</p>
-                    <p class="button-text-hover">Order Fuel Online</p>
-                </div>
-                <div class="button-text-bg-color"></div>
-            </div>
-        </a>
-    </div>
-</div>
-</div>
-<div class="hero-one-wrapper">
-<div class="overflow-hidden">
-<div class="hero-one-image-wrapper">
-<div class="hero-one-img-wrap">
-<div class="text-style-h4 hero-one-small-text">
-            Reliable Bulk Fuel Supply
-           </div>
-<a class="button-link hero-one-button-link w-inline-block" data-w-id="fc977318-cd72-597e-a58b-6556729491a0" href="About%20Us/website/About%20Us.html">
-<div class="button-arrow-bg-color bg-white" style="background-color:rgb(255,255,255)">
-<div class="button-arrow-wrap">
-<img alt="right-arrow" class="button-arrow" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
-<img alt="right-arrow" class="button-arrow-hover" loading="eager" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg" style="-webkit-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"/>
-</div>
-</div>
-</a>
-</div>
-<img alt="hero-one-man-img" class="hero-one-man-image" loading="eager" src="Index/Index Main Page/images/Hero%20Graphic.png"/>
-</div>
-</div>
-<div class="hero-one-title-two-wrap">
-<h2 class="hero-one-title-two">
-          Supply
-         </h2>
-<div class="hero-one-title-two-desc">
-          Integrated Solutions for High-Demand Markets
-         </div>
-<h2 class="hero-one-title-two second" id="w-node-fc977318-cd72-597e-a58b-6556729491ab-bc39b02d">
-          with Integrity
-         </h2>
-</div>
-</div>
-</div>
-<img alt="slider-01-03" class="hero-one-bg-image" src="Index/Index Main Page/images/Slider%203.png?v=20260728_slider_update"/>
-<div class="hero-one-overlay-one">
-</div>
-<div class="hero-one-overlay-two">
-</div>
-</div>
-</div>
-</div>
-<div class="hero-arrow-wrap w-slider-arrow-left" data-w-id="b0ad5ef6-4b8d-9985-23e4-195df2713c0a">
-<img alt="right-arrow" class="hero-one-arrow right-arrow filter-white" src="Universal/images/6933ba08fa866f743fd9ca6d_right-arrow.svg"/>
-</div>
-<div class="hero-arrow-wrap right w-slider-arrow-right" data-w-id="b0ad5ef6-4b8d-9985-23e4-195df2713c0c">
-<img alt="right-arrow" class="hero-one-arrow filter-white" src="Universal/images/6933ba08fa866f743fd9ca6d_right-arrow.svg"/>
-</div>
-<div class="hero-slider-dot display-none w-slider-nav w-round">
-</div>
-</div>
+
 <section class="marquee-section">
 <div class="marquee">
 <div class="marquee-wrap"><div class="marquee-text">MAXIMISE FUEL EFFICIENCY &amp; CUT OPERATIONAL COSTS</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/><div class="marquee-text">GUARANTEED HIGH-PERFORMANCE REFINERY-DIRECT FUELS</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/><div class="marquee-text">EMPOWERING MINING, FLEETS, MUNICIPALITIES &amp; INDUSTRY</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/><div class="marquee-text">UNMATCHED FUEL INTEGRITY THAT KEEPS YOUR BUSINESS MOVING</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/><div class="marquee-text">ELIMINATE FUEL WASTAGE WITH AUTOMATED TELEMETRY</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/><div class="marquee-text">PREMIUM DIESEL, PETROL, OILS &amp; LUBRICANTS DELIVERED ON TIME</div><img alt="plus" class="marquee-img" src="Universal/images/690044d88937384b23b1dd25_plus.png"/>
