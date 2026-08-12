@@ -1858,7 +1858,7 @@ p.button-text-hover {
 }
 </style>
 <div class="fuel-side-tabs" id="fuel-side-panel">
-<div class="fuel-main-tab-btn" onclick="document.getElementById('fuel-side-panel').classList.toggle('open');"><svg fill="none" height="15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 6px; transform: rotate(90deg);" viewbox="0 0 24 24" width="15"><path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"></path><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path><rect height="4" width="4" x="6" y="6"></rect></svg><span>FUEL PRICES</span></div>
+<div class="fuel-main-tab-btn" onclick="document.getElementById('fuel-side-panel').classList.toggle('open');"><svg fill="none" height="15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 8px;" viewbox="0 0 24 24" width="15"><path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"></path><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path><rect height="4" width="4" x="6" y="6"></rect></svg><span>FUEL PRICES</span></div>
 <div class="fuel-panel-container">
 <div class="fuel-inner-tabs">
 <div class="fuel-inner-tab active" id="tab-btn-petrol" onclick="document.getElementById('content-petrol').classList.add('active'); document.getElementById('content-diesel').classList.remove('active'); document.getElementById('tab-btn-petrol').classList.add('active'); document.getElementById('tab-btn-diesel').classList.remove('active');">PETROL</div>
@@ -1988,7 +1988,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="order-fuel-side-widget">
 <a class="order-side-tab-container" href="../../Order/website/Order.html" title="Order Now Online">
 <div class="order-main-tab-btn">
-<svg fill="none" height="15" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 6px; transform: rotate(90deg);" viewbox="0 0 24 24" width="15"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+<svg fill="none" height="15" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 8px;" viewbox="0 0 24 24" width="15"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 <span>ORDER NOW</span>
 </div>
 </a>
@@ -2008,7 +2008,7 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #f37021 !important;
     border: 2px solid #f37021 !important;
     border-right: none !important;
-    writing-mode: vertical-rl !important;
+    writing-mode: horizontal-tb !important;
     transform: none !important;
     padding: 14px 10px !important;
     font-family: 'Montserrat', sans-serif !important;
@@ -2025,16 +2025,20 @@ document.addEventListener("DOMContentLoaded", function() {
     transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-.order-main-tab-btn span {
-    writing-mode: vertical-rl !important;
-    transform: rotate(0deg) !important;
-    display: inline-block !important;
-}
-
 .order-main-tab-btn svg {
     stroke: #f37021 !important;
     color: #f37021 !important;
+    margin-bottom: 8px !important;
+    margin-right: 0 !important;
+    transform: none !important;
+    display: block !important;
     transition: stroke 0.2s ease, color 0.2s ease !important;
+}
+
+.order-main-tab-btn span {
+    writing-mode: vertical-rl !important;
+    transform: rotate(180deg) !important;
+    display: inline-block !important;
 }
 
 .order-side-tab-container:hover .order-main-tab-btn {
