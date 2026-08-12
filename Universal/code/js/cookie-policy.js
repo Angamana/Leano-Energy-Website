@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Determine base path
+    // 1. Inject Scroll-to-Top CSS if missing
     let basePath = "";
     const scripts = document.getElementsByTagName('script');
     for (let i = 0; i < scripts.length; i++) {
@@ -9,12 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
             break;
         }
     }
-
-    // 1. Inject Scroll-to-Top CSS
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = basePath + "../css/scroll-to-top.css";
-    document.head.appendChild(link);
+    if (basePath) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = basePath + "../css/scroll-to-top.css";
+        document.head.appendChild(link);
+    }
 
     // 2. Inject Cookie CSS
     if (!document.getElementById("cookie-policy-styles")) {
@@ -75,13 +75,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 background-color: #ffffff !important;
                 border-radius: 16px !important;
                 width: 90% !important;
-                max-width: 660px !important;
-                padding: 36px 42px !important;
+                max-width: 520px !important;
+                padding: 32px !important;
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
                 transform: translateY(20px) !important;
                 transition: transform 0.3s ease !important;
                 font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif !important;
                 color: #222222 !important;
+                box-sizing: border-box !important;
             }
             .cookie-modal-overlay.active .cookie-modal {
                 transform: translateY(0) !important;
@@ -101,11 +102,12 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-modal-close {
                 background: none !important;
                 border: none !important;
-                font-size: 28px !important;
+                font-size: 26px !important;
                 cursor: pointer !important;
                 color: #888888 !important;
                 transition: color 0.2s ease !important;
                 line-height: 1 !important;
+                padding: 0 !important;
             }
             .cookie-modal-close:hover {
                 color: #f37021 !important;
@@ -115,6 +117,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 line-height: 1.6 !important;
                 color: #555555 !important;
                 margin-bottom: 24px !important;
+            }
+            .cookie-modal-body p {
+                margin-top: 0 !important;
+                margin-bottom: 16px !important;
             }
             .cookie-toggles {
                 margin-top: 16px !important;
@@ -126,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 align-items: center !important;
                 padding: 12px 0 !important;
                 border-bottom: 1px solid #eeeeee !important;
+                gap: 16px !important;
             }
             .cookie-toggle-row:last-child {
                 border-bottom: none !important;
@@ -145,6 +152,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 display: inline-block !important;
                 width: 44px !important;
                 height: 24px !important;
+                flex-shrink: 0 !important;
             }
             .cookie-switch input {
                 opacity: 0 !important;
@@ -184,27 +192,30 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-modal-footer {
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 12px !important;
+                gap: 10px !important;
                 align-items: stretch !important;
+                width: 100% !important;
             }
             .cookie-btn {
                 width: 100% !important;
                 padding: 14px 20px !important;
-                border-radius: 8px !important;
+                border-radius: 10px !important;
                 font-weight: 600 !important;
                 font-size: 15px !important;
                 cursor: pointer !important;
                 transition: all 0.2s ease !important;
                 border: none !important;
                 font-family: inherit !important;
-                margin-bottom: 0 !important;
+                margin: 0 !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
             }
             .cookie-btn-secondary {
-                background-color: #f1f1f1 !important;
+                background-color: #f1f3f7 !important;
                 color: #333333 !important;
             }
             .cookie-btn-secondary:hover {
-                background-color: #e2e2e2 !important;
+                background-color: #e2e5ec !important;
             }
             .cookie-btn-primary {
                 background-color: #f37021 !important;
@@ -213,21 +224,18 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-btn-primary:hover {
                 background-color: #d95a10 !important;
             }
+            
             @media screen and (max-width: 600px) {
-    .cookie-modal-footer {
-                    
-                    
-                    align-items: stretch !important;
-                    gap: 10px !important;
-                
-        flex-direction: column !important;
-}
-                .cookie-btn {
-                    width: 100% !important;
-                    margin-bottom: 0 !important;
+                .cookie-modal-overlay {
+                    align-items: flex-end !important;
+                    padding: 0 !important;
                 }
                 .cookie-modal {
-                    max-height: 90vh !important;
+                    width: 100% !important;
+                    max-width: 100% !important;
+                    border-radius: 20px 20px 0 0 !important;
+                    padding: 24px 20px 32px 20px !important;
+                    max-height: 85vh !important;
                     overflow-y: auto !important;
                 }
             }
@@ -235,92 +243,96 @@ document.addEventListener("DOMContentLoaded", function() {
         document.head.appendChild(styleTag);
     }
 
-    // 3. Create Scroll-to-Top Button & Cookie Widget HTML (Exact original text restored)
-    const btnContainer = document.createElement("div");
-    btnContainer.innerHTML = `
-        <div id="scrollToTopBtn" class="scroll-to-top-btn" title="Scroll to top">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"></polyline>
-            </svg>
-        </div>
+    // 3. Inject Widget & Modal HTML
+    if (!document.getElementById("cookieWidgetBtn")) {
+        const btnContainer = document.createElement("div");
+        btnContainer.innerHTML = `
+            <div id="scrollToTopBtn" class="scroll-to-top-btn" title="Scroll to top">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                </svg>
+            </div>
 
-        <div class="cookie-widget-btn" id="cookieWidgetBtn" title="Cookie Preferences">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.24.03-.47.086-.69a1.005 1.005 0 0 0-1.261-1.261A2.955 2.955 0 0 1 15 6c-1.654 0-3-1.346-3-3 0-.17.016-.336.043-.5a1.004 1.004 0 0 0-1.127-1.127A9.957 9.957 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.323-.016-.64-.047-.954a1.006 1.006 0 0 0-.355-.682zM12 20c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 6.006-7.75A5.006 5.006 0 0 0 15 9l.101-.001a5.007 5.007 0 0 0 4.837 4C19.444 16.941 16.071 20 12 20z"/>
-                <circle cx="7.5" cy="14.5" r="1.5"/>
-                <circle cx="12" cy="11" r="1.5"/>
-                <circle cx="15.5" cy="16.5" r="1.5"/>
-                <circle cx="8" cy="9" r="1"/>
-            </svg>
-        </div>
+            <div class="cookie-widget-btn" id="cookieWidgetBtn" title="Cookie Preferences">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.24.03-.47.086-.69a1.005 1.005 0 0 0-1.261-1.261A2.955 2.955 0 0 1 15 6c-1.654 0-3-1.346-3-3 0-.17.016-.336.043-.5a1.004 1.004 0 0 0-1.127-1.127A9.957 9.957 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.323-.016-.64-.047-.954a1.006 1.006 0 0 0-.355-.682zM12 20c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 6.006-7.75A5.006 5.006 0 0 0 15 9l.101-.001a5.007 5.007 0 0 0 4.837 4C19.444 16.941 16.071 20 12 20z"/>
+                    <circle cx="7.5" cy="14.5" r="1.5"/>
+                    <circle cx="12" cy="11" r="1.5"/>
+                    <circle cx="15.5" cy="16.5" r="1.5"/>
+                    <circle cx="8" cy="9" r="1"/>
+                </svg>
+            </div>
 
-        <div class="cookie-modal-overlay" id="cookieModalOverlay">
-            <div class="cookie-modal">
-                <div class="cookie-modal-header">
-                    <h3 class="cookie-modal-title">Cookie Preferences</h3>
-                    <button class="cookie-modal-close" id="cookieModalClose">&times;</button>
-                </div>
-                <div class="cookie-modal-body">
-                    <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
-                    
-                    <div class="cookie-toggles">
-                        <div class="cookie-toggle-row">
-                            <div>
-                                <div class="cookie-toggle-label">Essential Cookies</div>
-                                <div class="cookie-toggle-desc">Required for the website to function properly. Cannot be disabled.</div>
+            <div class="cookie-modal-overlay" id="cookieModalOverlay">
+                <div class="cookie-modal">
+                    <div class="cookie-modal-header">
+                        <h3 class="cookie-modal-title">Cookie Preferences</h3>
+                        <button class="cookie-modal-close" id="cookieModalClose">&times;</button>
+                    </div>
+                    <div class="cookie-modal-body">
+                        <p>We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p>
+                        
+                        <div class="cookie-toggles">
+                            <div class="cookie-toggle-row">
+                                <div>
+                                    <div class="cookie-toggle-label">Essential Cookies</div>
+                                    <div class="cookie-toggle-desc">Required for the website to function properly. Cannot be disabled.</div>
+                                </div>
+                                <label class="cookie-switch">
+                                    <input type="checkbox" checked disabled>
+                                    <span class="cookie-slider"></span>
+                                </label>
                             </div>
-                            <label class="cookie-switch">
-                                <input type="checkbox" checked disabled>
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <div class="cookie-toggle-row">
-                            <div>
-                                <div class="cookie-toggle-label">Analytics Cookies</div>
-                                <div class="cookie-toggle-desc">Help us understand how visitors interact with the website.</div>
+                            <div class="cookie-toggle-row">
+                                <div>
+                                    <div class="cookie-toggle-label">Analytics Cookies</div>
+                                    <div class="cookie-toggle-desc">Help us understand how visitors interact with the website.</div>
+                                </div>
+                                <label class="cookie-switch">
+                                    <input type="checkbox" id="cookieAnalytics">
+                                    <span class="cookie-slider"></span>
+                                </label>
                             </div>
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookieAnalytics">
-                                <span class="cookie-slider"></span>
-                            </label>
-                        </div>
-                        <div class="cookie-toggle-row">
-                            <div>
-                                <div class="cookie-toggle-label">Marketing Cookies</div>
-                                <div class="cookie-toggle-desc">Used to track visitors across websites to display relevant ads.</div>
+                            <div class="cookie-toggle-row">
+                                <div>
+                                    <div class="cookie-toggle-label">Marketing Cookies</div>
+                                    <div class="cookie-toggle-desc">Used to track visitors across websites to display relevant ads.</div>
+                                </div>
+                                <label class="cookie-switch">
+                                    <input type="checkbox" id="cookieMarketing">
+                                    <span class="cookie-slider"></span>
+                                </label>
                             </div>
-                            <label class="cookie-switch">
-                                <input type="checkbox" id="cookieMarketing">
-                                <span class="cookie-slider"></span>
-                            </label>
                         </div>
                     </div>
-                </div>
-                
-                <div class="cookie-modal-footer">
-                    <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAllBtn">Accept All</button>
-                    <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn">Reject All</button>
-                    <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn">Save Preferences</button>
+                    
+                    <div class="cookie-modal-footer">
+                        <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAllBtn">Accept All</button>
+                        <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn">Reject All</button>
+                        <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn">Save Preferences</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    `;
-    document.body.appendChild(btnContainer);
+        `;
+        document.body.appendChild(btnContainer);
+    }
 
-    // Scroll to Top Logic
+    // 4. Scroll to Top Logic
     const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    window.addEventListener("scroll", function() {
-        if (window.scrollY > 500) {
-            scrollToTopBtn.classList.add("visible");
-        } else {
-            scrollToTopBtn.classList.remove("visible");
-        }
-    });
-    scrollToTopBtn.addEventListener("click", function() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    if (scrollToTopBtn) {
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add("visible");
+            } else {
+                scrollToTopBtn.classList.remove("visible");
+            }
+        });
+        scrollToTopBtn.addEventListener("click", function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 
-    // Cookie Logic
+    // 5. Cookie Modal Logic
     const cookieBtn = document.getElementById("cookieWidgetBtn");
     const overlay = document.getElementById("cookieModalOverlay");
     const closeBtn = document.getElementById("cookieModalClose");
@@ -350,7 +362,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (checkMarketing) checkMarketing.checked = prefs.marketing;
             triggerGA4(prefs.analytics);
         } else {
-            setTimeout(() => { if (overlay) overlay.classList.add("active"); }, 400);
+            // Auto open modal on first visit
+            setTimeout(() => { 
+                if (overlay) overlay.classList.add("active"); 
+            }, 300);
             triggerGA4(true);
         }
     };
