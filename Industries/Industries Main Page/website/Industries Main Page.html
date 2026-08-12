@@ -1323,6 +1323,15 @@ p.button-text-hover {
     }
 }
 </style>
+<style id="read-more-button-text-white-fix">
+/* Force white text when cursor is NOT hovering on dark-bg buttons (Our Solution, Our Services, Read More) */
+.button-text-wrapper.dark-bg .button-text,
+.button-text-wrapper.dark-bg p.button-text,
+.button-link .button-text-wrapper.dark-bg .button-text,
+p.button-text.white-text {
+    color: #ffffff !important;
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
