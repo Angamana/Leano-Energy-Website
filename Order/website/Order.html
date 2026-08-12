@@ -1177,6 +1177,21 @@ p.button-text-hover {
   }
 </style>
 
+<style id="fuel-widget-zindex-fix">
+/* Elevate fuel prices side panel above hero slider arrows and side buttons */
+.fuel-side-tabs, #fuel-side-panel {
+    z-index: 9999995 !important;
+}
+/* Ensure slider arrows stay at a normal lower layer */
+.w-slider-arrow-right, 
+.w-slider-arrow-left, 
+.hero-one-right-arrow, 
+.hero-one-left-arrow,
+.right-arrow,
+.left-arrow {
+    z-index: 10 !important;
+}
+</style>
 </head>
 <body class="survey-page-body">
 <div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;"><div class="w-layout-blockcontainer container w-container"><div class="navbar w-nav" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner">

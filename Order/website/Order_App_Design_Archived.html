@@ -564,6 +564,21 @@ p.button-text-hover {
   }
 </style>
 
+<style id="fuel-widget-zindex-fix">
+/* Elevate fuel prices side panel above hero slider arrows and side buttons */
+.fuel-side-tabs, #fuel-side-panel {
+    z-index: 9999995 !important;
+}
+/* Ensure slider arrows stay at a normal lower layer */
+.w-slider-arrow-right, 
+.w-slider-arrow-left, 
+.hero-one-right-arrow, 
+.hero-one-left-arrow,
+.right-arrow,
+.left-arrow {
+    z-index: 10 !important;
+}
+</style>
 </head>
 <body>
 <!-- Sidebar -->
