@@ -1018,12 +1018,12 @@ div[class*="scroll-to-top"] {
         height: auto !important;
     }
 
-    /* 2. REMOVE z-index from sections so widgets stay normally visible! */
+    /* 2. Remove z-index interference */
     .breadcrumb-section, .header, .header-main, .header-one, .w-layout-blockcontainer {
         z-index: auto !important;
     }
 
-    /* 3. Elevate ONLY the Navbar to cover Widgets */
+    /* 3. Elevate Navbar */
     .navbar.w-nav {
         z-index: 9999999 !important;
         position: relative !important;
@@ -1035,7 +1035,7 @@ div[class*="scroll-to-top"] {
         cursor: pointer !important;
     }
 
-    /* 4. Blurred Overlay Background - Fixed */
+    /* 4. Blurred Overlay Background */
     .w-nav-overlay {
         position: fixed !important;
         top: 0 !important;
@@ -1046,7 +1046,6 @@ div[class*="scroll-to-top"] {
         height: 100dvh !important;
         max-height: 100dvh !important;
         background: rgba(0, 0, 0, 0.7) !important;
-        background-color: rgba(0, 0, 0, 0.7) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
         z-index: 9999990 !important;
@@ -1054,22 +1053,21 @@ div[class*="scroll-to-top"] {
         overscroll-behavior-y: contain !important;
         -webkit-overflow-scrolling: touch !important;
         pointer-events: auto !important;
-        /* Note: No display: !important, let Webflow native toggle display */
     }
     .w-nav-menu:not(.w--open) { display: none !important; }
 
-    /* 5. Full Width Dropdown Menu */
+    /* 5. Mobile Nav Menu Drawer (White BG, Black Text, Left Aligned) */
     .w-nav-overlay .w-nav-menu, .w-nav-menu.w--open {
         position: absolute !important;
         top: 90px !important; 
         left: auto !important; 
         right: 0 !important;
-        width: 75vw !important;
-        max-width: 400px !important;
+        width: 80vw !important;
+        max-width: 360px !important;
         height: calc(100vh - 90px) !important;
         height: calc(100dvh - 90px) !important;
         max-height: calc(100dvh - 90px) !important;
-        padding-bottom: 80px !important; /* Extra padding to ensure last item is never cut off */
+        padding-bottom: 80px !important;
         background: #ffffff !important;
         background-color: #ffffff !important;
         box-shadow: -5px 15px 35px rgba(0, 0, 0, 0.25) !important;
@@ -1077,8 +1075,7 @@ div[class*="scroll-to-top"] {
         overflow-x: hidden !important;
         overscroll-behavior-y: contain !important;
         -webkit-overflow-scrolling: touch !important;
-        padding: 0 !important; min-height: 0 !important; font-size: 0 !important; line-height: 0 !important;
-        margin: 0 !important;
+        padding: 0 !important; margin: 0 !important;
         border-radius: 0 !important;
         z-index: 9999995 !important;
         display: flex !important;
@@ -1089,7 +1086,7 @@ div[class*="scroll-to-top"] {
         display: block !important;
         width: 100% !important;
         margin: 0 !important;
-        padding: 0 !important; min-height: 0 !important; font-size: 0 !important; line-height: 0 !important;
+        padding: 0 !important;
         border-bottom: 1px solid #f0f0f0 !important;
     }
 
@@ -1098,41 +1095,55 @@ div[class*="scroll-to-top"] {
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
-        padding: 18px 24px !important;
-        color: #ffffff; !important;
+        padding: 16px 20px !important;
+        color: #111111 !important;
         font-weight: 700 !important;
         font-size: 15px !important;
         text-transform: uppercase !important;
         text-decoration: none !important;
         box-sizing: border-box !important;
+        text-align: left !important;
     }
 
-    
-    .w-nav-overlay .nav-text, .w-nav-menu.w--open .nav-text {
-        color: #ffffff; !important;
+    .w-nav-overlay .nav-text-wrap, .w-nav-menu.w--open .nav-text-wrap {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
     }
-    \n    /* 6. Native Chevron Arrows */
+
+    .w-nav-overlay .nav-text, .w-nav-menu.w--open .nav-text {
+        color: #111111 !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        text-align: left !important;
+    }
+
+    /* 6. Arrow (Chevron) - Simple Black, Far Right, Rotates Down/Up */
     .dropdown-chevron {
-        display: inline-block !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         width: 16px !important;
         height: 16px !important;
-        transition: transform 0.3s ease !important;
+        stroke: #000000 !important;
+        color: #000000 !important;
+        margin-left: auto !important;
+        padding: 8px !important;
+        box-sizing: content-box !important;
         cursor: pointer !important;
-        color: #ffffff; !important;
-        padding: 4px !important;
-    }
-    
-    .nav-dropdown-wrapper.open > a.nav-link { /* Removed orange highlight */ }
-    
-    .nav-dropdown-wrapper:not(.open) .dropdown-chevron,
-    .nav-dropdown-wrapper:not(.open):hover .dropdown-chevron {
+        transition: transform 0.3s ease !important;
         transform: rotate(0deg) !important;
     }
-    \n    .nav-dropdown-wrapper.open .dropdown-chevron {
+
+    .nav-dropdown-wrapper.open .dropdown-chevron {
         transform: rotate(180deg) !important;
     }
 
-    /* 7. Dropdown Subpages styling */
+    /* 7. Dropdown Subpages accordion styling */
     .nav-dropdown-menu, .nav-dropdown-content, .w-dropdown-list {
         display: block !important;
         max-height: 0 !important;
@@ -1140,28 +1151,29 @@ div[class*="scroll-to-top"] {
         position: static !important;
         width: 100% !important;
         background: #f8f8f8 !important;
-        border: none !important; border-radius: 0 !important; border-left: 4px solid #f37021 !important;
-        padding: 0 !important; min-height: 0 !important; font-size: 0 !important; line-height: 0 !important;
+        border: none !important;
+        border-left: 4px solid #f37021 !important;
+        padding: 0 !important;
         margin: 0 !important;
         box-shadow: none !important;
-        border-radius: 0 !important;
         box-sizing: border-box !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
-        transform: translateY(0px) !important;
         transition: max-height 0.35s ease-in-out, padding 0.35s ease-in-out !important;
     }
+
     .nav-dropdown-wrapper.open > .nav-dropdown-menu,
     .nav-dropdown-wrapper.open > .nav-dropdown-content,
     .nav-dropdown-wrapper.open > .w-dropdown-list {
         max-height: 600px !important;
         padding: 4px 0 !important;
     }
+
     .nav-dropdown-item, .nav-dropdown-link, .w-dropdown-link {
         display: block !important;
         width: 100% !important;
-        padding: 14px 24px 14px 32px !important;
+        padding: 12px 20px 12px 28px !important;
         color: #222222 !important;
         font-size: 13.5px !important;
         font-weight: 600 !important;
@@ -1169,92 +1181,6 @@ div[class*="scroll-to-top"] {
         text-align: left !important;
         border-bottom: 1px solid #eeeeee !important;
         box-sizing: border-box !important;
-    }
-    .mobile-contact-nav-item {
-        display: block !important;
-    }
-}
-@media screen and (min-width: 992px) {
-    .mobile-contact-nav-item { display: none !important; }
-}
-
-@media screen and (max-width: 767px) {
-    .footer-one-grid, .footer-columns, .footer-one-top-wrap, .footer-main-row {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-        gap: 20px !important;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-        box-sizing: border-box !important;
-    }
-    .footer-left, .second-column, .third-column, .fourth-column {
-        width: 100% !important;
-        max-width: 480px !important;
-        margin: 0 auto !important;
-        text-align: center !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    .mobile-footer-accordion-header {
-        width: 100% !important;
-        background: rgba(0, 0, 0, 0.15) !important;
-        color: #ffffff; !important;
-        font-weight: 800 !important;
-        font-size: 15px !important;
-        padding: 14px 18px !important;
-        border-radius: 8px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        cursor: pointer !important;
-        user-select: none !important;
-        box-sizing: border-box !important;
-        border: 1px solid rgba(0,0,0,0.1) !important;
-        margin-bottom: 6px !important;
-    }
-    .mobile-footer-accordion-content {
-        display: none;
-        width: 100% !important;
-        padding: 10px 14px 16px 14px !important;
-        box-sizing: border-box !important;
-        text-align: center !important;
-    }
-    .mobile-footer-accordion-content.open { display: block !important; }
-    .mobile-footer-accordion-content a {
-        display: block !important;
-        padding: 8px 0 !important;
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        color: #ffffff; !important;
-        text-decoration: none !important;
-        border-bottom: 1px solid rgba(0,0,0,0.08) !important;
-    }
-    .third-column .contact-info {
-        margin-top: 10px !important;
-        align-items: center !important;
-        text-align: center !important;
-        width: 100% !important;
-    }
-    .third-column .contact-info a { justify-content: center !important; }
-    .footer-contact-btn-wrap, .custom-footer-btn-wrapper, .third-column a.custom-footer-btn {
-        margin: 18px auto 0 auto !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    .fourth-column iframe, .fourth-column .map-wrap {
-        width: 100% !important;
-        max-width: 100% !important;
-        border-radius: 12px !important;
-        margin: 10px auto !important;
-    }
-    .footer-one-bottom, .copyright-text {
-        text-align: center !important;
-        padding: 16px 10px !important;
-        font-size: 12px !important;
     }
 }
 </style>
@@ -3110,7 +3036,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 <script id="clean-mobile-nav-js">
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Mobile Accordion for Native Chevrons
+    // 1. Mobile Accordion with Chevron Only Dropdown & Auto Collapse
     var dropdownWrappers = document.querySelectorAll(".nav-dropdown-wrapper");
     dropdownWrappers.forEach(function(wrapper) {
         var chevron = wrapper.querySelector(".dropdown-chevron");
@@ -3121,13 +3047,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     e.stopPropagation();
                     
                     var isOpening = !wrapper.classList.contains("open");
+                    // Auto-collapse other dropdowns
                     dropdownWrappers.forEach(function(other) {
                         other.classList.remove("open");
                     });
                     if (isOpening) {
                         wrapper.classList.add("open");
                     }
-
                 }
             });
         }
@@ -3148,7 +3074,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 3. Add Contact Us link after News on Mobile
+    // 3. Add Contact Us link after News on Mobile if missing
     var navMenuLists = document.querySelectorAll('ul.nav-menu');
     navMenuLists.forEach(function(ul) {
         if (!ul.querySelector('.mobile-contact-nav-item')) {
@@ -3158,83 +3084,21 @@ document.addEventListener("DOMContentLoaded", function() {
             if (newsLi) {
                 var contactLi = document.createElement('li');
                 contactLi.className = 'nav-list mobile-contact-nav-item';
-                
-                var pathStr = window.location.pathname;
-                var contactHref = 'Contact Us.html';
-                if (pathStr.includes('Index')) contactHref = '../../../Contact Us/website/Contact Us.html';
-                else if (pathStr.includes('About')) contactHref = '../../../Contact Us/website/Contact Us.html';
-                else if (pathStr.includes('Industries') || pathStr.includes('Services') || pathStr.includes('News')) contactHref = '../../../../Contact Us/website/Contact Us.html';
-                
-                contactLi.innerHTML = '<a class="nav-link small w-inline-block" href="Index/Index Main Page/website/" + contactHref + '"><div class="nav-text-wrap"><div class="nav-text">Contact Us</div></div></a>';
-                newsLi.after(contactLi);
+                contactLi.innerHTML = '<a class="nav-link small w-inline-block" href="' + getContactUsHref() + '"><div class="nav-text-wrap"><div class="nav-text">Contact Us</div></div></a>';
+                newsLi.parentNode.insertBefore(contactLi, newsLi.nextSibling);
             }
         }
     });
 
-    // 4. Mobile Footer Accordions Setup
-    function setupMobileFooterAccordions() {
-        if (window.innerWidth > 767) return;
-
-        var qlCol = document.querySelector('.footer-left');
-        if (qlCol && !qlCol.querySelector('.mobile-footer-accordion-header')) {
-            var title = qlCol.querySelector('.small-heading-title, h4, .footer-title');
-            var titleText = title ? title.textContent.trim() : 'QUICK LINKS';
-            var links = Array.from(qlCol.querySelectorAll('a'));
-            var headerDiv = document.createElement('div');
-            headerDiv.className = 'mobile-footer-accordion-header';
-            headerDiv.innerHTML = '<span>' + titleText + '</span><span class="acc-icon">▼</span>';
-            var contentDiv = document.createElement('div');
-            contentDiv.className = 'mobile-footer-accordion-content';
-            links.forEach(function(l) { contentDiv.appendChild(l.cloneNode(true)); });
-            qlCol.innerHTML = '';
-            qlCol.appendChild(headerDiv);
-            qlCol.appendChild(contentDiv);
-            headerDiv.addEventListener('click', function() {
-                contentDiv.classList.toggle('open');
-                headerDiv.querySelector('.acc-icon').textContent = contentDiv.classList.contains('open') ? '▲' : '▼';
-            });
+    function getContactUsHref() {
+        var pagePath = window.location.pathname.toLowerCase();
+        if (pagePath.includes('/industries/') || pagePath.includes('/services/') || pagePath.includes('/news/') || pagePath.includes('/about us/') || pagePath.includes('/policies/') || pagePath.includes('/order/')) {
+            return '../../../Contact Us/website/Contact Us.html';
         }
-
-        var polCol = document.querySelector('.second-column');
-        if (polCol && !polCol.querySelector('.mobile-footer-accordion-header')) {
-            var title = polCol.querySelector('.small-heading-title, h4, .footer-title');
-            var titleText = title ? title.textContent.trim() : 'POLICIES';
-            var links = Array.from(polCol.querySelectorAll('a'));
-            var headerDiv = document.createElement('div');
-            headerDiv.className = 'mobile-footer-accordion-header';
-            headerDiv.innerHTML = '<span>' + titleText + '</span><span class="acc-icon">▼</span>';
-            var contentDiv = document.createElement('div');
-            contentDiv.className = 'mobile-footer-accordion-content';
-            links.forEach(function(l) { contentDiv.appendChild(l.cloneNode(true)); });
-            polCol.innerHTML = '';
-            polCol.appendChild(headerDiv);
-            polCol.appendChild(contentDiv);
-            headerDiv.addEventListener('click', function() {
-                contentDiv.classList.toggle('open');
-                headerDiv.querySelector('.acc-icon').textContent = contentDiv.classList.contains('open') ? '▲' : '▼';
-            });
-        }
+        return 'Contact Us/website/Contact Us.html';
     }
-    setupMobileFooterAccordions();
-    window.addEventListener('resize', setupMobileFooterAccordions);
-
-    // 3. Close submenus when main menu closes
-    var menuBtn = document.querySelector(".w-nav-button");
-    if (menuBtn) {
-        var observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.attributeName === "aria-expanded") {
-                    if (menuBtn.getAttribute("aria-expanded") === "false") {
-                        document.querySelectorAll(".nav-dropdown-wrapper.open").forEach(function(el) {
-                            el.classList.remove("open");
-                        });
-                    }
-                }
-            });
-        });
-        observer.observe(menuBtn, { attributes: true });
-    }
-});</script>
+});
+</script>
 <script id="mobile-accordion-js">
 document.addEventListener('DOMContentLoaded', function() {
     function initMobileAccordion() {
