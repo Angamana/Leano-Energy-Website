@@ -1479,6 +1479,78 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
+<style id="hero-slider-mobile-fix-css">
+@media screen and (max-width: 991px) {
+    /* 1. Hero section responsive height and padding */
+    .hero-one-section, .w-slider {
+        height: auto !important;
+        min-height: 520px !important;
+        padding-top: 110px !important;
+        padding-bottom: 60px !important;
+    }
+
+    .hero-one-section-wrap, .w-slide, .hero-one-slide {
+        height: 100% !important;
+        min-height: 480px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .hero-container {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Hero Content full width on mobile */
+    .hero-one-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        z-index: 10 !important;
+        position: relative !important;
+    }
+
+    .hero-one-title-wrapper, .hero-one-title-wrap {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .hero-one-title-small {
+        font-size: 13.5px !important;
+        line-height: 20px !important;
+        letter-spacing: 1px !important;
+        color: #f37021 !important;
+        margin-bottom: 10px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+    }
+
+    .hero-one-title {
+        font-size: 32px !important;
+        line-height: 38px !important;
+        color: #ffffff !important;
+        margin-bottom: 24px !important;
+        text-align: left !important;
+        font-weight: 800 !important;
+    }
+
+    .button-wrap {
+        margin-top: 10px !important;
+        display: block !important;
+    }
+
+    /* 3. Hide heavy right graphic on mobile (matches Webflow template behavior) */
+    .hero-one-wrapper {
+        display: none !important;
+    }
+}
+</style>
 </head>
 <body>
 <div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
@@ -1606,6 +1678,23 @@ p.button-text-hover {
 </div>
 </div>
 <div class="overflow-hidden">
+    <div class="button-wrap">
+        <a class="button-link w-inline-block" href="About%20Us/website/About%20Us.html">
+            <div class="button-arrow-bg-color">
+                <div class="button-arrow-wrap">
+                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                </div>
+            </div>
+            <div class="button-text-wrapper">
+                <div class="button-text-wrap">
+                    <p class="button-text">Discover More</p>
+                    <p class="button-text-hover">Discover More</p>
+                </div>
+                <div class="button-text-bg-color"></div>
+            </div>
+        </a>
+    </div>
 </div>
 </div>
 <div class="hero-one-wrapper">
@@ -1666,6 +1755,23 @@ p.button-text-hover {
 </div>
 </div>
 <div class="overflow-hidden">
+    <div class="button-wrap">
+        <a class="button-link w-inline-block" href="Services/Services%20Main%20Page/website/Services%20Main%20Page.html">
+            <div class="button-arrow-bg-color">
+                <div class="button-arrow-wrap">
+                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                </div>
+            </div>
+            <div class="button-text-wrapper">
+                <div class="button-text-wrap">
+                    <p class="button-text">Explore Services</p>
+                    <p class="button-text-hover">Explore Services</p>
+                </div>
+                <div class="button-text-bg-color"></div>
+            </div>
+        </a>
+    </div>
 </div>
 </div>
 <div class="hero-one-wrapper">
@@ -1724,6 +1830,23 @@ p.button-text-hover {
 </div>
 </div>
 <div class="overflow-hidden">
+    <div class="button-wrap">
+        <a class="button-link w-inline-block" href="Order/website/Order.html">
+            <div class="button-arrow-bg-color">
+                <div class="button-arrow-wrap">
+                    <img alt="right-arrow" class="button-arrow" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                    <img alt="right-arrow" class="button-arrow-hover" loading="lazy" src="Universal/images/6933c0d28e5f2dde71dad538_right-arrow.svg"/>
+                </div>
+            </div>
+            <div class="button-text-wrapper">
+                <div class="button-text-wrap">
+                    <p class="button-text">Order Fuel Online</p>
+                    <p class="button-text-hover">Order Fuel Online</p>
+                </div>
+                <div class="button-text-bg-color"></div>
+            </div>
+        </a>
+    </div>
 </div>
 </div>
 <div class="hero-one-wrapper">
