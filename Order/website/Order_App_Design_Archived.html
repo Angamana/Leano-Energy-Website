@@ -629,7 +629,7 @@ p.button-text-hover {
     z-index: 10 !important;
 }
 </style>
-html body .button-link .button-text,
+
 html body p.button-text:not(.white-text) {
     color: #000000 !important;
 }
@@ -639,6 +639,49 @@ html body .button-link:hover .button-text {
 html body .button-link:hover .button-text-hover {
     color: #ffffff !important;
 }
+<style id="perfect-button-hover-fix-css">
+/* 1. Ensure button text wrap clips completely */
+.button-text-wrap {
+    overflow: hidden !important;
+    height: 20px !important;
+    position: relative !important;
+}
+
+/* 2. Unhovered state */
+.button-link .button-arrow-bg-color {
+    transition: background-color 0.35s ease !important;
+}
+
+.button-link .button-text {
+    transform: translateY(0%) !important;
+    opacity: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s ease !important;
+}
+
+.button-link .button-text-hover {
+    transform: translateY(180%) !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* 3. Hovered state: Left arrow box turns WHITE, text slides up with ZERO top line artifact */
+.button-link:hover .button-arrow-bg-color {
+    background-color: #ffffff !important;
+}
+
+.button-link:hover .button-arrow {
+    filter: brightness(0) !important; /* Arrow turns black on white bg */
+}
+
+.button-link:hover .button-text {
+    transform: translateY(-200%) !important;
+    opacity: 0 !important; /* Prevents any black top line artifact from showing! */
+}
+
+.button-link:hover .button-text-hover {
+    transform: translateY(0%) !important;
+    color: #ffffff !important;
+}
+</style>
 </head>
 <body>
 <!-- Sidebar -->
