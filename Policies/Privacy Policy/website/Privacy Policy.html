@@ -1357,9 +1357,14 @@ p.button-text-hover {
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Side widgets moved 10px off-screen by default, pop back out on cursor hover */
+/* ==========================================
+   DESKTOP VIEW (>991px): 10px off-screen default, hover peek-out
+   ========================================== */
 @media screen and (min-width: 992px) {
-    /* 1. Fuel Prices Side Widget */
+    #mobile-widget-toggle {
+        display: none !important;
+    }
+
     .fuel-side-tabs:not(.open) {
         right: -330px !important;
         transform: translateY(-50%) !important;
@@ -1373,12 +1378,50 @@ p.button-text-hover {
         transform: translateY(-50%) !important;
     }
 
-    /* 2. Order Fuel Side Button: Built with identical fuel-side-tabs mechanism */
     .order-side-tab-container {
         right: -10px !important;
         transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
     .order-side-tab-container:hover {
+        right: 0 !important;
+    }
+}
+
+/* ==========================================
+   MOBILE VIEW (<=991px): 100% hidden by default, toggled via chevron arrow
+   ========================================== */
+@media screen and (max-width: 991px) {
+    #mobile-widget-toggle {
+        display: flex !important;
+    }
+
+    .fuel-side-tabs:not(.mobile-peek):not(.open) {
+        top: 55% !important;
+        z-index: 99999 !important;
+        transform: translateY(-50%) translateX(160%) !important;
+        right: -320px !important;
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+
+    .order-side-tab-container:not(.mobile-peek) {
+        top: 58% !important;
+        right: 0 !important;
+        transform: translateX(160%) !important;
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+
+    .fuel-side-tabs.mobile-peek:not(.open) {
+        transform: translateY(-50%) translateX(0) !important;
+        right: -320px !important;
+    }
+
+    .order-side-tab-container.mobile-peek {
+        transform: translateX(0) !important;
+        right: 0 !important;
+    }
+
+    .fuel-side-tabs.open {
+        transform: translateY(-50%) translateX(0) !important;
         right: 0 !important;
     }
 }
@@ -2181,5 +2224,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script id="mobile-widget-toggle-script">
+document.addEventListener('DOMContentLoaded', function() {
+    const fuelTabs = document.querySelector('.fuel-side-tabs');
+    const orderBtn = document.querySelector('.order-side-tab-container') || document.querySelector('.order-fuel-side-btn');
+    
+    let toggleBtn = document.getElementById('mobile-widget-toggle');
+    if (!toggleBtn && window.innerWidth <= 991) {
+        toggleBtn = document.createElement('div');
+        toggleBtn.id = 'mobile-widget-toggle';
+        toggleBtn.innerHTML = '<svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+        toggleBtn.setAttribute('style', 'position: fixed; right: 0; top: 56%; transform: translateY(-50%); z-index: 999999; background: #f37021; width: 36px; height: 42px; border-radius: 8px 0 0 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: -2px 4px 12px rgba(0,0,0,0.25); transition: background 0.2s ease;');
+        document.body.appendChild(toggleBtn);
+    }
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isActive = toggleBtn.classList.toggle('active');
+            const icon = toggleBtn.querySelector('.chevron-icon');
+            
+            if (isActive) {
+                if (fuelTabs) fuelTabs.classList.add('mobile-peek');
+                if (orderBtn) orderBtn.classList.add('mobile-peek');
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            } else {
+                if (fuelTabs) fuelTabs.classList.remove('mobile-peek');
+                if (orderBtn) orderBtn.classList.remove('mobile-peek');
+                if (icon) icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
