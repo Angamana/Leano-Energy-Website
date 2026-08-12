@@ -972,6 +972,19 @@ p.button-text.white-text {
     color: #ffffff !important;
 }
 </style>
+<style id="pc-tablet-nav-chevron-white-css">
+/* PC & Tablet View (>=768px): Make navigation heading dropdown arrows sharp white */
+@media screen and (min-width: 768px) {
+    .dropdown-chevron,
+    .nav-dropdown-wrapper svg,
+    .nav-dropdown-wrapper .dropdown-chevron,
+    .nav-dropdown-wrapper svg polyline,
+    .dropdown-chevron polyline {
+        stroke: #ffffff !important;
+        fill: none !important;
+    }
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <header class="header header-one" style="border-bottom: none !important;">
@@ -2530,22 +2543,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (newsLi) {
                 var contactLi = document.createElement('li');
                 contactLi.className = 'nav-list mobile-contact-nav-item';
-                contactLi.innerHTML = '<a class="nav-link small w-inline-block" href="' + getContactUsHref() + '"><div class="nav-text-wrap"><div class="nav-text">Contact Us</div></div></a>';
-                newsLi.parentNode.insertBefore(contactLi, newsLi.nextSibling);
-            }
-        }
-    });
-
-    function getContactUsHref() {
-        var pagePath = window.location.pathname.toLowerCase();
-        if (pagePath.includes('/industries/') || pagePath.includes('/services/') || pagePath.includes('/news/') || pagePath.includes('/about us/') || pagePath.includes('/policies/') || pagePath.includes('/order/')) {
-            return '../../../Contact Us/website/Contact Us.html';
-        }
-        return 'Contact Us/website/Contact Us.html';
-    }
-});
-</script>
-<script id="widget-ux-enhancements-js">
+                contactLi.innerHTML = '<a class="nav-link small w-inline-block" href="' + getContactUsHref() + '"><div class="nav-text-wrap"><div class="nav-text">Contact Us</div><script id="widget-ux-enhancements-js">
 document.addEventListener("DOMContentLoaded", function() {
     const style = document.createElement('style');
     style.innerHTML = `

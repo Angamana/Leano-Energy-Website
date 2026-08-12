@@ -1776,6 +1776,19 @@ p.button-text.white-text {
     color: #ffffff !important;
 }
 </style>
+<style id="pc-tablet-nav-chevron-white-css">
+/* PC & Tablet View (>=768px): Make navigation heading dropdown arrows sharp white */
+@media screen and (min-width: 768px) {
+    .dropdown-chevron,
+    .nav-dropdown-wrapper svg,
+    .nav-dropdown-wrapper .dropdown-chevron,
+    .nav-dropdown-wrapper svg polyline,
+    .dropdown-chevron polyline {
+        stroke: #ffffff !important;
+        fill: none !important;
+    }
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
@@ -3390,21 +3403,6 @@ document.addEventListener("DOMContentLoaded", function() {
     color: #ffffff !important;
 }
 </style>
-</div></a>';
-                newsLi.parentNode.insertBefore(contactLi, newsLi.nextSibling);
-            }
-        }
-    });
-
-    function getContactUsHref() {
-        var pagePath = window.location.pathname.toLowerCase();
-        if (pagePath.includes('/industries/') || pagePath.includes('/services/') || pagePath.includes('/news/') || pagePath.includes('/about us/') || pagePath.includes('/policies/') || pagePath.includes('/order/')) {
-            return '../../../Contact Us/website/Contact Us.html';
-        }
-        return 'Contact Us/website/Contact Us.html';
-    }
-});
-</script>
 <script id="mobile-accordion-js">
 document.addEventListener('DOMContentLoaded', function() {
     function initMobileAccordion() {
