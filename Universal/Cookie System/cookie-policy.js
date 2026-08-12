@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 opacity: 0 !important;
                 pointer-events: none !important;
                 transition: opacity 0.3s ease !important;
+                padding: 16px !important;
+                box-sizing: border-box !important;
             }
             .cookie-modal-overlay.active {
                 opacity: 1 !important;
@@ -75,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 background-color: #ffffff !important;
                 border-radius: 16px !important;
                 width: 90% !important;
-                max-width: 520px !important;
-                padding: 32px !important;
+                max-width: 480px !important;
+                padding: 24px 24px 28px 24px !important;
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
                 transform: translateY(20px) !important;
                 transition: transform 0.3s ease !important;
@@ -91,10 +93,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
-                margin-bottom: 16px !important;
+                margin-bottom: 12px !important;
             }
             .cookie-modal-title {
-                font-size: 22px !important;
+                font-size: 20px !important;
                 font-weight: 700 !important;
                 margin: 0 !important;
                 color: #111111 !important;
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-modal-close {
                 background: none !important;
                 border: none !important;
-                font-size: 26px !important;
+                font-size: 24px !important;
                 cursor: pointer !important;
                 color: #888888 !important;
                 transition: color 0.2s ease !important;
@@ -113,24 +115,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 color: #f37021 !important;
             }
             .cookie-modal-body {
-                font-size: 14px !important;
-                line-height: 1.6 !important;
+                font-size: 13.5px !important;
+                line-height: 1.5 !important;
                 color: #555555 !important;
-                margin-bottom: 24px !important;
+                margin-bottom: 16px !important;
             }
             .cookie-modal-body p {
                 margin-top: 0 !important;
-                margin-bottom: 16px !important;
+                margin-bottom: 12px !important;
             }
             .cookie-toggles {
-                margin-top: 16px !important;
-                margin-bottom: 16px !important;
+                margin-top: 10px !important;
+                margin-bottom: 10px !important;
             }
             .cookie-toggle-row {
                 display: flex !important;
                 justify-content: space-between !important;
                 align-items: center !important;
-                padding: 12px 0 !important;
+                padding: 10px 0 !important;
                 border-bottom: 1px solid #eeeeee !important;
                 gap: 16px !important;
             }
@@ -140,18 +142,18 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-toggle-label {
                 font-weight: 600 !important;
                 color: #111111 !important;
-                font-size: 15px !important;
+                font-size: 14px !important;
             }
             .cookie-toggle-desc {
-                font-size: 12px !important;
+                font-size: 11.5px !important;
                 color: #777777 !important;
                 margin-top: 2px !important;
             }
             .cookie-switch {
                 position: relative !important;
                 display: inline-block !important;
-                width: 44px !important;
-                height: 24px !important;
+                width: 42px !important;
+                height: 22px !important;
                 flex-shrink: 0 !important;
             }
             .cookie-switch input {
@@ -165,13 +167,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 top: 0; left: 0; right: 0; bottom: 0;
                 background-color: #cccccc !important;
                 transition: .4s !important;
-                border-radius: 24px !important;
+                border-radius: 22px !important;
             }
             .cookie-slider:before {
                 position: absolute !important;
                 content: "" !important;
-                height: 18px !important;
-                width: 18px !important;
+                height: 16px !important;
+                width: 16px !important;
                 left: 3px !important;
                 bottom: 3px !important;
                 background-color: white !important;
@@ -192,16 +194,16 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-modal-footer {
                 display: flex !important;
                 flex-direction: column !important;
-                gap: 10px !important;
+                gap: 8px !important;
                 align-items: stretch !important;
                 width: 100% !important;
             }
             .cookie-btn {
                 width: 100% !important;
-                padding: 14px 20px !important;
-                border-radius: 10px !important;
+                padding: 12px 16px !important;
+                border-radius: 8px !important;
                 font-weight: 600 !important;
-                font-size: 15px !important;
+                font-size: 14px !important;
                 cursor: pointer !important;
                 transition: all 0.2s ease !important;
                 border: none !important;
@@ -227,16 +229,42 @@ document.addEventListener("DOMContentLoaded", function() {
             
             @media screen and (max-width: 600px) {
                 .cookie-modal-overlay {
-                    align-items: flex-end !important;
-                    padding: 0 !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    padding: 16px !important;
                 }
                 .cookie-modal {
-                    width: 100% !important;
-                    max-width: 100% !important;
-                    border-radius: 20px 20px 0 0 !important;
-                    padding: 24px 20px 32px 20px !important;
-                    max-height: 85vh !important;
+                    width: 92% !important;
+                    max-width: 400px !important;
+                    border-radius: 16px !important;
+                    padding: 18px 18px 22px 18px !important;
+                    max-height: 94vh !important;
                     overflow-y: auto !important;
+                }
+                .cookie-modal-title {
+                    font-size: 18px !important;
+                }
+                .cookie-modal-body {
+                    font-size: 12.5px !important;
+                    line-height: 1.45 !important;
+                    margin-bottom: 12px !important;
+                }
+                .cookie-modal-body p {
+                    margin-bottom: 8px !important;
+                }
+                .cookie-toggle-row {
+                    padding: 8px 0 !important;
+                }
+                .cookie-toggle-label {
+                    font-size: 13.5px !important;
+                }
+                .cookie-toggle-desc {
+                    font-size: 11px !important;
+                }
+                .cookie-btn {
+                    padding: 11px 14px !important;
+                    font-size: 13.5px !important;
+                    border-radius: 8px !important;
                 }
             }
         `;
