@@ -1499,11 +1499,6 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 </style>
 <style id="news-subpage-responsive-modal-fix">
-/* Remove Original Source line */
-.article-source-card > div:nth-child(2) {
-    display: none !important;
-}
-
 @media screen and (min-width: 992px) {
     .mobile-article-source-btn-wrap {
         display: none !important;
@@ -1516,10 +1511,19 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     }
     .mobile-article-source-btn-wrap {
         display: flex !important;
-        justify-content: flex-end !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
         width: 100% !important;
         margin-top: 32px !important;
-        margin-bottom: 16px !important;
+        padding-top: 20px !important;
+        border-top: 1px solid #eeeeee !important;
+    }
+    .mobile-source-name {
+        color: #666666 !important;
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        margin-bottom: 10px !important;
+        font-family: 'Outfit', sans-serif !important;
     }
     .mobile-read-btn {
         display: inline-flex !important;
@@ -1529,7 +1533,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         color: #ffffff !important;
         font-size: 14px !important;
         font-weight: 700 !important;
-        padding: 12px 22px !important;
+        padding: 12px 24px !important;
         border-radius: 8px !important;
         text-decoration: none !important;
         box-shadow: 0 4px 15px rgba(243, 112, 33, 0.35) !important;
@@ -1658,17 +1662,17 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 <div class="blog-detail-left-column">
 <div class="article-source-card" style="background-color: #161616; border: 1px solid rgba(243, 112, 33, 0.35); border-radius: 14px; padding: 28px 20px; text-align: center; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); position: sticky; top: 120px;">
 <div style="width: 52px; height: 52px; margin: 0 auto 16px auto; background: radial-gradient(circle, rgba(243, 112, 33, 0.25) 0%, rgba(243, 112, 33, 0.05) 70%); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1.5px solid #f37021;">
-<svg fill="none" height="24" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24" width="24">
+<svg fill="none" height="24" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="24">
 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
 <polyline points="15 3 21 3 21 9"></polyline>
 <line x1="10" x2="21" y1="14" y2="3"></line>
 </svg>
 </div>
-
-<div style="color: #ffffff; font-size: 16px;  margin-bottom: 20px; font-family: 'Outfit', sans-serif;">Business Insider Africa</div>
-<a class="read-source-btn" href="https://africa.businessinsider.com/local/markets/south-africa-is-reviving-an-oil-plan-last-initiated-in-the-apartheid-era-as-global/g5p4ghc" rel="noopener noreferrer" style="display: block; width: 100%; background-color: #f37021; color: #ffffff;  font-size: 14px; letter-spacing: 0.5px; padding: 14px 18px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(243, 112, 33, 0.35); box-sizing: border-box;" target="_blank">
-                    Read Full Article →
-                </a>
+<div style="color: #f37021; font-size: 11.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 4px; font-family: 'Outfit', sans-serif;">Source</div>
+<div style="color: #ffffff; font-size: 18px; font-weight: 800; margin-bottom: 20px; font-family: 'Outfit', sans-serif;">Business Insider Africa</div>
+<a class="read-source-btn" href="https://africa.businessinsider.com/local/markets/south-africa-is-reviving-an-oil-plan-last-initiated-in-the-apartheid-era-as-global/g5p4ghc" rel="noopener noreferrer" style="display: block; width: 100%; background-color: #f37021; color: #ffffff; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; padding: 14px 18px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(243, 112, 33, 0.35); box-sizing: border-box;" target="_blank">
+    Read Full Article →
+</a>
 </div>
 </div>
 <div class="blog-detail-right-column">
@@ -1701,12 +1705,13 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 </div>
 </div>
 </div>
-</div>
 
 <div class="mobile-article-source-btn-wrap">
+    <div class="mobile-source-name">Source: Business Insider Africa</div>
     <a class="read-source-btn mobile-read-btn" href="https://africa.businessinsider.com/local/markets/south-africa-is-reviving-an-oil-plan-last-initiated-in-the-apartheid-era-as-global/g5p4ghc" rel="noopener noreferrer" target="_blank">
         Read Full Article →
     </a>
+</div>
 </div>
 </div>
 </section>
