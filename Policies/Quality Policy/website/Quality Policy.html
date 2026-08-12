@@ -1662,6 +1662,20 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     <span style="color: #ffffff; font-size: 13px; font-weight: 600; font-family: 'Outfit', sans-serif;">📄 Interactive Policy Viewer</span>
     <span style="color: #aaaaaa; font-size: 12px;">Use +/- in document or tap button to zoom</span>
 </div>
+<div class="pdf-zoom-helper-bar" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: #161616; border-radius: 10px; border: 1px solid rgba(243, 112, 33, 0.35); margin-bottom: 14px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <svg fill="none" height="20" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewBox="0 0 24 24" width="20">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" x2="8" y1="13" y2="13"></line>
+            <line x1="16" x2="8" y1="17" y2="17"></line>
+        </svg>
+        <span style="color: #ffffff; font-size: 13.5px; font-weight: 700; font-family: 'Outfit', sans-serif;">Policy Document</span>
+    </div>
+    <a href="../Doc/Quality Policy.pdf" target="_blank" style="background-color: #f37021; color: #ffffff; font-size: 13px; font-weight: 700; font-family: 'Outfit', sans-serif; padding: 8px 20px; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; box-shadow: 0 4px 12px rgba(243, 112, 33, 0.35); transition: all 0.2s ease;">
+        Open ↗
+    </a>
+</div>
 <iframe class="policy-pdf-iframe" height="1050px" src="../Doc/Quality Policy.pdf#view=FitH&toolbar=1" style="border: none; border-radius: 5px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);" width="100%"></iframe></div>
 </div>
 </div>
@@ -2333,6 +2347,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
 
 
