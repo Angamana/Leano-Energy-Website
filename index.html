@@ -1484,14 +1484,14 @@ p.button-text-hover {
     /* 1. Hero section responsive height and padding */
     .hero-one-section, .w-slider {
         height: auto !important;
-        min-height: 520px !important;
-        padding-top: 110px !important;
-        padding-bottom: 60px !important;
+        min-height: 440px !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
     }
 
     .hero-one-section-wrap, .w-slide, .hero-one-slide {
         height: 100% !important;
-        min-height: 480px !important;
+        min-height: 400px !important;
         display: flex !important;
         align-items: center !important;
     }
@@ -1535,17 +1535,18 @@ p.button-text-hover {
         font-size: 32px !important;
         line-height: 38px !important;
         color: #ffffff !important;
-        margin-bottom: 24px !important;
+        margin-bottom: 0 !important;
         text-align: left !important;
         font-weight: 800 !important;
     }
 
-    .button-wrap {
-        margin-top: 10px !important;
-        display: block !important;
+    /* Hide button in hero section on mobile as requested */
+    .hero-one-content .button-wrap,
+    .hero-one-content .button-link {
+        display: none !important;
     }
 
-    /* 3. Hide heavy right graphic on mobile (matches Webflow template behavior) */
+    /* 3. Hide heavy right graphic on mobile */
     .hero-one-wrapper {
         display: none !important;
     }
