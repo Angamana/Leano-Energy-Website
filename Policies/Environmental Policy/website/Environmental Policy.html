@@ -1373,37 +1373,13 @@ p.button-text-hover {
         transform: translateY(-50%) !important;
     }
 
-    /* 2. Order Fuel Side Button */
-    .order-fuel-side-btn {
-            position: fixed !important;
-            right: -10px !important;
-            top: calc(50% + 56px) !important;
-            z-index: 99998 !important;
-            writing-mode: vertical-rl !important;
-            transform: none !important;
-            background: #ffffff !important;
-            color: #f37021 !important;
-            border: 2px solid #f37021 !important;
-            border-right: none !important;
-            padding: 14px 10px 14px 10px !important;
-            margin-right: -30px !important;
-            padding-right: 40px !important;
-            border-radius: 8px 0 0 8px !important;
-            box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 800 !important;
-            font-size: 12.5px !important;
-            letter-spacing: 1.2px !important;
-            text-transform: uppercase !important;
-            transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
-        }
-    .order-fuel-side-btn:hover {
-        animation: none !important;
+    /* 2. Order Fuel Side Button: Built with identical fuel-side-tabs mechanism */
+    .order-side-tab-container {
+        right: -10px !important;
+        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }
+    .order-side-tab-container:hover {
         right: 0 !important;
-        transform: none !important;
-        background: #f37021 !important;
-        color: #ffffff !important;
-        box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
     }
 }
 </style>
@@ -1706,115 +1682,62 @@ p.button-text-hover {
     });
 </script>
 <div id="order-fuel-side-widget">
-<a class="order-fuel-side-btn" href="../../../Order/website/Order.html" title="Order Now Online">
+<a class="order-side-tab-container" href="../../../Order/website/Order.html" title="Order Now Online">
+<div class="order-main-tab-btn">
 <svg fill="none" height="15" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 6px; transform: rotate(90deg);" viewbox="0 0 24 24" width="15"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 <span>ORDER NOW</span>
+</div>
 </a>
 <style id="order-fuel-widget-css">
-        .order-fuel-side-btn {
-            position: fixed !important;
-            right: 0 !important;
-            top: calc(50% + 56px) !important;
-            z-index: 99998 !important;
-            writing-mode: vertical-rl !important;
-            transform: rotate(0deg) translateX(0) !important;
-            background: #ffffff !important;
-            color: #f37021 !important;
-            border: 2px solid #f37021 !important;
-            border-right: none !important;
-            padding: 14px 10px 14px 10px !important;
-            margin-right: -30px !important;
-            padding-right: 40px !important;
-            border-radius: 8px 0 0 8px !important;
-            box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
-            font-family: 'Montserrat', sans-serif !important;
-            font-weight: 800 !important;
-            font-size: 12.5px !important;
-            letter-spacing: 1.2px !important;
-            text-transform: uppercase !important;
-            text-decoration: none !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            cursor: pointer !important;
-            transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.2s ease, color 0.2s ease !important;
-            animation: protrude-words-and-widget 6s infinite ease-in-out !important;
-        }
+.order-side-tab-container {
+    position: fixed !important;
+    right: 0 !important;
+    top: calc(50% + 56px) !important;
+    z-index: 99998 !important;
+    display: flex !important;
+    text-decoration: none !important;
+    transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
 
-        @keyframes protrude-words-and-widget {
-            0%, 72%, 100% {
-                transform: rotate(0deg) translateX(0) !important;
-                box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
-            }
-            82% {
-                transform: rotate(0deg) translateX(-14px) !important;
-                box-shadow: -8px 8px 22px rgba(243, 112, 33, 0.35) !important;
-            }
-            90% {
-                transform: rotate(0deg) translateX(-3px) !important;
-            }
-        }
+.order-main-tab-btn {
+    background: #ffffff !important;
+    color: #f37021 !important;
+    border: 2px solid #f37021 !important;
+    border-right: none !important;
+    writing-mode: vertical-rl !important;
+    transform: rotate(180deg) !important;
+    padding: 12px 10px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 12.5px !important;
+    letter-spacing: 1.2px !important;
+    cursor: pointer !important;
+    border-radius: 0 8px 8px 0 !important;
+    box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+}
 
-        .order-fuel-side-btn:hover {
-            animation: none !important;
-            background: #f37021 !important;
-            color: #ffffff !important;
-            transform: none !important;
-            box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
-        }
-        </style>
-</div>
-<script id="clean-mobile-nav-js">
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Mobile Accordion with Chevron Only Dropdown & Auto Collapse
-    var dropdownWrappers = document.querySelectorAll(".nav-dropdown-wrapper");
-    dropdownWrappers.forEach(function(wrapper) {
-        var chevron = wrapper.querySelector(".dropdown-chevron");
-        if (chevron) {
-            chevron.addEventListener("click", function(e) {
-                if (window.innerWidth <= 991) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    var isOpening = !wrapper.classList.contains("open");
-                    // Auto-collapse other dropdowns
-                    dropdownWrappers.forEach(function(other) {
-                        other.classList.remove("open");
-                    });
-                    if (isOpening) {
-                        wrapper.classList.add("open");
-                    }
-                }
-            });
-        }
-    });
+.order-main-tab-btn svg {
+    stroke: #f37021 !important;
+    color: #f37021 !important;
+    transition: stroke 0.2s ease, color 0.2s ease !important;
+}
 
-    // 2. Lock Background Scroll when Mobile Menu is Open
-    var menuBtn = document.querySelector('.w-nav-button');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', function() {
-            setTimeout(function() {
-                var isOverlayVisible = menuBtn.classList.contains('w--open') || (document.querySelector('.w-nav-overlay.w--open') !== null);
-                if (isOverlayVisible) {
-                    document.body.style.setProperty('overflow', 'hidden', 'important');
-                } else {
-                    document.body.style.removeProperty('overflow');
-                }
-            }, 120);
-        });
-    }
+.order-side-tab-container:hover .order-main-tab-btn {
+    background: #f37021 !important;
+    color: #ffffff !important;
+    box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
+}
 
-    // 3. Add Contact Us link after News on Mobile if missing
-    var navMenuLists = document.querySelectorAll('ul.nav-menu');
-    navMenuLists.forEach(function(ul) {
-        if (!ul.querySelector('.mobile-contact-nav-item')) {
-            var newsLi = Array.from(ul.children).find(function(li) {
-                return li.textContent.trim().toUpperCase().includes('NEWS');
-            });
-            if (newsLi) {
-                var contactLi = document.createElement('li');
-                contactLi.className = 'nav-list mobile-contact-nav-item';
-                contactLi.innerHTML = '<a class="nav-link small w-inline-block" href="' + getContactUsHref() + '"><div class="nav-text-wrap"><div class="nav-text">Contact Us</div></div></a>';
+.order-side-tab-container:hover .order-main-tab-btn svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+</style>
+</div></a>';
                 newsLi.parentNode.insertBefore(contactLi, newsLi.nextSibling);
             }
         }

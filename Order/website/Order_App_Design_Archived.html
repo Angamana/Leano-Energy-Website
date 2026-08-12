@@ -692,20 +692,13 @@ p.button-text-hover {
         transform: translateY(-50%) !important;
     }
 
-    /* 2. Order Fuel Side Button */
-    .order-fuel-side-btn {
+    /* 2. Order Fuel Side Button: Built with identical fuel-side-tabs mechanism */
+    .order-side-tab-container {
         right: -10px !important;
-        margin-right: -30px !important;
-        transform: none !important;
-        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
-    .order-fuel-side-btn:hover {
-        animation: none !important;
+    .order-side-tab-container:hover {
         right: 0 !important;
-        transform: none !important;
-        background: #f37021 !important;
-        color: #ffffff !important;
-        box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
     }
 }
 </style>
