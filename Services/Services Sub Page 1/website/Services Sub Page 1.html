@@ -1490,7 +1490,8 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 
 .fuel-side-tabs,
-.order-side-tab-container {
+.order-side-tab-container,
+.order-fuel-side-btn {
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
@@ -1502,39 +1503,45 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     position: fixed !important;
     top: auto !important;
     bottom: calc(50% + 36px) !important;
-    transform: none !important;
     z-index: 99999 !important;
 }
 
-.order-side-tab-container {
+.order-side-tab-container,
+.order-fuel-side-btn {
     position: fixed !important;
     top: calc(50% + 36px) !important;
     bottom: auto !important;
-    transform: none !important;
     z-index: 99999 !important;
 }
 
 /* 2. Unpressed / Hidden state: Pushed completely off-screen (no peeking) */
 .fuel-side-tabs:not(.mobile-peek):not(.open) {
-    right: -420px !important;
+    right: -370px !important;
+    transform: none !important;
 }
 
-.order-side-tab-container:not(.mobile-peek) {
+.order-side-tab-container:not(.mobile-peek),
+.order-fuel-side-btn:not(.mobile-peek) {
     right: -200px !important;
+    transform: none !important;
 }
 
 /* 3. Pressed / Peek state: Both widgets slide out into view */
 .fuel-side-tabs.mobile-peek:not(.open) {
     right: -320px !important;
+    transform: none !important;
 }
 
-.order-side-tab-container.mobile-peek {
+.order-side-tab-container.mobile-peek,
+.order-fuel-side-btn.mobile-peek {
     right: 0 !important;
+    transform: none !important;
 }
 
 /* 4. Full Open state (when Fuel Prices tab itself is clicked) */
 .fuel-side-tabs.open {
     right: 0 !important;
+    transform: none !important;
 }
 </style>
 
@@ -2214,40 +2221,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const style = document.createElement('style');
     style.innerHTML = `
         /* Mobile overrides for 3-stage widgets */
-        @media (max-width: 991px) {
-            /* Stage 1: Completely Hidden */
-            .fuel-side-tabs {
-                top: 55% !important;
-                z-index: 99999 !important;
-                transform: translateY(-50%) translateX(120%) !important;
-                right: -320px !important; 
-                transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s ease !important;
-            }
-            .order-fuel-side-btn {
-                top: 58% !important;
-                transform: translateX(120%) !important;
-                right: 0 !important; 
-                margin-right: -30px !important;
-                transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s ease !important;
-                animation: none !important;
-            }
-            
-            /* Stage 2: Peek Out (Identical to their desktop closed state) */
-            .fuel-side-tabs.mobile-peek {
-                transform: translateY(-50%) translateX(0) !important;
-                right: -320px !important;
-            }
-            .order-fuel-side-btn.mobile-peek {
-                transform: translateX(0) !important;
-                right: 0 !important;
-                margin-right: -30px !important;
-            }
-            
-            /* Stage 3: Fully Open (Fuel panel) */
-            .fuel-side-tabs.open {
-                transform: translateY(-50%) translateX(0) !important;
-                right: 0 !important;
-            }
+        
         }
         
         #mobile-widget-toggle {
