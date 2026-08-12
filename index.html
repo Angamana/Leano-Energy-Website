@@ -1816,6 +1816,18 @@ p.button-text.white-text {
     }
 }
 </style>
+<style id="ios-universal-compat-css">
+/* Universal iOS & Android Cross-Platform Standardization */
+html, body {
+    -webkit-text-size-adjust: 100% !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    touch-action: manipulation !important;
+}
+button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-button, .service-one-heading-content, #mobile-widget-toggle {
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <div class="hero-one-section w-slider" data-animation="cross" data-autoplay="true" data-autoplay-limit="0" data-delay="8000" data-disable-swipe="false" data-duration="1500" data-easing="ease-in-out" data-hide-arrows="false" data-infinite="true" data-nav-spacing="3">
@@ -3750,8 +3762,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+<script id="ios-universal-compat-js">
+(function() {
+    document.addEventListener("touchstart", function() {}, { passive: true });
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        document.documentElement.classList.add('is-ios');
+    }
+})();
+</script>
 </body>
 </html>
+
 
 
 
