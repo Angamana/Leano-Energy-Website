@@ -1292,11 +1292,11 @@ p.button-text-hover {
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Side widgets moved 15px off-screen by default, pop back out on cursor hover */
+/* PC View (Desktop > 991px): Side widgets moved 10px off-screen by default, pop back out on cursor hover */
 @media screen and (min-width: 992px) {
     /* 1. Fuel Prices Side Widget */
     .fuel-side-tabs:not(.open) {
-        right: -335px !important;
+        right: -330px !important;
         transform: translateY(-50%) !important;
         transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
@@ -1310,11 +1310,28 @@ p.button-text-hover {
 
     /* 2. Order Fuel Side Button */
     .order-fuel-side-btn {
-        right: -15px !important;
-        margin-right: -30px !important;
-        transform: none !important;
-        transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
-    }
+            position: fixed !important;
+            right: -10px !important;
+            top: calc(50% + 56px) !important;
+            z-index: 99998 !important;
+            writing-mode: vertical-rl !important;
+            transform: none !important;
+            background: #ffffff !important;
+            color: #f37021 !important;
+            border: 2px solid #f37021 !important;
+            border-right: none !important;
+            padding: 14px 10px 14px 10px !important;
+            margin-right: -30px !important;
+            padding-right: 40px !important;
+            border-radius: 8px 0 0 8px !important;
+            box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 12.5px !important;
+            letter-spacing: 1.2px !important;
+            text-transform: uppercase !important;
+            transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+        }
     .order-fuel-side-btn:hover {
         animation: none !important;
         right: 0 !important;
