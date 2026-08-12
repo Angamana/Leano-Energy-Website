@@ -922,10 +922,16 @@ p.button-text-hover {
 
 /* ==========================================
    MOBILE VIEW (<=991px): 100% hidden by default, toggled via chevron arrow
+   Both widgets synchronized to exact 0.4s transition duration
    ========================================== */
 @media screen and (max-width: 991px) {
     #mobile-widget-toggle {
         display: flex !important;
+    }
+
+    .fuel-side-tabs,
+    .order-side-tab-container {
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
 
     .fuel-side-tabs:not(.mobile-peek):not(.open) {
@@ -933,14 +939,12 @@ p.button-text-hover {
         z-index: 99999 !important;
         transform: translateY(-50%) translateX(160%) !important;
         right: -320px !important;
-        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
 
     .order-side-tab-container:not(.mobile-peek) {
         top: 58% !important;
         right: 0 !important;
         transform: translateX(160%) !important;
-        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     }
 
     .fuel-side-tabs.mobile-peek:not(.open) {
