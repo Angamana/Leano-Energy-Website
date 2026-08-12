@@ -1462,16 +1462,34 @@ p.button-text-hover {
 
     /* 2. Order Fuel Side Button: Tucked to match fuel prices tab */
     .order-fuel-side-btn {
-        right: -32px !important;
-        transform: none !important;
-        transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
-    }
+            position: fixed !important;
+            right: -32px !important;
+            top: calc(50% + 56px) !important;
+            z-index: 99998 !important;
+            writing-mode: vertical-rl !important;
+            transform: rotate(0deg) !important;
+            background: #ffffff !important;
+            color: #f37021 !important;
+            border: 2px solid #f37021 !important;
+            border-right: none !important;
+            padding: 14px 10px 14px 10px !important;
+            padding-right: 40px !important;
+            border-radius: 8px 0 0 8px !important;
+            box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 800 !important;
+            font-size: 12.5px !important;
+            letter-spacing: 1.2px !important;
+            text-transform: uppercase !important;
+            transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
     .order-fuel-side-btn:hover {
-        right: 0 !important;
-        background: #f37021 !important;
-        color: #ffffff !important;
-        box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
-    }
+            animation: none !important;
+            right: 0 !important;
+            background: #f37021 !important;
+            color: #ffffff !important;
+            box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
+        }
 }
 </style>
 </head>
