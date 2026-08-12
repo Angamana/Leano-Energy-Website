@@ -184,20 +184,23 @@ input:disabled + .cookie-slider {
 }
 
 .cookie-modal-footer {
-    display: flex;
-    gap: 12px;
-    justify-content: flex-end;
-}
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                align-items: stretch !important;
+            }
 
 .cookie-btn {
-    padding: 10px 20px;
-    border-radius: 6px;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 8px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: none;
     font-family: inherit;
+    margin-bottom: 0;
 }
 
 .cookie-btn-secondary {
@@ -221,8 +224,8 @@ input:disabled + .cookie-slider {
 
 @media screen and (max-width: 600px) {
     .cookie-modal-footer {
-        flex-direction: column-reverse !important;
-        justify-content: flex-start !important;
+        
+        
         align-items: stretch !important;
         gap: 10px !important;
     }

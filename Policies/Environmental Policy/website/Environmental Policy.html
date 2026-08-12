@@ -75,14 +75,7 @@
         }
         
         /* 3. Fix scroll up/down for ALL pages */
-        .w-nav-overlay.w--open {
-            height: 100dvh !important;
-            max-height: 100dvh !important;
-            overflow-y: auto !important;
-            overscroll-behavior-y: contain !important;
-            -webkit-overflow-scrolling: touch !important;
-            display: block !important;
-        }
+        /* duplicate nav overlay block removed */
         
         /* 4. Remove empty white space after Contact Us */
         .w-nav-menu {
@@ -926,14 +919,8 @@ div[class*="scroll-to-top"] {
         cursor: pointer !important;
     }
 
-    /* 4. Blurred Overlay Background - ONLY WHEN OPEN */
-    .w-nav-overlay:not(.w--open) {
-        display: none !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        pointer-events: none !important;
-    }
-    .w-nav-overlay.w--open {
+    /* 4. Blurred Overlay Background - Fixed */
+    .w-nav-overlay {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
@@ -950,8 +937,8 @@ div[class*="scroll-to-top"] {
         overflow-y: auto !important;
         overscroll-behavior-y: contain !important;
         -webkit-overflow-scrolling: touch !important;
-        display: block !important;
         pointer-events: auto !important;
+        /* Note: No display: !important, let Webflow native toggle display */
     }
     .w-nav-menu:not(.w--open) { display: none !important; }
 
@@ -1271,17 +1258,27 @@ p.button-text-hover {
     background: #f37021 !important;
 }
 
-/* Policy links clean vertical spacing and un-bolded */
-.footer-column:nth-child(2) .footer-link {
-    color: #ffffff !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 6px 0 !important;
-    display: block !important;
-    margin-bottom: 2px !important;
-    font-weight: 400 !important;
-}
+/* Policy links liquid glass blur border */
+    .footer-column:nth-child(2) .footer-link {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        border-radius: 8px !important;
+        padding: 10px 14px !important;
+        margin-bottom: 8px !important;
+        font-weight: 500 !important;
+        display: block !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease !important;
+    }
+    .footer-column:nth-child(2) .footer-link:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+    }
 
 /* Ensure social media icons remain black inside white circles */
 .footer-social-wrap a svg {

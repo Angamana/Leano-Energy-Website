@@ -171,31 +171,33 @@ document.addEventListener("DOMContentLoaded", function() {
                 border-radius: 50% !important;
             }
             input:checked + .cookie-slider {
-                background-color: #f37021 !important;
+                background-color: #5C4AEA !important;
             }
             input:checked + .cookie-slider:before {
                 transform: translateX(20px) !important;
             }
             input:disabled + .cookie-slider {
-                background-color: #f37021 !important;
+                background-color: #5C4AEA !important;
                 opacity: 0.6 !important;
                 cursor: not-allowed !important;
             }
             .cookie-modal-footer {
                 display: flex !important;
-                gap: 10px !important;
-                justify-content: flex-end !important;
-                flex-wrap: wrap !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                align-items: stretch !important;
             }
             .cookie-btn {
-                padding: 10px 18px !important;
+                width: 100% !important;
+                padding: 14px 20px !important;
                 border-radius: 8px !important;
                 font-weight: 600 !important;
-                font-size: 14px !important;
+                font-size: 15px !important;
                 cursor: pointer !important;
                 transition: all 0.2s ease !important;
                 border: none !important;
                 font-family: inherit !important;
+                margin-bottom: 0 !important;
             }
             .cookie-btn-secondary {
                 background-color: #f1f1f1 !important;
@@ -205,16 +207,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 background-color: #e2e2e2 !important;
             }
             .cookie-btn-primary {
-                background-color: #f37021 !important;
+                background-color: #285AE6 !important;
                 color: #ffffff !important;
             }
             .cookie-btn-primary:hover {
-                background-color: #d95a10 !important;
+                background-color: #1e45b5 !important;
             }
             @media screen and (max-width: 600px) {
                 .cookie-modal-footer {
-                    flex-direction: column-reverse !important;
-                    justify-content: flex-start !important;
+                    
+                    
                     align-items: stretch !important;
                     gap: 10px !important;
                 }
@@ -293,9 +295,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     </div>
                 </div>
                 <div class="cookie-modal-footer">
-                    <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn">Save Preferences</button>
-                    <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn">Reject All</button>
                     <button class="cookie-btn cookie-btn-primary" id="cookieAcceptAllBtn">Accept All</button>
+                    <button class="cookie-btn cookie-btn-primary" id="cookieRejectAllBtn">Reject All</button>
+                    <button class="cookie-btn cookie-btn-secondary" id="cookieSaveBtn">Save Preferences</button>
                 </div>
             </div>
         </div>
