@@ -1337,7 +1337,7 @@ p.button-text-hover {
 }
 </style>
 <style id="pc-widget-half-peek-css">
-/* PC View (Desktop > 991px): Side widgets half-tucked off-screen by default, slide out 100% on cursor hover */
+/* PC View (Desktop > 991px): Side widgets tucked off-screen by default, slide out 100% on cursor hover */
 @media screen and (min-width: 992px) {
     /* 1. Fuel Prices Side Widget */
     .fuel-side-tabs:not(.open) {
@@ -1353,9 +1353,9 @@ p.button-text-hover {
         transform: translateY(-50%) !important;
     }
 
-    /* 2. Order Fuel Side Button */
+    /* 2. Order Fuel Side Button: Tucked to match fuel prices tab */
     .order-fuel-side-btn {
-        right: -25px !important;
+        right: -32px !important;
         transform: none !important;
         transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease, box-shadow 0.2s ease !important;
     }
