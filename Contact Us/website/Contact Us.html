@@ -1387,7 +1387,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
-/* 1. FUEL PRICES WIDGET: HANDLE PEEKS 15px ABOVE ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
+/* 1. FUEL PRICES WIDGET: BOTTOM OF TAB HANDLE IS ALWAYS 15px ABOVE ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
 .fuel-side-tabs {
     position: fixed !important;
     top: auto !important;
@@ -1395,6 +1395,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     right: 0 !important;
     transform: translateX(320px) !important;
     display: flex !important;
+    align-items: flex-start !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 99999 !important;
@@ -1406,16 +1407,15 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 999998 !important;
 }
 
-/* WHEN OPENED: OPENS CENTERED IN THE VERTICAL MIDDLE OF THE SCREEN (TOP: 50%) ON TOPMOST LAYER */
 .fuel-side-tabs.open {
-    top: 50% !important;
-    bottom: auto !important;
-    transform: translateY(-50%) translateX(0) !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
 
-/* 2. ORDER NOW WIDGET: TOP IS EXACTLY 15px BELOW BOTTOM OF ARROW BUTTON (TOP: CALC(50% + 36px)) */
+/* 2. ORDER NOW WIDGET: TOP IS ALWAYS 15px BELOW ARROW BUTTON (TOP: CALC(50% + 36px)) */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
@@ -2329,7 +2329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 .fuel-side-tabs.mobile-peek {
     transform: translateX(0) !important;
@@ -2337,9 +2337,9 @@ document.addEventListener('DOMContentLoaded', function() {
     z-index: 999998 !important;
 }
 .fuel-side-tabs.open {
-    top: 50% !important;
-    bottom: auto !important;
-    transform: translateY(-50%) translateX(0) !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
