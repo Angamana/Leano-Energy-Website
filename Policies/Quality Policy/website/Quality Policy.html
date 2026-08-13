@@ -1417,7 +1417,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 /* FUEL PRICES WIDGET (PC POSITION: TOP CALC(50% + 40px)) */
 .fuel-side-tabs {
     position: fixed !important;
-    top: calc(50% + 40px) !important;
+    top: calc(50% + 55px) !important;
     bottom: auto !important;
     right: 0 !important;
     transform: translateY(-50%) translateX(320px) !important;
@@ -1439,14 +1439,14 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET (PC POSITION: TOP CALC(50% + 36px), HIDDEN OFF-SCREEN UNTIL ARROW TOGGLED) */
+/* ORDER NOW WIDGET (PC POSITION: VISIBLE AT RIGHT:0, BELOW ARROW) */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
     top: calc(50% + 36px) !important;
     bottom: auto !important;
-    right: -200px !important;
-    transform: translateX(200px) !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1465,12 +1465,16 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     /* Stage 1: Hidden off-screen by default */
     .fuel-side-tabs {
         right: 0 !important;
+        transform: translateY(-50%) translateX(400px) !important;
+    }
+    /* Stage 2: Peek handle visible */
+    .fuel-side-tabs.mobile-peek {
+        right: -5px !important;
         transform: translateY(-50%) translateX(320px) !important;
     }
-    /* Stage 2 & 3: Peek handle visible or panel open */
-    .fuel-side-tabs.mobile-peek,
+    /* Stage 3: Panel open */
     .fuel-side-tabs.open {
-        right: -5px !important;
+        right: 0 !important;
         transform: translateY(-50%) translateX(0) !important;
     }
     .order-side-tab-container,
@@ -1865,7 +1869,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 .order-side-tab-container {
     position: fixed !important;
     right: 0 !important;
-    top: calc(50% + 56px) !important;
+    top: calc(50% + 36px) !important;
     z-index: 99998 !important;
     display: flex !important;
     text-decoration: none !important;
@@ -2062,7 +2066,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <style id="fuel-prices-widget-styles">
 .fuel-side-tabs {
     position: fixed !important;
-    top: calc(50% + 40px) !important;
+    top: calc(50% + 55px) !important;
     bottom: auto !important;
     right: 0 !important;
     transform: translateY(-50%) translateX(320px) !important;
