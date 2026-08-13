@@ -1387,12 +1387,16 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 
 /* MOBILE AND TABLET ADJUSTMENTS (<= 991px) */
 @media screen and (max-width: 991px) {
+    /* Stage 1: Hidden off-screen by default */
     .fuel-side-tabs {
-        right: -5px !important;
+        right: 0 !important;
+        transform: translateY(-50%) translateX(320px) !important;
     }
+    /* Stage 2 & 3: Peek handle visible or panel open */
     .fuel-side-tabs.mobile-peek,
     .fuel-side-tabs.open {
         right: -5px !important;
+        transform: translateY(-50%) translateX(0) !important;
     }
     .order-side-tab-container,
     .order-fuel-side-btn {
@@ -2360,11 +2364,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 @media screen and (max-width: 991px) {
     .fuel-side-tabs {
-        right: -5px !important;
+        right: 0 !important;
+        transform: translateY(-50%) translateX(320px) !important;
     }
     .fuel-side-tabs.mobile-peek,
     .fuel-side-tabs.open {
         right: -5px !important;
+        transform: translateY(-50%) translateX(0) !important;
     }
 }
 </style>
