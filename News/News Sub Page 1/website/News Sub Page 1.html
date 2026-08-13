@@ -82,8 +82,9 @@
         
         /* 4. Remove empty white space after Contact Us */
         .w-nav-menu {
-            overflow-y: visible !important;
+            overflow-y: auto !important;
             height: auto !important;
+            max-height: 85vh !important;
             min-height: auto !important;
             padding-bottom: env(safe-area-inset-bottom, 20px) !important;
         }
@@ -1427,9 +1428,9 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         right: 0 !important;
         transform: translateY(-50%) translateX(400px) !important;
     }
-    /* Stage 2: Fuel handle peeks (right:-5px hides the border) */
+    /* Stage 2: Fuel handle peeks pulled left by 5px */
     .fuel-side-tabs.mobile-peek {
-        right: -5px !important;
+        right: 0 !important;
         transform: translateY(-50%) translateX(320px) !important;
     }
     /* Stage 3: Full fuel panel open */
@@ -2459,7 +2460,7 @@ document.addEventListener("DOMContentLoaded", function() {
         transform: translateY(-50%) translateX(400px) !important;
     }
     .fuel-side-tabs.mobile-peek {
-        right: -5px !important;
+        right: 0 !important;
         transform: translateY(-50%) translateX(320px) !important;
     }
     .fuel-side-tabs.open {
