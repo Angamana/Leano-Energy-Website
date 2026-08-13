@@ -1458,7 +1458,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 <style id="ios-nav-fullscreen-fix">
 @media screen and (max-width: 991px) {
     /* Keep navbar transparent and overlaid so hero slider background images extend all the way to the top edge on mobile */
-    .header-main, .header-one {
+    .header > .header-main {
         position: absolute !important;
         top: 0 !important;
         left: 0 !important;
@@ -1466,6 +1466,10 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         z-index: 1000 !important;
         background-color: transparent !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    .header > .header-main .header-main {
+        position: relative !important;
+        border-bottom: none !important;
     }
 
     /* Force Webflow mobile nav overlay to fill 100% of the screen on iOS devices */
