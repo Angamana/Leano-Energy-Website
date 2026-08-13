@@ -1849,6 +1849,15 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         border-bottom: none !important;
     }
 
+    
+    @supports (-webkit-touch-callout: none) {
+        .hero-one-section, .breadcrumb-section, .w-slider, .header, .header-main {
+            transform: none !important;
+            -webkit-transform: none !important;
+            overflow: visible !important;
+            clip-path: none !important;
+        }
+    }
     /* Force Webflow mobile nav overlay to fill 100% of the screen on iOS devices */
     .w-nav-overlay {
         position: fixed !important;
