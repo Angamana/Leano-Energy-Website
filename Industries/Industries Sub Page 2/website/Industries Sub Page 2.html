@@ -1462,27 +1462,30 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 .fuel-side-tabs,
 .order-side-tab-container,
 .order-fuel-side-btn {
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* 1. Alignment relative to arrow button:
-   - Bottom of Fuel Prices widget is 15px above top of arrow button
-   - Top of Order Now widget is 15px below bottom of arrow button
-*/
-
-/* FUEL PRICES WIDGET: PERMANENTLY PEEKING OUT AT RIGHT: -320px SO TAB HANDLE IS ALWAYS VISIBLE */
+/* FUEL PRICES WIDGET: PERMANENTLY VISIBLE TAB HANDLE AT RIGHT: 0 WITH TRANSFORM TRANSLATE X(320px) */
 .fuel-side-tabs {
     position: fixed !important;
     top: auto !important;
     bottom: calc(50% + 36px) !important;
-    right: -320px !important;
-    transform: none !important;
+    right: 0 !important;
+    transform: translateX(320px) !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 99999 !important;
 }
 
+.fuel-side-tabs.open,
+.fuel-side-tabs.mobile-peek {
+    transform: translateX(0) !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+}
+
+/* ORDER NOW WIDGET */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
@@ -1491,7 +1494,6 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 99999 !important;
 }
 
-/* Order Now widget hidden until mobile toggle button is clicked */
 .order-side-tab-container:not(.mobile-peek),
 .order-fuel-side-btn:not(.mobile-peek) {
     right: -200px !important;
@@ -1506,13 +1508,6 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 999998 !important;
-}
-
-/* Full Open state (when Fuel Prices tab itself is clicked) */
-.fuel-side-tabs.open {
-    right: 0 !important;
-    transform: none !important;
-    z-index: 999999 !important;
 }
 </style>
 
@@ -2270,13 +2265,16 @@ document.addEventListener('DOMContentLoaded', function() {
 .fuel-side-tabs {
     position: fixed !important;
     bottom: calc(50% + 36px) !important;
-    right: -320px !important;
+    right: 0 !important;
+    transform: translateX(320px) !important;
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
-    transition: right 0.3s ease !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
-.fuel-side-tabs.open {
+.fuel-side-tabs.open,
+.fuel-side-tabs.mobile-peek {
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 999999 !important;
 }
