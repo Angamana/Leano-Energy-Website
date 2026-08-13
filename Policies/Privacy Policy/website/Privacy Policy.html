@@ -2206,11 +2206,14 @@ document.addEventListener("DOMContentLoaded", function() {
 @media screen and (max-width: 991px) {
     .fuel-side-tabs {
         right: 0 !important;
+        transform: translateY(-50%) translateX(400px) !important;
+    }
+    .fuel-side-tabs.mobile-peek {
+        right: -5px !important;
         transform: translateY(-50%) translateX(320px) !important;
     }
-    .fuel-side-tabs.mobile-peek,
     .fuel-side-tabs.open {
-        right: -5px !important;
+        right: 0 !important;
         transform: translateY(-50%) translateX(0) !important;
     }
 }
