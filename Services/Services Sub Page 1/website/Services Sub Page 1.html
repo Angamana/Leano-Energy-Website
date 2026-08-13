@@ -1458,10 +1458,10 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* FUEL PRICES WIDGET: REMOVED 15px RULE, CENTERED VERTICALLY AT TOP: 50% */
+/* FUEL PRICES WIDGET: MOVED DOWN 40px (TOP: CALC(50% + 40px)) */
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
+    top: calc(50% + 40px) !important;
     bottom: auto !important;
     right: 0 !important;
     transform: translateY(-50%) translateX(320px) !important;
@@ -2400,7 +2400,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="fuel-prices-widget-styles">
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
+    top: calc(50% + 40px) !important;
     bottom: auto !important;
     right: 0 !important;
     transform: translateY(-50%) translateX(320px) !important;
