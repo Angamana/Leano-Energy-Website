@@ -1550,6 +1550,30 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     }
 }
 </style>
+<style id="breadcrumb-bg-fix-css">
+    .breadcrumb-bg-wrap {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        z-index: 0 !important;
+    }
+    .breadcrumb-bg-wrap img.breadcrumb-bg,
+    img.breadcrumb-bg {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        opacity: 0.35 !important;
+    }
+</style>
 </head>
 <body oncontextmenu="return false;">
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
