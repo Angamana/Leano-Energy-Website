@@ -2397,54 +2397,61 @@ document.addEventListener("DOMContentLoaded", function() {
     line-height: 1.3;
 }
 </style>
+<!-- FUEL PRICES SIDE WIDGET -->
 <div class="fuel-side-tabs" id="fuel-side-panel">
-<div class="fuel-main-tab-btn" onclick="document.getElementById('fuel-side-panel').classList.toggle('open');"><svg fill="none" height="15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 8px;" viewbox="0 0 24 24" width="15"><path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"></path><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path><rect height="4" width="4" x="6" y="6"></rect></svg><span>FUEL PRICES</span></div>
-<div class="fuel-panel-container">
-<div class="fuel-inner-tabs">
-<div class="fuel-inner-tab active" id="tab-btn-petrol" onclick="document.getElementById('content-petrol').classList.add('active'); document.getElementById('content-diesel').classList.remove('active'); document.getElementById('tab-btn-petrol').classList.add('active'); document.getElementById('tab-btn-diesel').classList.remove('active');">PETROL</div>
-<div class="fuel-inner-tab" id="tab-btn-diesel" onclick="document.getElementById('content-diesel').classList.add('active'); document.getElementById('content-petrol').classList.remove('active'); document.getElementById('tab-btn-diesel').classList.add('active'); document.getElementById('tab-btn-petrol').classList.remove('active');">DIESEL</div>
+    <div class="fuel-main-tab-btn" onclick="document.getElementById('fuel-side-panel').classList.toggle('open');">
+        <svg fill="none" height="15" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 6px;" viewBox="0 0 24 24" width="15">
+            <path d="M3 22V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v18"></path>
+            <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V9.83a2 2 0 0 0-.59-1.42L18 5"></path>
+            <rect height="4" width="4" x="6" y="6"></rect>
+        </svg>
+        <span>FUEL PRICES</span>
+    </div>
+    <div class="fuel-panel-container">
+        <div class="fuel-inner-tabs">
+            <div class="fuel-inner-tab active" id="tab-btn-petrol" onclick="document.getElementById('content-petrol').classList.add('active'); document.getElementById('content-diesel').classList.remove('active'); document.getElementById('tab-btn-petrol').classList.add('active'); document.getElementById('tab-btn-diesel').classList.remove('active');">PETROL</div>
+            <div class="fuel-inner-tab" id="tab-btn-diesel" onclick="document.getElementById('content-diesel').classList.add('active'); document.getElementById('content-petrol').classList.remove('active'); document.getElementById('tab-btn-diesel').classList.add('active'); document.getElementById('tab-btn-petrol').classList.remove('active');">DIESEL</div>
+        </div>
+        <div class="fuel-inner-content active" id="content-petrol">
+            <p class="fuel-date" id="petrol-date">Last price change: Loading...</p>
+            <h4>Reef</h4>
+            <ul>
+                <li><span>Unleaded 93:</span> <strong id="petrol-reef-93">Loading...</strong></li>
+                <li><span>Unleaded 95:</span> <strong id="petrol-reef-95">Loading...</strong></li>
+                <li><span>LRP 95:</span> <strong id="petrol-reef-lrp">Loading...</strong></li>
+            </ul>
+            <h4>Coast</h4>
+            <ul>
+                <li><span>Unleaded 93:</span> <strong id="petrol-coast-93">Loading...</strong></li>
+                <li><span>Unleaded 95:</span> <strong id="petrol-coast-95">Loading...</strong></li>
+                <li><span>LRP 95:</span> <strong id="petrol-coast-lrp">Loading...</strong></li>
+            </ul>
+        </div>
+        <div class="fuel-inner-content" id="content-diesel">
+            <p class="fuel-date" id="diesel-date">Last price change: Loading...</p>
+            <h4>Reef</h4>
+            <ul>
+                <li><span>50 PPM (0.005%):</span> <strong id="diesel-reef-50">Loading...</strong></li>
+                <li><span>500 PPM (0.05%):</span> <strong id="diesel-reef-500">Loading...</strong></li>
+            </ul>
+            <h4>Coast</h4>
+            <ul>
+                <li><span>50 PPM (0.005%):</span> <strong id="diesel-coast-50">Loading...</strong></li>
+                <li><span>500 PPM (0.05%):</span> <strong id="diesel-coast-500">Loading...</strong></li>
+            </ul>
+            <p class="fuel-disclaimer">* Wholesale Diesel price quoted. Prices may vary between fuel retailers.</p>
+        </div>
+    </div>
 </div>
-<div class="fuel-inner-content active" id="content-petrol">
-<p class="fuel-date" id="petrol-date">Last price change: Loading...</p>
-<h4>Reef</h4>
-<ul>
-<li><span>Unleaded 93:</span> <strong id="petrol-reef-93">Loading...</strong></li>
-<li><span>Unleaded 95:</span> <strong id="petrol-reef-95">Loading...</strong></li>
-<li><span>LRP 95:</span> <strong id="petrol-reef-lrp">Loading...</strong></li>
-</ul>
-<h4>Coast</h4>
-<ul>
-<li><span>Unleaded 93:</span> <strong id="petrol-coast-93">Loading...</strong></li>
-<li><span>Unleaded 95:</span> <strong id="petrol-coast-95">Loading...</strong></li>
-<li><span>LRP 95:</span> <strong id="petrol-coast-lrp">Loading...</strong></li>
-</ul>
-</div>
-<div class="fuel-inner-content" id="content-diesel">
-<p class="fuel-date" id="diesel-date">Last price change: Loading...</p>
-<h4>Reef</h4>
-<ul>
-<li><span>50 PPM (0.005%):</span> <strong id="diesel-reef-50">Loading...</strong></li>
-<li><span>500 PPM (0.05%):</span> <strong id="diesel-reef-500">Loading...</strong></li>
-</ul>
-<h4>Coast</h4>
-<ul>
-<li><span>50 PPM (0.005%):</span> <strong id="diesel-coast-50">Loading...</strong></li>
-<li><span>500 PPM (0.05%):</span> <strong id="diesel-coast-500">Loading...</strong></li>
-</ul>
-<p class="fuel-disclaimer">* Wholesale Diesel price quoted. Prices may vary between fuel retailers.</p>
-</div>
-</div>
-</div>
-<script id="fuel-price-fetch-js">
+
+<script id="fuel-api-script">
 document.addEventListener("DOMContentLoaded", function() {
     const apiKey = '012fdea1778b4bcbb98a701bae959a5f';
     const apiUrl = 'https://api.fuelsa.co.za/exapi/fuel/current';
 
     fetch(apiUrl, {
         method: 'GET',
-        headers: {
-            'key': apiKey
-        }
+        headers: { 'key': apiKey }
     })
     .then(response => response.json())
     .then(data => {
@@ -2486,7 +2493,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     })
-    .catch(error => console.error('Error fetching fuel prices:', error));
+    .catch(err => console.log('Fuel API Error:', err));
 });
 </script>
 
