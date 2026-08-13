@@ -1458,24 +1458,31 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* FUEL PRICES WIDGET: PERMANENTLY VISIBLE TAB HANDLE AT RIGHT: 0 WITH TRANSFORM TRANSLATE X(320px) */
+/* FUEL PRICES WIDGET: CENTERED VERTICALLY (TOP: 50%), PERMANENTLY PEEKING HANDLE */
 .fuel-side-tabs {
     position: fixed !important;
-    top: auto !important;
-    bottom: calc(50% + 36px) !important;
+    top: 50% !important;
+    bottom: auto !important;
     right: 0 !important;
-    transform: translateX(320px) !important;
+    transform: translateY(-50%) translateX(320px) !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 99999 !important;
 }
 
-.fuel-side-tabs.open,
+/* WHEN PEEKED BY ARROW BUTTON */
 .fuel-side-tabs.mobile-peek {
-    transform: translateX(0) !important;
+    transform: translateY(-50%) translateX(0) !important;
     right: 0 !important;
-    z-index: 999999 !important;
+    z-index: 999998 !important;
+}
+
+/* WHEN OPENED BY CLICKING FUEL PRICES TAB: HIGHEST Z-INDEX SO NUMBERS ARE NEVER BLOCKED */
+.fuel-side-tabs.open {
+    transform: translateY(-50%) translateX(0) !important;
+    right: 0 !important;
+    z-index: 2147483647 !important;
 }
 
 /* ORDER NOW WIDGET */
@@ -2381,19 +2388,24 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="fuel-prices-widget-styles">
 .fuel-side-tabs {
     position: fixed !important;
-    bottom: calc(50% + 36px) !important;
+    top: 50% !important;
+    bottom: auto !important;
     right: 0 !important;
-    transform: translateX(320px) !important;
+    transform: translateY(-50%) translateX(320px) !important;
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
-.fuel-side-tabs.open,
 .fuel-side-tabs.mobile-peek {
-    transform: translateX(0) !important;
+    transform: translateY(-50%) translateX(0) !important;
     right: 0 !important;
-    z-index: 999999 !important;
+    z-index: 999998 !important;
+}
+.fuel-side-tabs.open {
+    transform: translateY(-50%) translateX(0) !important;
+    right: 0 !important;
+    z-index: 2147483647 !important;
 }
 .fuel-main-tab-btn {
     background: #f56e28 !important;
