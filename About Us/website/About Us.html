@@ -1600,13 +1600,13 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* FUEL PRICES WIDGET (PC POSITION: TOP CALC(50% + 40px)) */
+/* FUEL PRICES WIDGET - PC STAGE 1: fully hidden, Stage 2: handle peeks, Stage 3: full panel */
 .fuel-side-tabs {
     position: fixed !important;
     top: calc(50% + 55px) !important;
     bottom: auto !important;
     right: 0 !important;
-    transform: translateY(-50%) translateX(320px) !important;
+    transform: translateY(-50%) translateX(400px) !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1614,7 +1614,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 
 .fuel-side-tabs.mobile-peek {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateY(-50%) translateX(320px) !important;
     right: 0 !important;
     z-index: 999998 !important;
 }
@@ -1625,14 +1625,14 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET (PC POSITION: VISIBLE AT RIGHT:0, BELOW ARROW) */
+/* ORDER NOW WIDGET - PC STAGE 1: hidden, Stage 2: handle peeks, Stage 3: navigate */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
     top: calc(50% + 36px) !important;
     bottom: auto !important;
-    right: 0 !important;
-    transform: translateX(0) !important;
+    right: -200px !important;
+    transform: translateX(200px) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
