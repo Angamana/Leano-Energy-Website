@@ -1414,7 +1414,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
-/* 1. FUEL PRICES WIDGET: BOTTOM IS EXACTLY 15px ABOVE TOP OF ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
+/* 1. FUEL PRICES WIDGET: HANDLE PEEKS 15px ABOVE ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
 .fuel-side-tabs {
     position: fixed !important;
     top: auto !important;
@@ -1433,9 +1433,11 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 999998 !important;
 }
 
-/* HIGHEST Z-INDEX WHEN OPENED SO FLOATS OVER ORDER NOW WITHOUT ANY NUMBERS BEING BLOCKED */
+/* WHEN OPENED: OPENS CENTERED IN THE VERTICAL MIDDLE OF THE SCREEN (TOP: 50%) ON TOPMOST LAYER */
 .fuel-side-tabs.open {
-    transform: translateX(0) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
@@ -2112,7 +2114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 .fuel-side-tabs.mobile-peek {
     transform: translateX(0) !important;
@@ -2120,7 +2122,9 @@ document.addEventListener('DOMContentLoaded', function() {
     z-index: 999998 !important;
 }
 .fuel-side-tabs.open {
-    transform: translateX(0) !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
