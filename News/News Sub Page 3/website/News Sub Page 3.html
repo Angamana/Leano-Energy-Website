@@ -778,44 +778,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 </style>
-<style id="scroll-to-top-svg-size-fix-css">
-/* ==========================================
-   FIX SCROLL TO TOP SVG VIEWBOX & ELIMINATE EMPTY SPACE
-   ========================================== */
-#scrollToTopBtn svg,
-.scroll-to-top-btn svg,
-div[id*="scrollToTop"] svg,
-div[class*="scroll-to-top"] svg {
-    width: 20px !important;
-    height: 20px !important;
-    max-width: 20px !important;
-    max-height: 20px !important;
-    min-width: 20px !important;
-    min-height: 20px !important;
-    display: block !important;
-    margin: auto !important;
-}
 
-#scrollToTopBtn,
-.scroll-to-top-btn,
-div[id*="scrollToTop"],
-div[class*="scroll-to-top"] {
-    width: 44px !important;
-    height: 44px !important;
-    max-width: 44px !important;
-    max-height: 44px !important;
-    position: fixed !important;
-    bottom: 25px !important;
-    right: 25px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden !important;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2) !important;
-    z-index: 99999 !important;
-}
-</style>
 <style id="subpages-single-column-mobile-css">
 /* ==========================================
    SUB-PAGES MOBILE SINGLE COLUMN STACK (MAX-WIDTH: 991PX)
@@ -1411,7 +1374,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
-/* 1. Alignment relative to arrow button:
+/* Alignment relative to arrow button:
    - Bottom of Fuel Prices widget is 15px above top of arrow button
    - Top of Order Now widget is 15px below bottom of arrow button
 */
@@ -1430,7 +1393,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 99999 !important;
 }
 
-/* 2. Unpressed / Hidden state: Pushed completely off-screen (no peeking) */
+/* Unpressed / Hidden state: Pushed completely off-screen (no peeking) */
 .fuel-side-tabs:not(.mobile-peek):not(.open) {
     right: -370px !important;
     transform: none !important;
@@ -1442,28 +1405,41 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transform: none !important;
 }
 
-/* 3. Pressed / Peek state: Both widgets slide out into view */
+/* Pressed / Peek state: Both widgets slide out into view */
 .fuel-side-tabs.mobile-peek:not(.open) {
     right: -320px !important;
     transform: none !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 999998 !important;
 }
 
 .order-side-tab-container.mobile-peek,
 .order-fuel-side-btn.mobile-peek {
     right: 0 !important;
     transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 999998 !important;
 }
 
-/* 4. Full Open state (when Fuel Prices tab itself is clicked) */
+/* Full Open state (when Fuel Prices tab itself is clicked) */
 .fuel-side-tabs.open {
     right: 0 !important;
     transform: none !important;
 }
 </style>
 
-<style id="ios-nav-fullscreen-blur-fix">
+<style id="ios-nav-fullscreen-fix">
 @media screen and (max-width: 991px) {
-    /* Force mobile nav overlay to fill 100% of iOS viewport with blurred backdrop */
+    /* Prevent parent containers from trapping mobile nav overlay height on iOS */
+    .header, .header-one, .header-main, .navbar, .w-nav {
+        position: static !important;
+    }
+
+    /* Force Webflow mobile nav overlay to fill 100% of the screen on iOS devices */
     .w-nav-overlay {
         position: fixed !important;
         top: 0 !important;
@@ -1471,10 +1447,12 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         right: 0 !important;
         bottom: 0 !important;
         width: 100vw !important;
+        height: 100vh !important;
         height: 100dvh !important;
         height: -webkit-fill-available !important;
+        min-height: 100vh !important;
         min-height: 100dvh !important;
-        background: rgba(0, 0, 0, 0.70) !important;
+        background: rgba(0, 0, 0, 0.75) !important;
         backdrop-filter: blur(14px) !important;
         -webkit-backdrop-filter: blur(14px) !important;
         z-index: 9999990 !important;
