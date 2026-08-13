@@ -1354,7 +1354,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* FUEL PRICES WIDGET */
+/* FUEL PRICES WIDGET (PC POSITION: TOP CALC(50% + 40px)) */
 .fuel-side-tabs {
     position: fixed !important;
     top: calc(50% + 40px) !important;
@@ -1379,14 +1379,14 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET */
+/* ORDER NOW WIDGET (PC POSITION: TOP CALC(50% + 36px), HIDDEN OFF-SCREEN UNTIL ARROW TOGGLED) */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
     top: calc(50% + 36px) !important;
     bottom: auto !important;
-    right: 0 !important;
-    transform: none !important;
+    right: -200px !important;
+    transform: translateX(200px) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1396,7 +1396,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 .order-side-tab-container.mobile-peek,
 .order-fuel-side-btn.mobile-peek {
     right: 0 !important;
-    transform: none !important;
+    transform: translateX(0) !important;
     z-index: 999998 !important;
 }
 
@@ -1412,10 +1412,14 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     .order-side-tab-container,
     .order-fuel-side-btn {
         top: calc(50% - 14px) !important;
+        right: -200px !important;
+        transform: translateX(200px) !important;
     }
     .order-side-tab-container.mobile-peek,
     .order-fuel-side-btn.mobile-peek {
         top: calc(50% - 14px) !important;
+        right: 0 !important;
+        transform: translateX(0) !important;
     }
 }
 </style>
