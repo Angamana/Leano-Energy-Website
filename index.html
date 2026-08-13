@@ -1799,30 +1799,31 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 
 /* MOBILE AND TABLET ADJUSTMENTS (<= 991px) */
 @media screen and (max-width: 991px) {
-    /* Stage 1: Hidden off-screen by default */
+    /* Fuel prices: handle always visible, 5px to the right to hide border */
     .fuel-side-tabs {
-        right: 0 !important;
-        transform: translateY(-50%) translateX(400px) !important;
+        right: -5px !important;
+        transform: translateY(-50%) translateX(320px) !important;
     }
-    /* Stage 2: Peek handle visible */
+    /* mobile-peek: same as default */
     .fuel-side-tabs.mobile-peek {
         right: -5px !important;
         transform: translateY(-50%) translateX(320px) !important;
     }
-    /* Stage 3: Panel open */
+    /* Full panel open */
     .fuel-side-tabs.open {
         right: 0 !important;
         transform: translateY(-50%) translateX(0) !important;
     }
+    /* Order Now: always visible below the arrow */
     .order-side-tab-container,
     .order-fuel-side-btn {
-        top: calc(50% - 14px) !important;
-        right: -200px !important;
-        transform: translateX(200px) !important;
+        top: calc(50% + 36px) !important;
+        right: 0 !important;
+        transform: translateX(0) !important;
     }
     .order-side-tab-container.mobile-peek,
     .order-fuel-side-btn.mobile-peek {
-        top: calc(50% - 14px) !important;
+        top: calc(50% + 36px) !important;
         right: 0 !important;
         transform: translateX(0) !important;
     }
@@ -3577,41 +3578,52 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Stage 1 <-> Stage 2 Toggle Handler (Arrow button ONLY shows/hides handle tabs)
+    // Arrow button: toggles fuel prices panel open/closed
+    // Both widgets are always visible on mobile/tablet - arrow only opens full fuel panel
     toggleBtn.addEventListener("click", function(e) {
         e.stopPropagation();
         e.preventDefault();
 
-        const isCurrentlyActive = toggleBtn.classList.contains("active");
         const icon = toggleBtn.querySelector(".chevron-icon");
+        const isFuelOpen = fuelTabs && fuelTabs.classList.contains("open");
 
-        if (!isCurrentlyActive) {
-            // STAGE 2: Show widget handle tabs (mobile-peek)
+        if (!isFuelOpen) {
+            // Open fuel prices full panel
             toggleBtn.classList.add("active");
             if (fuelTabs) {
-                fuelTabs.classList.add("mobile-peek");
-                fuelTabs.classList.remove("open"); // Enforce: Arrow NEVER opens full price card
-            }
-            if (orderBtn) {
-                orderBtn.classList.add("mobile-peek");
+                fuelTabs.classList.add("open");
+                fuelTabs.classList.remove("mobile-peek");
             }
             if (icon) icon.style.transform = "rotate(180deg)";
         } else {
-            // STAGE 1: Hide widget handle tabs
-            closeAllSideWidgets();
+            // Close fuel prices back to handle-only view
+            toggleBtn.classList.remove("active");
+            if (fuelTabs) {
+                fuelTabs.classList.remove("open");
+            }
+            if (icon) icon.style.transform = "rotate(0deg)";
         }
     });
 
-    // Collapse widgets on scroll or outside click
+    // Close fuel panel on scroll or outside click (keep handle visible)
+    function closeFuelPanel() {
+        if (fuelTabs) fuelTabs.classList.remove("open");
+        if (toggleBtn) {
+            toggleBtn.classList.remove("active");
+            const icon = toggleBtn.querySelector(".chevron-icon");
+            if (icon) icon.style.transform = "rotate(0deg)";
+        }
+    }
+
     window.addEventListener("scroll", function() {
-        closeAllSideWidgets();
+        closeFuelPanel();
     }, { passive: true });
 
     document.addEventListener("click", function(e) {
         if (fuelTabs && fuelTabs.contains(e.target)) return;
         if (orderBtn && orderBtn.contains(e.target)) return;
         if (toggleBtn && toggleBtn.contains(e.target)) return;
-        closeAllSideWidgets();
+        closeFuelPanel();
     });
 });
 </script>
