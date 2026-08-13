@@ -639,11 +639,11 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET */
+/* ORDER NOW WIDGET: RESTORED TO ORIGINAL PREVIOUS POSITION (TOP: 50%) */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
-    top: calc(50% + 36px) !important;
+    top: 50% !important;
     bottom: auto !important;
     z-index: 99999 !important;
 }
@@ -651,13 +651,13 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 .order-side-tab-container:not(.mobile-peek),
 .order-fuel-side-btn:not(.mobile-peek) {
     right: -200px !important;
-    transform: none !important;
+    transform: translateY(-50%) !important;
 }
 
 .order-side-tab-container.mobile-peek,
 .order-fuel-side-btn.mobile-peek {
     right: 0 !important;
-    transform: none !important;
+    transform: translateY(-50%) !important;
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
