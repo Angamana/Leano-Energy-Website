@@ -1336,16 +1336,16 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 .fuel-side-tabs,
 .order-side-tab-container,
 .order-fuel-side-btn {
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), top 0.4s ease, bottom 0.4s ease !important;
 }
 
-/* FUEL PRICES WIDGET: BROUGHT BACK DOWN TO MIDDLE (TOP: 50%) */
+/* 1. FUEL PRICES WIDGET: BOTTOM IS EXACTLY 15px ABOVE TOP OF ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
     right: 0 !important;
-    transform: translateY(-50%) translateX(320px) !important;
+    transform: translateX(320px) !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -1353,19 +1353,19 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 
 .fuel-side-tabs.mobile-peek {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 999998 !important;
 }
 
-/* HIGHEST Z-INDEX WHEN OPENED SO ALL NUMBERS FLOAT OVER ORDER NOW WITHOUT BEING BLOCKED */
+/* HIGHEST Z-INDEX WHEN OPENED SO FLOATS OVER ORDER NOW WITHOUT ANY NUMBERS BEING BLOCKED */
 .fuel-side-tabs.open {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET: UNTOUCHED AT TOP: CALC(50% + 36px) */
+/* 2. ORDER NOW WIDGET: TOP IS EXACTLY 15px BELOW BOTTOM OF ARROW BUTTON (TOP: CALC(50% + 36px)) */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
@@ -2297,22 +2297,22 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="fuel-prices-widget-styles">
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
     right: 0 !important;
-    transform: translateY(-50%) translateX(320px) !important;
+    transform: translateX(320px) !important;
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 .fuel-side-tabs.mobile-peek {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 999998 !important;
 }
 .fuel-side-tabs.open {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
