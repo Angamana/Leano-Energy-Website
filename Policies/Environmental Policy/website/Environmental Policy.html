@@ -1913,94 +1913,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     color: #ffffff !important;
 }
 </style>
-<script id="widget-ux-enhancements-js">
-document.addEventListener("DOMContentLoaded", function() {
-    const style = document.createElement('style');
-    style.innerHTML = `
-        /* Mobile overrides for 3-stage widgets */
-        
-        }
-        
-        #mobile-widget-toggle {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 32px;
-            height: 54px;
-            background: linear-gradient(135deg, #f37021 0%, #d85c10 100%);
-            color: white;
-            border-radius: 6px 0 0 6px;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 100000;
-            box-shadow: -3px 0 10px rgba(0,0,0,0.4);
-            transition: right 0.3s ease;
-        }
-        @media (max-width: 991px) {
-            #mobile-widget-toggle {
-                display: flex;
-            }
-        }
-        #mobile-widget-toggle svg {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease;
-        }
-        #mobile-widget-toggle.active svg {
-            transform: rotate(180deg);
-        }
-    `;
-    // Append to body so its !important rules override any !important rules in other stylesheets located in the body.
-    document.body.appendChild(style);
 
-    const toggleBtn = document.createElement('div');
-    toggleBtn.id = 'mobile-widget-toggle';
-    toggleBtn.innerHTML = `<svg fill="none" stroke="#ffffff" viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>`;
-    document.body.appendChild(toggleBtn);
-
-    const fuelTabs = document.querySelector('.fuel-side-tabs');
-    const orderBtn = document.querySelector('.order-fuel-side-btn');
-
-    let mobilePeekActive = false;
-
-    toggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobilePeekActive = !mobilePeekActive;
-        if(mobilePeekActive) {
-            if(fuelTabs) fuelTabs.classList.add('mobile-peek');
-            if(orderBtn) orderBtn.classList.add('mobile-peek');
-            toggleBtn.classList.add('active');
-        } else {
-            closeAllWidgets();
-        }
-    });
-
-    function closeAllWidgets() {
-        if(fuelTabs) { fuelTabs.classList.remove('open'); fuelTabs.classList.remove('mobile-peek'); }
-        if(orderBtn) { orderBtn.classList.remove('mobile-peek'); }
-        if(toggleBtn) { toggleBtn.classList.remove('active'); }
-        mobilePeekActive = false;
-    }
-
-    document.addEventListener('click', function(e) {
-        if (fuelTabs && fuelTabs.contains(e.target)) return;
-        if (orderBtn && orderBtn.contains(e.target)) return;
-        if (toggleBtn && toggleBtn.contains(e.target)) return;
-        closeAllWidgets();
-    });
-
-    let isScrolling;
-    window.addEventListener('scroll', function() {
-        window.clearTimeout(isScrolling);
-        isScrolling = setTimeout(function() {
-            closeAllWidgets();
-        }, 100); 
-    }, {passive: true});
-});
-</script>
 
 <script id="disable-right-click">
 (function() {
@@ -2060,50 +1973,68 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script id="mobile-widget-toggle-script">
-document.addEventListener('DOMContentLoaded', function() {
-    const fuelTabs = document.querySelector('.fuel-side-tabs');
-    const orderBtn = document.querySelector('.order-side-tab-container') || document.querySelector('.order-fuel-side-btn');
-    
-    let toggleBtn = document.getElementById('mobile-widget-toggle');
-    if (!toggleBtn) {
-        toggleBtn = document.createElement('div');
-        toggleBtn.id = 'mobile-widget-toggle';
-        toggleBtn.innerHTML = '<svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>';
-        document.body.appendChild(toggleBtn);
-    }
+document.addEventListener("DOMContentLoaded", function() {
+    // 1. Clean up any existing duplicate toggle buttons
+    const existingBtns = document.querySelectorAll("#mobile-widget-toggle");
+    existingBtns.forEach(btn => btn.remove());
+
+    // 2. Create single unified mobile widget toggle button
+    const toggleBtn = document.createElement("div");
+    toggleBtn.id = "mobile-widget-toggle";
+    toggleBtn.innerHTML = `<svg class="chevron-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>`;
+    document.body.appendChild(toggleBtn);
+
+    const fuelTabs = document.querySelector(".fuel-side-tabs");
+    const orderBtn = document.querySelector(".order-side-tab-container") || document.querySelector(".order-fuel-side-btn");
 
     function closeAllSideWidgets() {
-        if(fuelTabs) { fuelTabs.classList.remove('open'); fuelTabs.classList.remove('mobile-peek'); }
-        if(orderBtn) { orderBtn.classList.remove('mobile-peek'); orderBtn.classList.remove('open'); orderBtn.classList.remove('active'); }
-        if(toggleBtn) { 
-            toggleBtn.classList.remove('active'); 
-            const icon = toggleBtn.querySelector('.chevron-icon');
-            if (icon) icon.style.transform = 'rotate(0deg)';
+        if (fuelTabs) {
+            fuelTabs.classList.remove("open");
+            fuelTabs.classList.remove("mobile-peek");
+        }
+        if (orderBtn) {
+            orderBtn.classList.remove("mobile-peek");
+            orderBtn.classList.remove("open");
+            orderBtn.classList.remove("active");
+        }
+        if (toggleBtn) {
+            toggleBtn.classList.remove("active");
+            const icon = toggleBtn.querySelector(".chevron-icon");
+            if (icon) icon.style.transform = "rotate(0deg)";
         }
     }
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const isActive = toggleBtn.classList.toggle('active');
-            const icon = toggleBtn.querySelector('.chevron-icon');
-            
-            if (isActive) {
-                if (fuelTabs) fuelTabs.classList.add('mobile-peek');
-                if (orderBtn) orderBtn.classList.add('mobile-peek');
-                if (icon) icon.style.transform = 'rotate(180deg)';
-            } else {
-                closeAllSideWidgets();
-            }
-        });
-    }
+    // Stage 1 <-> Stage 2 Toggle Handler (Arrow button ONLY shows/hides handle tabs)
+    toggleBtn.addEventListener("click", function(e) {
+        e.stopPropagation();
+        e.preventDefault();
 
-    // Collapse BOTH widgets on scroll across ALL screen sizes (PC, Tablet, Mobile)
-    window.addEventListener('scroll', function() {
+        const isCurrentlyActive = toggleBtn.classList.contains("active");
+        const icon = toggleBtn.querySelector(".chevron-icon");
+
+        if (!isCurrentlyActive) {
+            // STAGE 2: Show widget handle tabs (mobile-peek)
+            toggleBtn.classList.add("active");
+            if (fuelTabs) {
+                fuelTabs.classList.add("mobile-peek");
+                fuelTabs.classList.remove("open"); // Enforce: Arrow NEVER opens full price card
+            }
+            if (orderBtn) {
+                orderBtn.classList.add("mobile-peek");
+            }
+            if (icon) icon.style.transform = "rotate(180deg)";
+        } else {
+            // STAGE 1: Hide widget handle tabs
+            closeAllSideWidgets();
+        }
+    });
+
+    // Collapse widgets on scroll or outside click
+    window.addEventListener("scroll", function() {
         closeAllSideWidgets();
     }, { passive: true });
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener("click", function(e) {
         if (fuelTabs && fuelTabs.contains(e.target)) return;
         if (orderBtn && orderBtn.contains(e.target)) return;
         if (toggleBtn && toggleBtn.contains(e.target)) return;
