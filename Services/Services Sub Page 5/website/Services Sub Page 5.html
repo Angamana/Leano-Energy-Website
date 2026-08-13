@@ -1482,55 +1482,50 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
-/* FUEL PRICES WIDGET: CENTERED VERTICALLY (TOP: 50%), PERMANENTLY PEEKING HANDLE */
+/* 1. FUEL PRICES WIDGET: 15px ABOVE THE ARROW BUTTON (BOTTOM: CALC(50% + 36px)) */
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
     right: 0 !important;
-    transform: translateY(-50%) translateX(320px) !important;
+    transform: translateX(320px) !important;
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     z-index: 99999 !important;
 }
 
-/* WHEN PEEKED BY ARROW BUTTON */
 .fuel-side-tabs.mobile-peek {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 999998 !important;
 }
 
-/* WHEN OPENED BY CLICKING FUEL PRICES TAB: HIGHEST Z-INDEX SO NUMBERS ARE NEVER BLOCKED */
+/* HIGHEST Z-INDEX WHEN OPENED SO ALL NUMBERS & TEXT FLOAT OVER ORDER NOW WITHOUT BLOCKING */
 .fuel-side-tabs.open {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
 
-/* ORDER NOW WIDGET: RESTORED TO ORIGINAL PREVIOUS POSITION (TOP: 50%) */
+/* 2. ORDER NOW WIDGET: 15px BELOW THE ARROW BUTTON (TOP: CALC(50% + 36px)) & PERMANENTLY VISIBLE HANDLE */
 .order-side-tab-container,
 .order-fuel-side-btn {
     position: fixed !important;
-    top: 50% !important;
+    top: calc(50% + 36px) !important;
     bottom: auto !important;
+    right: 0 !important;
+    transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     z-index: 99999 !important;
-}
-
-.order-side-tab-container:not(.mobile-peek),
-.order-fuel-side-btn:not(.mobile-peek) {
-    right: -200px !important;
-    transform: translateY(-50%) !important;
 }
 
 .order-side-tab-container.mobile-peek,
 .order-fuel-side-btn.mobile-peek {
     right: 0 !important;
-    transform: translateY(-50%) !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    transform: none !important;
     z-index: 999998 !important;
 }
 </style>
@@ -2378,22 +2373,22 @@ document.addEventListener('DOMContentLoaded', function() {
 <style id="fuel-prices-widget-styles">
 .fuel-side-tabs {
     position: fixed !important;
-    top: 50% !important;
-    bottom: auto !important;
+    top: auto !important;
+    bottom: calc(50% + 36px) !important;
     right: 0 !important;
-    transform: translateY(-50%) translateX(320px) !important;
+    transform: translateX(320px) !important;
     z-index: 99999 !important;
     display: flex !important;
     align-items: flex-start !important;
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 .fuel-side-tabs.mobile-peek {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 999998 !important;
 }
 .fuel-side-tabs.open {
-    transform: translateY(-50%) translateX(0) !important;
+    transform: translateX(0) !important;
     right: 0 !important;
     z-index: 2147483647 !important;
 }
