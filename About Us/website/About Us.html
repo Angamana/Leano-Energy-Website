@@ -1756,6 +1756,22 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 </style>
 
+<style id="universal-sticky-footer-fix">
+/* Sticky footer on PC & Laptop (>= 992px) to eliminate empty space below copyright */
+@media screen and (min-width: 992px) {
+    html {
+        height: 100%;
+    }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    footer.footer {
+        margin-top: auto !important;
+    }
+}
+</style>
 <style id="responsive-min-width-fix">
 /* Prevent content squishing when browser window is narrower than design minimum */
 /* This adds smooth horizontal scroll instead of distorting the layout */
