@@ -1615,6 +1615,31 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     }
 }
 </style>
+
+<style id="responsive-min-width-fix">
+/* Prevent content squishing when browser window is narrower than design minimum */
+/* This adds smooth horizontal scroll instead of distorting the layout */
+@media screen and (min-width: 992px) {
+    body {
+        min-width: 992px;
+    }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    body {
+        min-width: 768px;
+    }
+}
+@media screen and (max-width: 767px) and (min-width: 480px) {
+    body {
+        min-width: 480px;
+    }
+}
+@media screen and (max-width: 479px) {
+    body {
+        min-width: 320px;
+    }
+}
+</style>
 </head>
 <body oncontextmenu="return false;">
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
@@ -2838,6 +2863,73 @@ document.addEventListener("DOMContentLoaded", function() {
     })
     .catch(err => console.log('Fuel API Error:', err));
 });
+</script>
+
+<script id="ios-nav-body-portal">
+(function() {
+    // Detect iOS devices (iPhone, iPad, iPod) - all iOS browsers use WebKit
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    if (!isIOS) return;
+
+    // Wait for DOM and Webflow to initialize
+    function initIOSNavFix() {
+        var navOverlay = document.querySelector('.w-nav-overlay');
+        if (!navOverlay) return;
+
+        var originalParent = navOverlay.parentNode;
+        var moved = false;
+
+        // Create a MutationObserver to watch for the overlay becoming visible
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes') {
+                    var display = window.getComputedStyle(navOverlay).display;
+                    var height = navOverlay.style.height || navOverlay.getAttribute('data-height');
+
+                    if (display !== 'none' && !moved) {
+                        // Move overlay to body so it escapes all containing contexts
+                        document.body.appendChild(navOverlay);
+                        moved = true;
+
+                        // Force fullscreen on iOS
+                        navOverlay.style.position = 'fixed';
+                        navOverlay.style.top = '0';
+                        navOverlay.style.left = '0';
+                        navOverlay.style.right = '0';
+                        navOverlay.style.bottom = '0';
+                        navOverlay.style.width = '100vw';
+                        navOverlay.style.height = '100vh';
+                        navOverlay.style.height = '100dvh';
+                        navOverlay.style.zIndex = '9999999';
+                        navOverlay.style.background = 'rgba(0, 0, 0, 0.75)';
+                        navOverlay.style.webkitBackdropFilter = 'blur(14px)';
+                        navOverlay.style.backdropFilter = 'blur(14px)';
+                        navOverlay.style.overflowY = 'auto';
+                        navOverlay.style.webkitOverflowScrolling = 'touch';
+                    } else if (display === 'none' && moved) {
+                        // Move it back when closed so Webflow can manage it
+                        originalParent.appendChild(navOverlay);
+                        moved = false;
+                    }
+                }
+            });
+        });
+
+        observer.observe(navOverlay, {
+            attributes: true,
+            attributeFilter: ['style', 'data-height', 'class']
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(initIOSNavFix, 500);
+        });
+    } else {
+        setTimeout(initIOSNavFix, 500);
+    }
+})();
 </script>
 </body>
 </html>
