@@ -1,0 +1,558 @@
+<style id="master-leano-custom-fixes">
+/* 1. Hero Sliders on Mobile: LT Energy Italic font */
+@media screen and (max-width: 991px) {
+    .hero-one-slide .hero-one-title,
+    .hero-one-slide .hero-one-title-small,
+    .hero-one-slide .hero-one-title-two,
+    .hero-one-slide .hero-one-title-two-desc,
+    .hero-one-slide .hero-one-small-text {
+        font-family: 'LT Energy Italic', 'LT Energy', 'Montserrat', sans-serif !important;
+        font-style: italic !important;
+    }
+}
+
+/* 2. Mobile Nav Menu Font Color to Black */
+@media screen and (max-width: 991px) {
+    .w-nav-overlay .nav-link,
+    .w-nav-overlay .nav-text,
+    .w-nav-menu .nav-link,
+    .w-nav-menu .nav-text,
+    .w-nav-overlay a,
+    .w-nav-menu a,
+    .nav-dropdown-item {
+        color: #000000 !important;
+        
+        padding: 20px 24px 20px 32px !important;
+    }
+    .nav-dropdown-item,
+    .dropdown-chevron,
+    .dropdown-chevron svg {
+        color: #000000 !important;
+        stroke: #000000 !important;
+        fill: #000000 !important;
+    }
+}
+
+/* 3. Footer Typography & Weights (Only main headings bold, rest normal) */
+footer, footer *, .footer, .footer * {
+    color: #ffffff !important;
+}
+
+/* Force ONLY main headings with orange box to be bold */
+.footer-title {
+    font-weight: 800 !important;
+    color: #ffffff !important;
+}
+
+/* All other footer text MUST be regular/normal weight */
+.footer-link,
+.footer-link-text,
+.footer-contact-text,
+.footer-line,
+.footer-line *,
+.contact-info,
+.contact-info *,
+.footer-column p,
+footer p,
+.footer p {
+    font-weight: 400 !important;
+    color: #ffffff !important;
+}
+
+/* Contact Us button text black before hover, white on hover */
+/* Default button text to white */
+.button-link .button-text,
+p.button-text {
+    font-family: inherit, sans-serif !important;
+    color: #000000 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: .28px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s ease !important;
+}
+
+/* Specific buttons back to black before hover */
+.custom-footer-btn .button-text,
+.header-btn .button-text,
+.nav-one-btn-wrap .button-text,
+.nav-one-btn .button-text,
+.home-one-about-inner .button-text {
+    font-family: inherit, sans-serif !important;
+    color: #000000 !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: .28px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.35s ease !important;
+}
+.custom-footer-btn:hover .button-text-hover,
+.button-link:hover .button-text-hover,
+p.button-text-hover {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Phone and Mail SVG icons in white */
+.footer-contact-text svg, .contact-info svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Orange Title Dots / Squares */
+.footer-title-dot {
+    background-color: #f37021 !important;
+    background: #f37021 !important;
+}
+
+/* Policy links liquid glass blur border - MOBILE VIEW ONLY */
+@media screen and (max-width: 991px) {
+    .footer-column:nth-child(2) .footer-link {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+        border-radius: 8px !important;
+        padding: 10px 14px !important;
+        margin-bottom: 8px !important;
+        font-weight: 500 !important;
+        display: block !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease !important;
+    }
+    .footer-column:nth-child(2) .footer-link:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+}
+@media screen and (min-width: 992px) {
+    .footer-column:nth-child(2) .footer-link {
+        background: none !important;
+        border: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 12px !important;
+        box-shadow: none !important;
+    }
+    .footer-column:nth-child(2) .footer-link:hover {
+        background: none !important;
+        border: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Ensure social media icons remain black inside white circles */
+.footer-social-wrap a svg {
+    stroke: #000000 !important;
+    fill: none;
+}
+.footer-social-wrap a[title="LinkedIn"] svg {
+    fill: #000000 !important;
+    stroke: none !important;
+}
+
+/* Order Now widget icon: Orange normally, White on Hover */
+.order-fuel-side-btn svg {
+    stroke: #f37021 !important;
+    color: #f37021 !important;
+    transition: stroke 0.2s ease, color 0.2s ease !important;
+}
+.order-fuel-side-btn:hover svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Fuel prices side widget icon in black & bold text */
+  .fuel-main-tab-btn svg {
+    stroke: #000000 !important;
+  }
+  .fuel-side-tabs,
+  .fuel-main-tab-btn,
+  .fuel-main-tab-btn span,
+  .fuel-inner-tab,
+  .fuel-inner-content h4,
+  .fuel-inner-content li,
+  .fuel-inner-content li strong {
+    font-weight: bold !important;
+  }
+</style>
+
+<style id="fuel-widget-zindex-fix">
+/* Elevate fuel prices side panel above hero slider arrows and side buttons */
+.fuel-side-tabs, #fuel-side-panel {
+    z-index: 9999995 !important;
+}
+/* Ensure slider arrows stay at a normal lower layer */
+.w-slider-arrow-right, 
+.w-slider-arrow-left, 
+.hero-one-right-arrow, 
+.hero-one-left-arrow,
+.right-arrow,
+.left-arrow {
+    z-index: 10 !important;
+}
+</style>
+
+<style id="our-solutions-mobile-arrows-fix">
+@media screen and (max-width: 991px) {
+    .service-one-heading-content {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+    }
+    .service-one-heading-wrap {
+        flex: 1 1 auto !important;
+        padding-right: 15px !important;
+    }
+    .service-one-arrow-wrap {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 24px !important;
+        height: 24px !important;
+        min-width: 24px !important;
+        max-width: 24px !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+        pointer-events: none !important;
+    }
+    .service-one-arrow {
+        width: 18px !important;
+        height: 18px !important;
+        max-width: 18px !important;
+        max-height: 18px !important;
+        object-fit: contain !important;
+    }
+    .order-side-tab-container:not(.mobile-peek) {
+        right: -140px !important;
+        transform: translateX(250%) !important;
+    }
+    .order-side-tab-container.mobile-peek {
+        transform: translateX(0) !important;
+        right: 0 !important;
+    }
+}
+</style>
+
+<style id="ios-universal-compat-css">
+/* Universal iOS & Android Cross-Platform Standardization */
+html, body {
+    -webkit-text-size-adjust: 100% !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    touch-action: manipulation !important;
+}
+button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-button, .service-one-heading-content, #mobile-widget-toggle {
+    -webkit-appearance: none !important;
+    cursor: pointer !important;
+}
+</style>
+
+<style id="universal-side-widget-toggle-css">
+/* ==========================================
+   UNIVERSAL SIDE WIDGET TOGGLE & ALIGNMENT FIX (ALL SCREENS: PC, TABLET, MOBILE)
+   ========================================== */
+#mobile-widget-toggle {
+    display: flex !important;
+    position: fixed !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 999999 !important;
+    background: #f37021 !important;
+    width: 36px !important;
+    height: 42px !important;
+    border-radius: 8px 0 0 8px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: -2px 4px 12px rgba(0,0,0,0.25) !important;
+    transition: background 0.2s ease, transform 0.3s ease !important;
+}
+
+.fuel-side-tabs,
+.order-side-tab-container,
+.order-fuel-side-btn {
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* FUEL PRICES WIDGET - PC STAGE 1: fully hidden, Stage 2: handle peeks, Stage 3: full panel */
+.fuel-side-tabs {
+    position: fixed !important;
+    top: calc(50% + 55px) !important;
+    bottom: auto !important;
+    right: 0 !important;
+    transform: translateY(-50%) translateX(400px) !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 99999 !important;
+}
+
+.fuel-side-tabs.mobile-peek {
+    transform: translateY(-50%) translateX(320px) !important;
+    right: 0 !important;
+    z-index: 999998 !important;
+}
+
+.fuel-side-tabs.open {
+    transform: translateY(-50%) translateX(0) !important;
+    right: 0 !important;
+    z-index: 2147483647 !important;
+}
+
+/* ORDER NOW WIDGET - PC STAGE 1: hidden, Stage 2: handle peeks, Stage 3: navigate */
+.order-side-tab-container,
+.order-fuel-side-btn {
+    position: fixed !important;
+    top: calc(50% + 36px) !important;
+    bottom: auto !important;
+    right: -200px !important;
+    transform: translateX(200px) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 99999 !important;
+}
+
+.order-side-tab-container.mobile-peek,
+.order-fuel-side-btn.mobile-peek {
+    right: 0 !important;
+    transform: translateX(0) !important;
+    z-index: 999998 !important;
+}
+
+/* MOBILE AND TABLET ADJUSTMENTS (<= 991px) */
+@media screen and (max-width: 991px) {
+    /* Stage 1: Fuel prices fully hidden off-screen */
+    .fuel-side-tabs {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(400px) !important;
+    }
+    /* Stage 2: Fuel handle peeks pulled left by 5px */
+    .fuel-side-tabs.mobile-peek {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(320px) !important;
+    }
+    /* Stage 3: Full fuel panel open */
+    .fuel-side-tabs.open {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(0) !important;
+    }
+    /* Stage 1: Order Now hidden off-screen */
+    .order-side-tab-container,
+    .order-fuel-side-btn {
+        top: calc(50% + 36px) !important;
+        right: -200px !important;
+        transform: translateX(200px) !important;
+    }
+    /* Stage 2: Order Now handle peeks */
+    .order-side-tab-container.mobile-peek,
+    .order-fuel-side-btn.mobile-peek {
+        top: calc(50% + 36px) !important;
+        right: 0 !important;
+        transform: translateX(0) !important;
+    }
+}
+</style>
+
+<style id="order-fuel-widget-css">
+.order-side-tab-container {
+    position: fixed !important;
+    right: -200px !important;
+    top: calc(50% + 36px) !important;
+    z-index: 99998 !important;
+    display: flex !important;
+    text-decoration: none !important;
+    transform: translateX(200px) !important;
+    transition: right 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.order-main-tab-btn {
+    background: #ffffff !important;
+    color: #f37021 !important;
+    border: 2px solid #f37021 !important;
+    border-right: none !important;
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+    padding: 14px 10px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 12.5px !important;
+    letter-spacing: 1.2px !important;
+    cursor: pointer !important;
+    border-radius: 8px 0 0 8px !important;
+    box-shadow: -4px 6px 16px rgba(0, 0, 0, 0.18) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.order-main-tab-btn svg {
+    stroke: #f37021 !important;
+    color: #f37021 !important;
+    margin-bottom: 8px !important;
+    margin-right: 0 !important;
+    transform: none !important;
+    display: block !important;
+    transition: stroke 0.2s ease, color 0.2s ease !important;
+}
+
+.order-main-tab-btn span {
+    writing-mode: vertical-rl !important;
+    transform: rotate(180deg) !important;
+    display: inline-block !important;
+}
+
+.order-side-tab-container:hover .order-main-tab-btn {
+    background: #f37021 !important;
+    color: #ffffff !important;
+    box-shadow: -8px 10px 24px rgba(243, 112, 33, 0.45) !important;
+}
+
+.order-side-tab-container:hover .order-main-tab-btn svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+</style>
+
+<style id="fuel-prices-widget-styles">
+.fuel-side-tabs {
+    position: fixed !important;
+    top: calc(50% + 55px) !important;
+    bottom: auto !important;
+    right: 0 !important;
+    transform: translateY(-50%) translateX(400px) !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+.fuel-side-tabs.mobile-peek {
+    transform: translateY(-50%) translateX(320px) !important;
+    right: 0 !important;
+    z-index: 999998 !important;
+}
+.fuel-side-tabs.open {
+    transform: translateY(-50%) translateX(0) !important;
+    right: 0 !important;
+    z-index: 2147483647 !important;
+}
+.fuel-main-tab-btn {
+    background: #f56e28 !important;
+    color: black !important;
+    writing-mode: vertical-rl !important;
+    text-orientation: mixed !important;
+    padding: 15px 10px !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border-radius: 6px 0 0 6px !important;
+    box-shadow: -3px 0 8px rgba(0,0,0,0.25) !important;
+    user-select: none !important;
+    letter-spacing: 1px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+.fuel-panel-container {
+    width: 320px !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1) !important;
+    border-left: 2px solid #f56e28 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 350px !important;
+}
+.fuel-inner-tabs {
+    display: flex !important;
+    background: #f8f8f8 !important;
+    border-bottom: 2px solid #eee !important;
+}
+.fuel-inner-tab {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 12px 0 !important;
+    cursor: pointer !important;
+    font-weight: 700 !important;
+    color: #666 !important;
+    border-bottom: 3px solid transparent !important;
+}
+.fuel-inner-tab.active {
+    color: #f56e28 !important;
+    border-bottom: 3px solid #f56e28 !important;
+    background: white !important;
+}
+.fuel-inner-content {
+    padding: 20px !important;
+    display: none;
+}
+.fuel-inner-content.active {
+    display: block !important;
+}
+.fuel-inner-content p.fuel-date {
+    font-size: 12px !important;
+    color: #666 !important;
+    margin-bottom: 15px !important;
+}
+.fuel-inner-content h4 {
+    margin-top: 15px !important;
+    margin-bottom: 10px !important;
+    color: #f56e28 !important;
+    font-size: 15px !important;
+    text-transform: uppercase !important;
+}
+.fuel-inner-content ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-bottom: 0 !important;
+}
+.fuel-inner-content li {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 8px !important;
+    font-size: 13.5px !important;
+    color: black !important;
+    border-bottom: 1px dashed #eee !important;
+    padding-bottom: 4px !important;
+}
+.fuel-inner-content li:last-child {
+    border-bottom: none !important;
+}
+.fuel-disclaimer {
+    font-size: 11px !important;
+    color: #999 !important;
+    margin-top: 15px !important;
+    line-height: 1.3 !important;
+}
+
+@media screen and (max-width: 991px) {
+    .fuel-side-tabs {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(400px) !important;
+    }
+    .fuel-side-tabs.mobile-peek {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(320px) !important;
+    }
+    .fuel-side-tabs.open {
+        right: 0 !important;
+        transform: translateY(-50%) translateX(0) !important;
+    }
+}
+</style>

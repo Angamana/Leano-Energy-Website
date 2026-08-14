@@ -1327,6 +1327,16 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     cursor: pointer !important;
 }
 </style>
+<style id="fuel-widget-pointer-events-fix">
+/* Allow clicks to pass through the empty space of the fixed widget container */
+.fuel-side-tabs {
+    pointer-events: none !important;
+}
+/* Re-enable clicks on the actual visible button and panel */
+.fuel-main-tab-btn, .fuel-panel-container {
+    pointer-events: auto !important;
+}
+</style>
 <style id="universal-side-widget-toggle-css">
 /* ==========================================
    UNIVERSAL SIDE WIDGET TOGGLE & ALIGNMENT FIX (ALL SCREENS: PC, TABLET, MOBILE)
@@ -1976,7 +1986,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     });
 </script>
 <div id="order-fuel-side-widget">
-<a class="order-side-tab-container" href="../../Order/website/Order.html" title="Order Now Online">
+<a class="order-side-tab-container" href="../../../Order/website/Order.html" title="Order Now Online">
 <div class="order-main-tab-btn">
 <svg fill="none" height="15" stroke="#f37021" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" style="margin-bottom: 8px;" viewbox="0 0 24 24" width="15"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" x2="21" y1="6" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
 <span>ORDER NOW</span>

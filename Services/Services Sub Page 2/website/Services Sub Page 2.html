@@ -1431,6 +1431,16 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     cursor: pointer !important;
 }
 </style>
+<style id="fuel-widget-pointer-events-fix">
+/* Allow clicks to pass through the empty space of the fixed widget container */
+.fuel-side-tabs {
+    pointer-events: none !important;
+}
+/* Re-enable clicks on the actual visible button and panel */
+.fuel-main-tab-btn, .fuel-panel-container {
+    pointer-events: auto !important;
+}
+</style>
 <style id="universal-side-widget-toggle-css">
 /* ==========================================
    UNIVERSAL SIDE WIDGET TOGGLE & ALIGNMENT FIX (ALL SCREENS: PC, TABLET, MOBILE)
