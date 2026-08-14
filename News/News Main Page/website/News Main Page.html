@@ -1533,6 +1533,13 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     }
 }
 </style>
+<style id="news-footer-spacer-fix">
+/* Remove empty black space below footer on News pages.
+   The breadcrumb-section can expand due to Webflow JS setting a large height on
+   .w-nav-overlay. Re-enforcing overflow:hidden clips it. */
+html, body { height: auto !important; }
+.breadcrumb-section { overflow: hidden !important; height: auto !important; }
+</style>
 </head>
 <body oncontextmenu="return false;">
 <section class="breadcrumb-section"><div class="header-main header-one" style="position: absolute; top: 0; left: 0; width: 100%; z-index: 100; background-color: transparent !important; border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;">
