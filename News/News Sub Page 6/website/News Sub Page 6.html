@@ -1530,10 +1530,14 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
     .blog-detail-left-column {
         display: none !important;
     }
+    .blog-detail-right-column {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
     .mobile-article-source-btn-wrap {
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-end !important;
+        align-items: center !important;
         width: 100% !important;
         margin-top: 32px !important;
         padding-top: 20px !important;
@@ -1545,6 +1549,7 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
         font-weight: 600 !important;
         margin-bottom: 10px !important;
         font-family: 'Outfit', sans-serif !important;
+        text-align: center !important;
     }
     .mobile-read-btn {
         display: inline-flex !important;
@@ -1611,9 +1616,20 @@ button, input, select, textarea, [role="button"], .dropdown-chevron, .w-nav-butt
 }
 </style>
 <style id="news-footer-spacer-fix">
-/* Remove empty black space below footer on News pages. */
-html, body { height: auto !important; }
-.breadcrumb-section { overflow: hidden !important; height: auto !important; }
+/* Sticky footer on PC to eliminate empty black space below footer */
+@media screen and (min-width: 992px) {
+    html {
+        height: 100%;
+    }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    footer.footer {
+        margin-top: auto !important;
+    }
+}
 </style>
 </head>
 <body oncontextmenu="return false;">
