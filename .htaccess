@@ -1,0 +1,39 @@
+# ==============================================================================
+# LEANO ENERGY - PRODUCTION SECURITY & PROTECTION CONFIGURATION (.htaccess)
+# ==============================================================================
+
+# 1. Disable Directory Indexing & Browsing
+# Prevents visitors from browsing folders like domain.com/Universal/images/
+Options -Indexes
+
+# 2. Block Access to Hidden & Sensitive Files
+<FilesMatch "^\.|\.(bak|config|sql|jsonl|py|sh|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 3. Security Response Headers (Anti-Clickjacking & Protection)
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# 4. Image Hotlink Protection
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?leanoenergy\.co\.za [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?leanoenergy\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?afrihost\.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp)$ - [F,NC]
+</IfModule>
+
+# 5. Force HTTPS / SSL Encryption
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
