@@ -32,14 +32,36 @@
 }
 
 .scroll-to-top-btn svg {
-    width: 32px;
-    height: 32px;
-    fill: none;
-    stroke: #f37021;
-    stroke-width: 3;
-    transition: stroke 0.3s ease;
+    width: 32px !important;
+    height: 32px !important;
+    display: block !important;
 }
 
-.scroll-to-top-btn:hover svg {
-    stroke: #ffffff;
+.scroll-to-top-btn svg polyline {
+    fill: none !important;
+    stroke: #f37021 !important;
+    stroke-width: 3px !important;
+    transition: stroke 0.3s ease !important;
+}
+
+.scroll-to-top-btn:hover svg polyline {
+    stroke: #ffffff !important;
+}
+
+.cookie-widget-btn svg {
+    width: 28px !important;
+    height: 28px !important;
+    display: block !important;
+}
+
+.cookie-widget-btn svg path,
+.cookie-widget-btn svg circle {
+    fill: #ffffff !important;
+    stroke: none !important;
+    transition: fill 0.3s ease !important;
+}
+
+.cookie-widget-btn:hover svg path,
+.cookie-widget-btn:hover svg circle {
+    fill: #f37021 !important;
 }

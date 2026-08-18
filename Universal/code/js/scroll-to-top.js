@@ -45,11 +45,26 @@ document.addEventListener("DOMContentLoaded", function() {
             .cookie-widget-btn svg {
                 width: 28px !important;
                 height: 28px !important;
+                display: block !important;
+            }
+            .cookie-widget-btn svg path,
+            .cookie-widget-btn svg circle {
                 fill: #ffffff !important;
+                stroke: none !important;
                 transition: fill 0.3s ease !important;
             }
-            .cookie-widget-btn:hover svg {
+            .cookie-widget-btn:hover svg path,
+            .cookie-widget-btn:hover svg circle {
                 fill: #f37021 !important;
+            }
+            .scroll-to-top-btn svg polyline {
+                fill: none !important;
+                stroke: #f37021 !important;
+                stroke-width: 3px !important;
+                transition: stroke 0.3s ease !important;
+            }
+            .scroll-to-top-btn:hover svg polyline {
+                stroke: #ffffff !important;
             }
             .cookie-modal-overlay {
                 position: fixed !important;

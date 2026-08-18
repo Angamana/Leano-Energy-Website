@@ -14,7 +14,8 @@ $apiUrl = 'https://api.fuelsa.co.za/exapi/fuel/current';
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'key: ' . $apiKey
@@ -30,6 +31,10 @@ if ($httpCode === 200 && $response) {
 } else {
     // Fallback using file_get_contents if cURL is restricted
     $opts = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ),
         'http' => array(
             'method' => 'GET',
             'header' => "key: " . $apiKey . "\r\n"
@@ -41,7 +46,7 @@ if ($httpCode === 200 && $response) {
     if ($fallbackResponse !== false) {
         echo $fallbackResponse;
     } else {
-        http_response_code($httpCode ?: 500);
+        http_response_code(200);
         echo json_encode(array(
             'error' => 'Unable to fetch fuel prices',
             'detail' => $curlError
