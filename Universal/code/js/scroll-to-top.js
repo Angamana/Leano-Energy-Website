@@ -291,18 +291,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const btnContainer = document.createElement("div");
         btnContainer.innerHTML = `
             <div id="scrollToTopBtn" class="scroll-to-top-btn" title="Scroll to top">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 32px; height: 32px; display: block;">
+                    <polyline points="18 15 12 9 6 15" stroke-linecap="round" stroke-linejoin="round" style="fill: none; stroke: #f37021; stroke-width: 3;"></polyline>
                 </svg>
             </div>
 
             <div class="cookie-widget-btn" id="cookieWidgetBtn" title="Cookie Preferences">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.24.03-.47.086-.69a1.005 1.005 0 0 0-1.261-1.261A2.955 2.955 0 0 1 15 6c-1.654 0-3-1.346-3-3 0-.17.016-.336.043-.5a1.004 1.004 0 0 0-1.127-1.127A9.957 9.957 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.323-.016-.64-.047-.954a1.006 1.006 0 0 0-.355-.682zM12 20c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 6.006-7.75A5.006 5.006 0 0 0 15 9l.101-.001a5.007 5.007 0 0 0 4.837 4C19.444 16.941 16.071 20 12 20z"/>
-                    <circle cx="7.5" cy="14.5" r="1.5"/>
-                    <circle cx="12" cy="11" r="1.5"/>
-                    <circle cx="15.5" cy="16.5" r="1.5"/>
-                    <circle cx="8" cy="9" r="1"/>
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px; display: block; fill: #ffffff;">
+                    <path fill="#ffffff" style="fill: #ffffff; stroke: none;" d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.24.03-.47.086-.69a1.005 1.005 0 0 0-1.261-1.261A2.955 2.955 0 0 1 15 6c-1.654 0-3-1.346-3-3 0-.17.016-.336.043-.5a1.004 1.004 0 0 0-1.127-1.127A9.957 9.957 0 0 0 2 12c0 5.514 4.486 10 10 10s10-4.486 10-10c0-.323-.016-.64-.047-.954a1.006 1.006 0 0 0-.355-.682zM12 20c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 6.006-7.75A5.006 5.006 0 0 0 15 9l.101-.001a5.007 5.007 0 0 0 4.837 4C19.444 16.941 16.071 20 12 20z"/>
+                    <circle fill="#ffffff" style="fill: #ffffff; stroke: none;" cx="7.5" cy="14.5" r="1.5"/>
+                    <circle fill="#ffffff" style="fill: #ffffff; stroke: none;" cx="12" cy="11" r="1.5"/>
+                    <circle fill="#ffffff" style="fill: #ffffff; stroke: none;" cx="15.5" cy="16.5" r="1.5"/>
+                    <circle fill="#ffffff" style="fill: #ffffff; stroke: none;" cx="8" cy="9" r="1"/>
                 </svg>
             </div>
 
