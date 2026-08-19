@@ -2525,19 +2525,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script id="fuel-api-script">
 document.addEventListener("DOMContentLoaded", function() {
-    const isLive = window.location.protocol.startsWith('http');
-    const proxyUrl = '../../../api/fuel.php';
-    const directUrl = 'https://api.fuelsa.co.za/exapi/fuel/current';
     const apiKey = '012fdea1778b4bcbb98a701bae959a5f';
+    const apiUrl = 'https://api.fuelsa.co.za/exapi/fuel/current';
 
-    const fetchPromise = isLive 
-        ? fetch(proxyUrl).then(res => {
-            if (!res.ok) throw new Error('Proxy error');
-            return res.json();
-          }).catch(() => fetch(directUrl, { method: 'GET', headers: { 'key': apiKey } }).then(res => res.json()))
-        : fetch(directUrl, { method: 'GET', headers: { 'key': apiKey } }).then(res => res.json());
-
-    fetchPromise
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: { 'key': apiKey }
+    })
+    .then(response => response.json())
     .then(data => {
         const formatPrice = (cents) => 'R' + (cents / 100).toFixed(2);
         const formatDate = (isoString) => {
