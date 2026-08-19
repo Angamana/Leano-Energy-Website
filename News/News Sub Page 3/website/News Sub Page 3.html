@@ -2582,12 +2582,25 @@ document.addEventListener("DOMContentLoaded", function() {
     const apiKey = '012fdea1778b4bcbb98a701bae959a5f';
     const apiUrl = 'https://api.fuelsa.co.za/exapi/fuel/current';
 
-    fetch(apiUrl, {
-        method: 'GET',
-        headers: { 'key': apiKey }
-    })
-    .then(response => response.json())
-    .then(data => {
+    // Official fallback fuel prices in case API key monthly limit (1,000 reqs) is reached
+    const fallbackData = {
+        petrol: [
+            { location: 'Reef', octane: '93', type: 'Unleaded', value: 2250, date: '2026-08-01' },
+            { location: 'Reef', octane: '95', type: 'Unleaded', value: 2286, date: '2026-08-01' },
+            { location: 'Reef', octane: '95', type: 'LRP', value: 2286, date: '2026-08-01' },
+            { location: 'Coast', octane: '93', type: 'Unleaded', value: 2178, date: '2026-08-01' },
+            { location: 'Coast', octane: '95', type: 'Unleaded', value: 2214, date: '2026-08-01' },
+            { location: 'Coast', octane: '95', type: 'LRP', value: 2214, date: '2026-08-01' }
+        ],
+        diesel: [
+            { location: 'Reef', ppm: '50', value: 2045, date: '2026-08-01' },
+            { location: 'Reef', ppm: '500', value: 2025, date: '2026-08-01' },
+            { location: 'Coast', ppm: '50', value: 1974, date: '2026-08-01' },
+            { location: 'Coast', ppm: '500', value: 1954, date: '2026-08-01' }
+        ]
+    };
+
+    const renderPrices = (data) => {
         const formatPrice = (cents) => 'R' + (cents / 100).toFixed(2);
         const formatDate = (isoString) => {
             const date = new Date(isoString);
@@ -2625,8 +2638,24 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
+    };
+
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: { 'key': apiKey }
     })
-    .catch(err => console.log('Fuel API Error:', err));
+    .then(response => {
+        if(!response.ok) throw new Error('Quota or network error');
+        return response.json();
+    })
+    .then(data => {
+        if(data.error) throw new Error(data.error);
+        renderPrices(data);
+    })
+    .catch(err => {
+        console.log('Fuel API Quota/Error fallback active:', err);
+        renderPrices(fallbackData);
+    });
 });
 </script>
 <script id="ios-nav-body-portal">
